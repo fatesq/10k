@@ -1,0 +1,23 @@
+<div style="padding: 12px">
+  <h2>登录</h2>
+  <form class="login-form">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="手机号">
+      <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error> -->
+     
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="验证码">
+      <button matSuffix mat-button color="accent">发送验证码</button>
+    </mat-form-field>
+    <button mat-raised-button color="accent" style="width: 100%" (click)="login()">登录</button>
+  </form>
+</div>
+
+
+<button class="fab" mat-fab>Primary</button>
