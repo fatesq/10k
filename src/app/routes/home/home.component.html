@@ -1,0 +1,73 @@
+<main class="content">
+  <div class="content-header ui-content-header">
+    <div class="container"></div>
+  </div>
+  <div class="container">
+    <section>
+      <Flex>
+        <FlexItem style="padding:5px">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title style="font-size: 20px;font-weight: 600">米粒好车 人人都可以做车商</mat-card-title>
+              <mat-card-subtitle style="color: #A2A2A2">信息准 手续全 周转快</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <Flex align="start">
+                <FlexItem  class="info">
+                  <div class="title">500+</div>
+                  <div class="desc">专业供应商</div>
+                </FlexItem>
+                <FlexItem class="info">
+                  <div class="title">20%</div>
+                  <div class="desc">预付20%即可提车</div>
+                </FlexItem>
+                <FlexItem class="info">
+                  <div class="title">4000+</div>
+                  <div class="desc">在库实车</div>
+                </FlexItem>
+              </Flex>    
+            </mat-card-content>
+            <mat-card-footer style="padding: 10px 35px;">
+              <div Button [type]="'primary'" style="color: #000">开始订车</div>
+            </mat-card-footer>
+          </mat-card>
+        </FlexItem>
+      </Flex>  
+    </section>
+  </div>
+
+  <section style="margin: 10px 0px">
+      <Card [full]="true">
+          <CardHeader [title]="'热门品牌'" [extra]="extra">
+            <ng-template #extra>
+              <span>全部品牌</span>
+            </ng-template>
+          </CardHeader>
+          <CardBody style="padding: 0px">
+            <Grid [data]="data" [hasLine]="false" columnNum="5"></Grid>
+          </CardBody>
+        </Card>
+  </section>
+
+  <section>
+      <Card [full]="true">
+        <CardHeader [title]="'热门车型'" [extra]="extra">
+          <ng-template #extra>
+            <span>全部车型</span>
+          </ng-template>
+        </CardHeader>
+        <CardBody style="padding: 0px">
+          <ListItem multipleLine [extra]="list">
+            宝马3系
+            <Brief>中规现车</Brief>
+            <ng-template #list>
+                <div style="color: #FF7800;font-size: 16px">22.62万</div>
+                <div style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</div>
+            </ng-template>
+          </ListItem>   
+        </CardBody>
+      </Card>
+  </section>
+  
+</main>
+

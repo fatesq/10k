@@ -3,10 +3,12 @@ import { AppRoutingModule } from './routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { ResultComponent } from './result/result.component';
+import { HomeComponent } from './home/home.component';
 
 const COMPONENTS = [
   LoginComponent,
-  ResultComponent
+  ResultComponent,
+  HomeComponent
 ];
 
 @NgModule({
