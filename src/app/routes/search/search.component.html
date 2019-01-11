@@ -1,2 +1,12 @@
-<Grid [activeStyle]="false" [data]="data" (OnClick)="click($event)"></Grid>
+<SearchBar
+  [(ngModel)]="value"
+  [placeholder]="'搜索车型'"
+  [showCancelButton]="true"
+  (onBlur)="blur()"
+  (onFocus)="focus()"
+  (onCancel)="cancel()"
+  (onClear)="clear(value)"
+  (onSubmit)="submit(value)"
+  (onChange)="change($event)">
+</SearchBar>
 

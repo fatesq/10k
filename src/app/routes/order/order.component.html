@@ -1,0 +1,30 @@
+<div class="main">
+<WhiteSpace [size]="'sm'"></WhiteSpace>
+<WingBlank [size]="'sm'">
+  <Card class="bottom">
+    <CardHeader title="订单编号: 11111111111" extra="extra">
+    </CardHeader>
+    <CardBody>
+      <div>This is content of Card</div>
+    </CardBody>
+    <CardFooter [content]="'footer content'" [extra]="footerExtra">
+      <ng-template #footerExtra>
+        <div>extra footer content</div>
+      </ng-template>
+    </CardFooter>
+  </Card>
+  <Card class="top">
+    <CardHeader title="订单编号: 11111111111" extra="extra">
+    </CardHeader>
+    <CardBody>
+      <div>This is content of Card</div>
+    </CardBody>
+    <CardFooter [content]="'footer content'" [extra]="footerExtra">
+      <ng-template #footerExtra>
+        <div>extra footer content</div>
+      </ng-template>
+    </CardFooter>
+  </Card>
+</WingBlank>
+<WhiteSpace [size]="'sm'"></WhiteSpace>
+</div>
