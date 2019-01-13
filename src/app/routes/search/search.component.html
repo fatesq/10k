@@ -1,14 +1,7 @@
 <SearchBar
-  [(ngModel)]="value"
   [placeholder]="'搜索车型'"
   [showCancelButton]="true"
-  (onBlur)="blur()"
-  (onFocus)="focus()"
-  (onCancel)="cancel()"
-  (onClear)="clear(value)"
-  (onSubmit)="submit(value)"
-  (onChange)="change($event)">
-</SearchBar>
+></SearchBar>
 <section>
   <Card [full]="true">
     <CardBody style="padding: 0px">
