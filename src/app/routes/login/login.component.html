@@ -15,9 +15,15 @@
       <input matInput placeholder="验证码">
       <button matSuffix mat-button color="accent">发送验证码</button>
     </mat-form-field>
-    <button mat-raised-button color="accent" style="width: 100%" (click)="login()">登录</button>
+    <button mat-raised-button color="accent" style="width: 100%"  routerLink="/home" (click)="login()">登录</button>
   </form>
 </div>
+<div style="position: absolute;bottom: 0;margin: 45px">
+    <AgreeItem data-seed="logId">
+      阅读并同意 <a (click)="onClick($event)" style="color:#ffd740">《米粒好车用户协议》</a>
+    </AgreeItem>
+</div>
+    
 
 
-<button class="fab" mat-fab>Primary</button>
+

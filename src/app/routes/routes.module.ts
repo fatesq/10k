@@ -6,13 +6,15 @@ import { ResultComponent } from './result/result.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { OrderComponent } from './order/order.component';
+import { CartComponent } from './cart/cart.component';
 
 const COMPONENTS = [
   LoginComponent,
   ResultComponent,
   HomeComponent,
   SearchComponent,
-  OrderComponent
+  OrderComponent,
+  CartComponent
 ];
 
 @NgModule({

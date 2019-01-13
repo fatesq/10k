@@ -28,7 +28,7 @@
               </Flex>    
             </mat-card-content>
             <mat-card-footer style="padding: 10px 35px;">
-              <div Button [type]="'primary'" style="color: #000">开始订车</div>
+              <div Button [type]="'primary'" style="color: #000" routerLink="/search">开始订车</div>
             </mat-card-footer>
           </mat-card>
         </FlexItem>
@@ -58,13 +58,13 @@
         </CardHeader>
         <CardBody style="padding: 0px">
           <ListItem multipleLine [extra]="list">
-            宝马3系
-            <Brief>中规现车</Brief>
+            宝马3系 2018款 318Li
+            <Brief>中规现车 白色/蓝色/黑色</Brief>
             <ng-template #list>
                 <div style="color: #FF7800;font-size: 16px">22.62万</div>
                 <div style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</div>
             </ng-template>
-          </ListItem>   
+          </ListItem>
         </CardBody>
       </Card>
   </section>

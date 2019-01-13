@@ -1,30 +1,103 @@
 <div class="main">
 <WhiteSpace [size]="'sm'"></WhiteSpace>
 <WingBlank [size]="'sm'">
-  <Card class="bottom">
-    <CardHeader title="订单编号: 11111111111" extra="extra">
-    </CardHeader>
-    <CardBody>
-      <div>This is content of Card</div>
-    </CardBody>
-    <CardFooter [content]="'footer content'" [extra]="footerExtra">
-      <ng-template #footerExtra>
-        <div>extra footer content</div>
-      </ng-template>
-    </CardFooter>
-  </Card>
-  <Card class="top">
-    <CardHeader title="订单编号: 11111111111" extra="extra">
-    </CardHeader>
-    <CardBody>
-      <div>This is content of Card</div>
-    </CardBody>
-    <CardFooter [content]="'footer content'" [extra]="footerExtra">
-      <ng-template #footerExtra>
-        <div>extra footer content</div>
-      </ng-template>
-    </CardFooter>
-  </Card>
+  <div style="background-color: #FFF">
+      <div style="display:flex;justify-content: space-between;padding: 10px 5px">
+        <h5 style="color: #D5D5D9">订单编号: 1111111111111</h5>
+        <h5 style="color: #D5D5D9">2019/1/14</h5>
+      </div>
+      <h3 style="text-align: center">预约订单已提交成功</h3>
+      <h4 style="text-align: center">请向以下<span style="color:#ffd740">银行账户进行汇款保证取车进度</span></h4>
+      <div style="margin: 10px 5px;padding: 5px;background-color: #f5f5f9"> 
+          <InputItem
+          [editable]="false"
+          [placeholder]="'￥342000'"
+          [moneyKeyboardAlign]="'left'">预付金额</InputItem>
+          <div style="display:flex;align-items: center">
+            <InputItem
+            [editable]="false"
+            [value]="'20312398451253342'"
+            [moneyKeyboardAlign]="'left'">银行账号
+            </InputItem>
+            <div style="background-color: #FFF">
+              <div Button [type]="'primary'" [inline]="true" [size]="'small'">复制</div>
+            </div>
+          </div>
+          <InputItem
+          [editable]="false"
+          [value]="'米粒好车有限公司'"
+          [moneyKeyboardAlign]="'left'">收款公司
+          </InputItem>
+          <InputItem
+          [editable]="false"
+          [value]="'中国招商银行合肥分行'"
+          [moneyKeyboardAlign]="'left'">开户行
+          </InputItem>
+          <InputItem
+          [editable]="false"
+          [value]="'郭富城'"
+          [moneyKeyboardAlign]="'left'">备注信息
+          </InputItem>
+          <div style="display:flex;align-items: center">
+            <InputItem
+            [editable]="false"
+            [value]="'13892831843'"
+            [moneyKeyboardAlign]="'left'">联系电话
+            </InputItem>
+            <div style="background-color: #FFF">
+              <div Button [type]="'primary'" [inline]="true" [size]="'small'">我已汇款</div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <section>
+      <Card [full]="true">
+        <CardHeader [title]="'预定清单'">
+        </CardHeader>
+        <CardBody style="padding: 0px">
+          <Card [full]="true">
+            <CardHeader [title]="'宝马3系 2018款 318Li'"
+                        [extra]="extra1"
+            >
+              <ng-template #extra1>
+                <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
+              </ng-template>
+            </CardHeader>
+            <CardBody>
+              <div>外观: 白色  内饰: 黑色</div>
+            </CardBody>
+            <CardFooter [content]="footer" [extra]="footerExtra">
+              <ng-template #footer>
+                <div style="color: #FF7800;font-size: 16px">预付: 4.562万</div>
+              </ng-template>
+              <ng-template #footerExtra>
+               2辆
+              </ng-template>
+            </CardFooter>
+          </Card>
+          <Card [full]="true">
+            <CardHeader [title]="'宝马3系 2018款 318Li'"
+                        [extra]="extra1"
+            >
+              <ng-template #extra1>
+                <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
+              </ng-template>
+            </CardHeader>
+            <CardBody>
+              <div>外观: 白色  内饰: 黑色</div>
+            </CardBody>
+            <CardFooter [content]="footer" [extra]="footerExtra">
+              <ng-template #footer>
+                <div style="color: #FF7800;font-size: 16px">预付: 4.562万</div>
+              </ng-template>
+              <ng-template #footerExtra>
+              2辆
+              </ng-template>
+            </CardFooter>
+          </Card>
+        </CardBody>
+      </Card>
+  </section>
 </WingBlank>
 <WhiteSpace [size]="'sm'"></WhiteSpace>
 </div>

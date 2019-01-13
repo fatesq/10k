@@ -1,0 +1,63 @@
+<section>
+  <Card [full]="true">
+    <CardHeader [title]="'车辆预订单'" [extra]="extra">
+      <ng-template #extra>
+        <div Button style="margin-right: 4px" [type]="'primary'" [inline]="true" [size]="'small'">说明</div>
+      </ng-template>
+    </CardHeader>
+    <CardBody style="padding: 0px">
+      <Card [full]="true">
+        <CardHeader [title]="'宝马3系 2018款 318Li'"
+                    [extra]="extra1"
+        >
+          <ng-template #extra1>
+            <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
+          </ng-template>
+        </CardHeader>
+        <CardBody>
+          <div>外观: 白色  内饰: 黑色</div>
+        </CardBody>
+        <CardFooter [content]="footer" [extra]="footerExtra">
+          <ng-template #footer>
+            <div style="color: #FF7800;font-size: 16px">预付: 4.562万</div>
+          </ng-template>
+          <ng-template #footerExtra>
+            <Stepper [value]="2" [min]="1" [max]="3" [showNumber]="true"  (onChange)="change($event)"></Stepper>
+          </ng-template>
+        </CardFooter>
+      </Card>
+      <Card [full]="true">
+        <CardHeader [title]="'宝马3系 2018款 318Li'"
+                    [extra]="extra1"
+        >
+          <ng-template #extra1>
+            <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
+          </ng-template>
+        </CardHeader>
+        <CardBody>
+          <div>外观: 白色  内饰: 黑色</div>
+        </CardBody>
+        <CardFooter [content]="footer" [extra]="footerExtra">
+          <ng-template #footer>
+            <div style="color: #FF7800;font-size: 16px">预付: 4.562万</div>
+          </ng-template>
+          <ng-template #footerExtra>
+            <Stepper [value]="2" [min]="1" [max]="3" [showNumber]="true"  (onChange)="change($event)"></Stepper>
+          </ng-template>
+        </CardFooter>
+      </Card>
+    </CardBody>
+  </Card>
+</section>
+
+
+<div style="position: absolute;width:100%;bottom: 0;border-top: 1px #CCC solid">
+  <div style="display:flex;align-items: center;justify-content: space-between;margin: 10px">
+      <div>
+          <div>预付总计:  <span style="color: #FF7800;">9.124万</span></div>
+          <h4>稍后会有业务员与您联系</h4>
+        </div>
+        <div Button style="margin-right: 4px" routerLink="/order" [type]="'primary'" [inline]="true" [size]="'small'">提交订单</div>
+  </div>
+  
+</div>

@@ -9,4 +9,27 @@
   (onSubmit)="submit(value)"
   (onChange)="change($event)">
 </SearchBar>
+<section>
+  <Card [full]="true">
+    <CardBody style="padding: 0px">
+      <ListItem multipleLine [extra]="list">
+        宝马3系 2018款 318Li
+        <Brief>中规现车 白色/蓝色/黑色</Brief>
+        <ng-template #list>
+            <div style="color: #FF7800;font-size: 16px">22.62万</div>
+            <div style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</div>
+        </ng-template>
+      </ListItem>
+      <ListItem multipleLine [extra]="list">
+        宝马3系 2018款 318Li M运动套装
+        <Brief>中规现车 白色/蓝色/黑色</Brief>
+        <ng-template #list>
+            <div style="color: #FF7800;font-size: 16px">22.62万</div>
+            <div style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</div>
+        </ng-template>
+      </ListItem>      
+    </CardBody>
+  </Card>
+</section>
 
+<button class="fab" mat-fab routerLink="/cart">购物车</button>
