@@ -1,0 +1,38 @@
+<div style="position: relative;">
+<mat-card class="example-card">
+  <h3 style="margin-bottom: 20px">宝马3系 2018款 318Li</h3>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image" style="background-color: #CCC"></div>
+    <mat-card-title>22.62万</mat-card-title>
+    <mat-card-subtitle>
+      指导价：30.98万 降<span style="color: #FF7200;">8.36</span>万
+      <div class="tag-container"><Tag [selected]="true">手续齐全</Tag><Tag [selected]="true">全额担保</Tag></div>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <InputItem
+    [editable]="false"
+    [value]="'￥342000'"
+    [moneyKeyboardAlign]="'left'">价格</InputItem>
+    <InputItem
+    [editable]="false"
+    [value]="'30.98万/降8.36万'"
+    [moneyKeyboardAlign]="'left'">指导价</InputItem>
+    <InputItem
+    [editable]="false"
+    [value]="'中规'"
+    [moneyKeyboardAlign]="'left'">规格</InputItem>
+    <InputItem
+    [editable]="false"
+    [value]="'现车'"
+    [moneyKeyboardAlign]="'left'">是否现车</InputItem>
+    <img style="width: 100%" src="https://upload.chebaba.com/shop/goods_class/05936302004911750.jpg@343h">
+  </mat-card-content>
+</mat-card>
+<div class="">
+  <div style="margin: 5px 16px;background-color: #FFF;display: flex;justify-content: space-between;align-items: center;border-top: 1 #CCC solid">
+    <div>单台仅需4.5万即可提车</div>
+    <div Button routerLink="/cart" [type]="'primary'" [inline]="true" [size]="'small'">加入车单</div>
+  </div>
+</div>
+</div>

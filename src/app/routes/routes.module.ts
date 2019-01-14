@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
+import { DetailComponent } from './detail/detail.component';
 
 const COMPONENTS = [
   LoginComponent,
@@ -14,7 +15,8 @@ const COMPONENTS = [
   HomeComponent,
   SearchComponent,
   OrderComponent,
-  CartComponent
+  CartComponent,
+  DetailComponent
 ];
 
 @NgModule({
@@ -22,6 +24,9 @@ const COMPONENTS = [
     SharedModule,
     AppRoutingModule,
   ],
-  declarations: [...COMPONENTS]
+  declarations: [...COMPONENTS],
+  entryComponents: [
+    DetailComponent
+  ],
 })
 export class RoutesModule { }

@@ -1,0 +1,169 @@
+.group-item {
+  .list {
+    position: relative;
+    padding: 38rpx 30rpx;
+    overflow: hidden;
+    border-bottom: 1px solid #d8d8d8;
+    &:last-child {
+      border-bottom: 0;
+    }
+    .list-img {
+      width: 192rpx;
+      height: 192rpx;
+      overflow: hidden;
+      position: relative;
+      float: left;
+      margin-right: 30rpx;
+      image {
+        width: 192rpx;
+        height: 192rpx;
+        display: block;
+        border-radius: 6rpx;
+      }
+    }
+    .list-content {
+      height: 192rpx;;
+      overflow: hidden;
+      position: relative;
+      .list-title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        font-size: 32rpx;
+        color: #333333;
+      }
+      .list-desc {
+        margin: 10rpx 0;
+        overflow: hidden;
+        font-size: 26rpx;
+        color: #B3B3B3;
+        text:first-child {
+          width: 360rpx;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          overflow: hidden;
+          float: left;
+        }
+        text:last-child {
+          float: right;;
+        }
+      }
+      .list-html {
+        width: 100%;
+        height: 38rpx;
+        overflow: hidden;
+        text {
+          padding: 0 10rpx;
+          height: 34rpx;
+          background: #fff;
+          border-radius: 4rpx;
+          border: 1rpx solid #FFC4C9;
+          font-size: 22rpx;
+          color: #FD2F43;
+          display: block;
+          float: left;
+          margin-right: 4rpx;
+        }
+      }
+      .list-price {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 99;
+        .big-price {
+          font-size: 34rpx;
+          color: #FD2F43;
+        }
+        .small-price {
+          padding-left: 20rpx;
+          text-decoration: line-through;
+          font-size: 26rpx;
+          color: #666666;
+        }
+      }
+    }
+    .calculationNum {
+      background: #fff;
+      position: absolute;
+      bottom: 40rpx;;
+      right: 30rpx;
+      z-index: 99;
+      display: flex;  // 这边注意一下，最好使用flex布局
+      align-items: center;
+      justify-content: space-between;
+      .removeProduct {
+        width: 52rpx;
+        height: 52rpx;
+        display: block;
+        background: url(https://cloudchain.oss-cn-hangzhou.aliyuncs.com/cloudchain/b2b/cms/decrease@2x.png) no-repeat #fff;
+        background-size: 52rpx 52rpx;
+        display: none;
+        &.active {
+          -webkit-animation-name: rollIn;
+          animation-name: rollIn;
+          -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+          -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+          display: block;;
+        }
+      }
+      .inputNum {
+        width: 60rpx;
+        height: 52rpx;
+        text-align: center;
+        display: block;
+        opacity: 0;
+        transition: all 1s;
+        -moz-transition: all 1s;
+        -webkit-transition: all 1s;	
+        -o-transition: all 1s;
+        &.active {
+          opacity: 1;
+        }
+      }
+      .addProduct {
+        width: 52rpx;
+        height: 52rpx;
+        display: block;
+        background: url(https://cloudchain.oss-cn-hangzhou.aliyuncs.com/cloudchain/b2b/cms/add@2x.png) no-repeat #fff;
+        background-size: 52rpx 52rpx;
+      }
+    }
+  }
+}
+
+.mat-card-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 0;
+}
+
+.tag-container {
+  display: flex;
+  padding-top: 9px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tag-container > tag {
+  margin-right: 9px;
+  margin-bottom: 9px;
+  
+}
+:host ::ng-deep .am-tag-active {
+  background-color: #FEF0DF;
+  color: #FF7200;
+}
+
+.am-list-item.am-input-item {
+  padding-left: 0px;
+}
+.bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #FFF;
+}

@@ -5,7 +5,7 @@
 <section>
   <Card [full]="true">
     <CardBody style="padding: 0px">
-      <ListItem multipleLine [extra]="list">
+      <ListItem multipleLine [extra]="list" (click)="openBottomSheet()">
         宝马3系 2018款 318Li
         <Brief>中规现车 白色/蓝色/黑色</Brief>
         <ng-template #list>
