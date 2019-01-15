@@ -2,7 +2,7 @@
   <h2>登录</h2>
   <form class="login-form">
     <mat-form-field class="full-width">
-      <input matInput placeholder="手机号">
+      <input matInput [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" placeholder="手机号">
       <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         Please enter a valid email address
       </mat-error>
@@ -12,10 +12,10 @@
      
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput placeholder="验证码">
-      <button matSuffix mat-button color="accent">发送验证码</button>
+      <input matInput [(ngModel)]="validCode" [ngModelOptions]="{standalone: true}" placeholder="验证码">
+      <button matSuffix mat-button color="accent" (click)="getCode()">发送验证码</button>
     </mat-form-field>
-    <button mat-raised-button color="accent" style="width: 100%"  routerLink="/home">登录</button>
+    <button mat-raised-button color="accent" style="width: 100%" (click)="login()">登录</button>
   </form>
 </div>
 <div style="position: absolute;bottom: 0;margin: 45px">

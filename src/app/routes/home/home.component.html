@@ -44,7 +44,7 @@
             </ng-template>
           </CardHeader>
           <CardBody style="padding: 0px">
-            <Grid [data]="data" [hasLine]="false" columnNum="5"></Grid>
+            <Grid [data]="data" [hasLine]="false" [isCarousel]="true" columnNum="5"></Grid>
           </CardBody>
         </Card>
   </section>
@@ -57,9 +57,9 @@
           </ng-template>
         </CardHeader>
         <CardBody style="padding: 0px">
-          <ListItem multipleLine [extra]="list">
-            宝马3系 2018款 318Li
-            <Brief>中规现车 白色/蓝色/黑色</Brief>
+          <ListItem ngFor="let item of carList" multipleLine [extra]="list">
+            {{item.modelName}}
+            <Brief>{{item.sizeLevel}}规现车 白色/蓝色/黑色</Brief>
             <ng-template #list>
                 <div style="color: #FF7800;font-size: 16px">22.62万</div>
                 <div style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</div>

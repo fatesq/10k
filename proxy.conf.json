@@ -1,0 +1,10 @@
+{
+    "/": {
+        "target": "http://121.199.63.157:9980/",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/": ""
+        }
+    }
+}
