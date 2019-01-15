@@ -1,102 +1,70 @@
 <div class="main">
 <WhiteSpace [size]="'sm'"></WhiteSpace>
 <WingBlank [size]="'sm'">
-  <div style="background-color: #FFF">
-      <div style="display:flex;justify-content: space-between;padding: 10px 5px">
-        <h5 style="color: #D5D5D9">订单编号: 1111111111111</h5>
-        <h5 style="color: #D5D5D9">2019/1/14</h5>
-      </div>
-      <h3 style="text-align: center">预约订单已提交成功</h3>
-      <h4 style="text-align: center">请向以下<span style="color:#ffd740">银行账户进行汇款保证取车进度</span></h4>
-      <div style="margin: 10px 5px;padding: 5px;background-color: #f5f5f9"> 
-          <InputItem
-          [editable]="false"
-          [placeholder]="'￥342000'"
-          [moneyKeyboardAlign]="'left'">预付金额</InputItem>
-          <div style="display:flex;align-items: center">
-            <InputItem
-            [editable]="false"
-            [value]="'20312398451253342'"
-            [moneyKeyboardAlign]="'left'">银行账号
-            </InputItem>
-            <div style="background-color: #FFF">
-              <div Button [type]="'primary'" [inline]="true" [size]="'small'">复制</div>
-            </div>
-          </div>
-          <InputItem
-          [editable]="false"
-          [value]="'米粒好车有限公司'"
-          [moneyKeyboardAlign]="'left'">收款公司
-          </InputItem>
-          <InputItem
-          [editable]="false"
-          [value]="'中国招商银行合肥分行'"
-          [moneyKeyboardAlign]="'left'">开户行
-          </InputItem>
-          <InputItem
-          [editable]="false"
-          [value]="'郭富城'"
-          [moneyKeyboardAlign]="'left'">备注信息
-          </InputItem>
-          <div style="display:flex;align-items: center">
-            <InputItem
-            [editable]="false"
-            [value]="'13892831843'"
-            [moneyKeyboardAlign]="'left'">联系电话
-            </InputItem>
-            <div style="background-color: #FFF">
-              <div Button [type]="'primary'" [inline]="true" [size]="'small'">我已汇款</div>
-            </div>
-          </div>
-      </div>
+  <div class="top">
+    <div style="display:flex;justify-content: space-between;align-items: center;padding: 0px 5px 10px">
+      <h4 style="color: #888">订单编号: 1111111111111</h4>
+      <h5 style="color: #D5D5D9">2019/1/14</h5>
+    </div>
+    <h3 style="text-align: center;padding-bottom: 5px;">预约订单已提交成功</h3>
+    <h4 style="text-align: center;padding-bottom: 5px;">请向以下<span style="color:#ffd740">银行账户进行汇款保证取车进度</span></h4>
+   
+    <div style="background: #F5F5F5">
+      <table class="item">
+        <tr>
+          <td class="label" align="right">预付金额</td>
+          <td class="value" align="left">￥342000</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">银行账号</td>
+          <td class="value" align="left">20312398451253342</td>
+          <td class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'">复制</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">收款公司</td>
+          <td class="value" align="left">米粒好车有限公司</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">开户行</td>
+          <td class="value" align="left">中国招商银行合肥分行</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">备注信息</td>
+          <td class="value" align="left">郭富城</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">联系电话</td>
+          <td class="value" align="left">13892831843</td>
+          <td class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'">我已汇款</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <section>
-      <Card [full]="true">
-        <CardHeader [title]="'预定清单'">
-        </CardHeader>
-        <CardBody style="padding: 0px">
-          <Card [full]="true">
-            <CardHeader [title]="'宝马3系 2018款 318Li'"
-                        [extra]="extra1"
-            >
-              <ng-template #extra1>
-                <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
-              </ng-template>
-            </CardHeader>
-            <CardBody>
-              <div>外观: 白色  内饰: 黑色</div>
-            </CardBody>
-            <CardFooter [content]="footer" [extra]="footerExtra">
-              <ng-template #footer>
-                <div style="color: #FF7800;font-size: 16px">预付: 4.562万</div>
-              </ng-template>
-              <ng-template #footerExtra>
-               2辆
-              </ng-template>
-            </CardFooter>
-          </Card>
-          <Card [full]="true">
-            <CardHeader [title]="'宝马3系 2018款 318Li'"
-                        [extra]="extra1"
-            >
-              <ng-template #extra1>
-                <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
-              </ng-template>
-            </CardHeader>
-            <CardBody>
-              <div>外观: 白色  内饰: 黑色</div>
-            </CardBody>
-            <CardFooter [content]="footer" [extra]="footerExtra">
-              <ng-template #footer>
-                <div style="color: #FF7800;font-size: 16px">预付: 4.562万</div>
-              </ng-template>
-              <ng-template #footerExtra>
-              2辆
-              </ng-template>
-            </CardFooter>
-          </Card>
-        </CardBody>
-      </Card>
+  <section class="bottom">
+    <h3>预定清单</h3>
+    <div style="border-bottom: 1px #DDD solid">
+      <div style="display: flex;justify-content: space-between;padding: 8px 0px">
+        <h4>宝马3系 2018款 318Li</h4>
+        <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
+      </div>
+      <h5 style="color: #3E3E3E">外观: 白色  内饰: 黑色</h5>
+      <div style="display: flex;justify-content: space-between;padding: 8px 0px">
+        <div style="color: #3E3E3E"><span style="color: #FF7800;font-size: 16px">预付: 4.562万</span> 全款22.62万</div>
+        2辆
+      </div>
+    </div>
+    <div>
+        <div style="display: flex;justify-content: space-between;padding: 8px 0px">
+          <h4>宝马3系 2018款 318Li</h4>
+          <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
+        </div>
+        <h5 style="color: #3E3E3E">外观: 白色  内饰: 黑色</h5>
+        <div style="display: flex;justify-content: space-between;padding: 8px 0px">
+          <div style="color: #3E3E3E"><span style="color: #FF7800;font-size: 16px">预付: 4.562万</span> 全款22.62万</div>
+          2辆
+        </div>
+      </div>
+      
   </section>
 </WingBlank>
 <WhiteSpace [size]="'sm'"></WhiteSpace>

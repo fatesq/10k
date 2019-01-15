@@ -1,28 +1,42 @@
 .main {
   background-color: #F5F5F5 !important
 }
+.item {
+  width: 100%;
+  padding: 10px 5px;
+  tr {
+    vertical-align: middle;
+  }
+  .label {
+    width: 40%;
+    color:#888888;
+    padding-right: 4px; 
+  }
+  .value {
+    width: 60%;
+    font-size: 16px;
+    padding-left: 4px; 
+  }
+  .sm {
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    color: #000;
+    border-radius: 15px;
+  }
+}
 
 .top {
-  // background: #58a;
-  background:
-  linear-gradient(135deg, transparent 15px, #FFF 0) top left,
-  linear-gradient(-135deg, transparent 15px, #FFF 0) top right;
-  background-size: 50% 50%; 
-  background-repeat: no-repeat;
+  background-color: #FFF;
+  padding:15px 10px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 .bottom {
-  // background: 
-  // linear-gradient(-45deg, transparent 15px, #FFF 0) bottom right,
-  // linear-gradient(45deg, transparent 15px, #FFF 0) bottom left;
-  // background-size: 50% 50%; 
-  // background-repeat: no-repeat;
-  outline: .6em solid green;
-  box-shadow: 0 0 0 .4em green;
-  /* todo calculate max of this */
-  max-width: 10em;
-  border-radius: .8em;
-  padding: 1em;
-  margin: 1em;
-  background: red;
-  font: 100%/1.5 sans-serif;
+  border-top: 1px #DDD dashed;
+  background-color: #FFF;
+  padding:15px 10px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
