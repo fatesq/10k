@@ -32,9 +32,13 @@ export class LoginComponent implements OnInit {
     this.api.dologin({
       phone: this.phone,
       validCode: this.validCode,
+      wxCode: '',
     }).subscribe(res => {
       if (res['code'] == 200) {
+        localStorage['token'] = res['data'].token
+        localStorage['uid'] = res['data'].uid
         this.router.navigateByUrl('/home')
+
       } else {
         alert(res['description'] || res['msg'])
       }
