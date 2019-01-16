@@ -146,6 +146,10 @@
   padding-top: 9px;
   flex-direction: row;
   flex-wrap: wrap;
+  ::ng-deep .am-tag-active {
+    background-color: #FEF0DF;
+    color: #FF7200;
+  }
 }
 
 .tag-container > tag {
@@ -153,9 +157,15 @@
   margin-bottom: 9px;
   
 }
-:host ::ng-deep .am-tag-active {
-  background-color: #FEF0DF;
-  color: #FF7200;
+.tagList {
+  display: flex;
+  padding-top: 9px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tagList > tag {
+  margin-right: 9px;
+  margin-bottom: 9px;
 }
 
 .am-list-item.am-input-item {
@@ -167,3 +177,9 @@
   width: 100%;
   background-color: #FFF;
 }
+
+.ic {
+  width: 25px;
+  height: 25px;
+}
+

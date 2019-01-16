@@ -7,25 +7,19 @@ import { ApiService } from '../api.service';
 })
 export class HomeComponent implements OnInit {
   data = [];
-  carList = <any>[];
-  constructor(private api: ApiService) {
-    console.log(123214)
-  }
+  carList = [];
+  constructor(private api: ApiService) {}
 
   ngOnInit() {
     this.getBrand();
     this.getCar();
-    // this.data = Array.from(new Array(5)).map((_val, i) => ({
-    //   icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-    //   text: `name${i}`
-    // }));
   }
 
   getCar() {
     this.api.hotCar().subscribe(res => {
-        this.carList = res['data']
-        console.log(this.carList)
-    })
+        this.carList = res['data'];
+        console.log(this.carList);
+    });
   }
 
   getBrand() {
@@ -34,6 +28,6 @@ export class HomeComponent implements OnInit {
           icon: i.img,
           text: i.name,
       })
-    ))
+    ));
   }
 }

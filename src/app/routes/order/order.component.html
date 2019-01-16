@@ -3,8 +3,8 @@
 <WingBlank [size]="'sm'">
   <div class="top">
     <div style="display:flex;justify-content: space-between;align-items: center;padding: 0px 5px 10px">
-      <h4 style="color: #888">订单编号: 1111111111111</h4>
-      <h5 style="color: #D5D5D9">2019/1/14</h5>
+      <h4 style="color: #888">订单编号: {{info.code}}</h4>
+      <h5 style="color: #D5D5D9">{{info.createTime}}</h5>
     </div>
     <h3 style="text-align: center;padding-bottom: 5px;">预约订单已提交成功</h3>
     <h4 style="text-align: center;padding-bottom: 5px;">请向以下<span style="color:#ffd740">银行账户进行汇款保证取车进度</span></h4>
@@ -13,11 +13,11 @@
       <table class="item">
         <tr>
           <td class="label" align="right">预付金额</td>
-          <td class="value" align="left">￥342000</td>
+          <td class="value" align="left">￥{{info.totalRePrice}}</td>
         </tr>
         <tr>
           <td class="label" align="right">银行账号</td>
-          <td class="value" align="left">20312398451253342</td>
+          <td class="value" align="left">34050144860800000587</td>
           <td class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'">复制</td>
         </tr>
         <tr>
@@ -26,45 +26,33 @@
         </tr>
         <tr>
           <td class="label" align="right">开户行</td>
-          <td class="value" align="left">中国招商银行合肥分行</td>
+          <td class="value" align="left">中国建设银行股份有限公司合肥城东支行营业部</td>
         </tr>
         <tr>
           <td class="label" align="right">备注信息</td>
-          <td class="value" align="left">郭富城</td>
+          <td class="value" align="left"></td>
         </tr>
         <tr>
           <td class="label" align="right">联系电话</td>
-          <td class="value" align="left">13892831843</td>
-          <td class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'">我已汇款</td>
+          <td class="value" align="left"><a href="tel:055163668003">055163668003</a></td>
+          <td class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'" (click)="updata">我已汇款</td>
         </tr>
       </table>
     </div>
   </div>
   <section class="bottom">
     <h3>预定清单</h3>
-    <div style="border-bottom: 1px #DDD solid">
+    <div style="border-bottom: 1px #DDD solid" *ngFor="let i of cars">
       <div style="display: flex;justify-content: space-between;padding: 8px 0px">
-        <h4>宝马3系 2018款 318Li</h4>
-        <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
+        <h4>{{i.brandName}} {{i.modelName}}</h4>
+        <span style="color: #BFBFBF;font-size: 12px">指导价: {{i.guidePrice}}万</span>
       </div>
-      <h5 style="color: #3E3E3E">外观: 白色  内饰: 黑色</h5>
+      <h5 style="color: #3E3E3E">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>
       <div style="display: flex;justify-content: space-between;padding: 8px 0px">
-        <div style="color: #3E3E3E"><span style="color: #FF7800;font-size: 16px">预付: 4.562万</span> 全款22.62万</div>
-        2辆
+        <div style="color: #3E3E3E"><span style="color: #FF7800;font-size: 16px">预付: {{i.rePrice}}万</span> 全款{{i.price}}万</div>
+        {{i.amount}}辆
       </div>
-    </div>
-    <div>
-        <div style="display: flex;justify-content: space-between;padding: 8px 0px">
-          <h4>宝马3系 2018款 318Li</h4>
-          <span style="color: #BFBFBF;font-size: 12px">指导价: 28.62万</span>
-        </div>
-        <h5 style="color: #3E3E3E">外观: 白色  内饰: 黑色</h5>
-        <div style="display: flex;justify-content: space-between;padding: 8px 0px">
-          <div style="color: #3E3E3E"><span style="color: #FF7800;font-size: 16px">预付: 4.562万</span> 全款22.62万</div>
-          2辆
-        </div>
-      </div>
-      
+    </div>  
   </section>
 </WingBlank>
 <WhiteSpace [size]="'sm'"></WhiteSpace>

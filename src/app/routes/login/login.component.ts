@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +8,19 @@ import { Router } from '@angular/router'
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
-  phone = ''
-  validCode = ''
+  phone = '';
+  validCode = '';
   constructor(
     private api: ApiService,
     private router: Router
-  ) {
-    
-  }
+  ) {}
 
   ngOnInit() {
   }
 
   getCode() {
     this.api.sms({
-      phone:this.phone
+      phone: this.phone
     }).subscribe(res => {
 
     })

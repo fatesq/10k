@@ -1,0 +1,156 @@
+html {
+  font-family: "Helvetica Neue",Helvetica, sans-serif;
+  /*谷歌浏览器字体最小字体12px*/
+  -webkit-text-size-adjust: 100%;/*100%/none 关闭字体大小自动调整功能*/
+  /*a标签及拥有 :active伪类的元素有默认的高亮框*/
+  -webkit-tap-hightlight-color: transparent;
+  /*禁止文本被选中*/
+  -webkit-user-select: none;
+}
+body{
+font-family: Helvetica;
+overflow-x:hidden;
+/*开启moblie网页快速滚动和回弹的效果*/
+-webkit-overflow-scrolling: touch;
+font-size: 12px;
+}
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.main{
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  color: #333;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+.user-info{
+  width: 100%;
+  height: 152px;
+  background: url(../../../assets/db/bg_mystore_nor.png) 100% 100% no-repeat;
+  background-size: 100%;
+  padding:10px 20px; 
+}
+.top-info{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.avatar{
+  width: 49px;
+  height: 49px;
+  border-radius: 49px;
+  background:#eee;
+  margin-right: 16px;
+}
+.name-info .row .name{
+  font-weight: bold;
+  color: #111;
+  font-size: 16px;
+}
+.name-info .row .auth{
+  background: #282626;
+  color: #E5C58E;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.name-info .row {
+  color: #000000;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.to-detail{
+  font-size: 32px;
+  color: #999;
+  position: absolute;
+  right: 0;
+}
+.auth-button{
+  width: 90%;
+  height: 48px;
+  margin: 0 auto;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  justify-content: space-around;
+  color: #333;
+}
+.auth-button .line{
+  width: 1px;
+  height: 20px;
+  background: #999;
+}
+.user-tabs{
+  width: 100%;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.tab{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+.tab-icon{
+  width: 40px;
+  height: 40px;
+  margin-bottom: 17px;
+}
+.tab-icon img{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.lines{
+  width: 100%;
+  height: 9px;
+  background: #eee;
+}
+.records-list{
+  background: #fff;
+}
+.records-list .title{
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  color: #000;
+  padding: 10px 0 0 20px;
+}
+.list-item{
+  width: 100%;
+  padding: 10px 20px;
+  border-bottom: 1px solid #fee;
+}
+.item-info{
+  font-size:12px;
+  color: #999;
+}
+.odd-detail{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.car-info{
+  font-weight: bold;
+  margin: 8px 0;
+}
+.get-info{
+  font-size: 12px;
+  color: #3E3E3E;
+  line-height: 20px;
+}
+.right{
+  color: #FF7800;
+}

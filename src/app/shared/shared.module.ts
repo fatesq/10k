@@ -20,6 +20,7 @@ import {MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule, MatBo
   ],
   declarations: [],
   exports: [
+    CommonModule,
     RouterModule,
     FormsModule,
     NgZorroAntdMobileModule,

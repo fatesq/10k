@@ -1,38 +1,59 @@
-<div style="position: relative;">
+<div style="position: relative;transform: none;">
 <mat-card class="example-card">
-  <h3 style="margin-bottom: 20px">宝马3系 2018款 318Li</h3>
+  <h3 style="margin-bottom: 20px">{{info.sizeLevel}}{{info.modelName}}</h3>
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image" style="background-color: #CCC"></div>
-    <mat-card-title>22.62万</mat-card-title>
+    <img mat-card-avatar class="example-header-image" style="background-color: #CCC" [src]="info.carImg" />
+    <mat-card-title>{{info.price}}万</mat-card-title>
     <mat-card-subtitle>
-      指导价：30.98万 降<span style="color: #FF7200;">8.36</span>万
+      指导价：{{info.guidePrice}}万 降<span style="color: #FF7200;">{{info.difPrice}}</span>万
       <div class="tag-container"><Tag [selected]="true">手续齐全</Tag><Tag [selected]="true">全额担保</Tag></div>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
+    <h3>可选内容</h3>
+    <h5 style="padding: 8px 0px;color: #9D9D9D">外观颜色</h5>
+    <div class="tagList">
+        <Tag *ngFor="let item of info.sku;let i = index" [selected]="i == type1" (click)="select(i)">{{item.plasticColor}}</Tag>
+    </div>
+    <h5 style="padding:8px 0px;color: #9D9D9D">内饰颜色</h5>
+    <div class="tagList">
+        <Tag *ngFor="let item of info.sku[type1].item;let i = index"  [selected]="i == type2" (click)="select2(i)">{{item.trimColor}}</Tag>
+    </div>
+    <div style="display: flex;justify-content: space-between;align-items: center;">
+        <div style="flex: 1">预定数量</div>
+        <div style="flex:1;display: flex;justify-content: space-between;align-items: center;text-align: center">
+          <div style="flex:1">
+            <img class="ic" (click)="del()" src="../../../assets/db/icon_decrease_nor.png"/>
+          </div>
+          <span style="flex: 1"> {{num}}</span>
+          <div style="flex:1">
+            <img class="ic" (click)="add()" src="../../../assets/db/icon_incarease_nor.png"/>
+          </div>
+        </div>
+    </div>
     <InputItem
     [editable]="false"
-    [value]="'￥342000'"
+    [value]="info.price"
     [moneyKeyboardAlign]="'left'">价格</InputItem>
     <InputItem
     [editable]="false"
-    [value]="'30.98万/降8.36万'"
+    [value]="info.guidePrice"
     [moneyKeyboardAlign]="'left'">指导价</InputItem>
     <InputItem
     [editable]="false"
-    [value]="'中规'"
+    [value]="info.sizeLevel"
     [moneyKeyboardAlign]="'left'">规格</InputItem>
     <InputItem
     [editable]="false"
     [value]="'现车'"
     [moneyKeyboardAlign]="'left'">是否现车</InputItem>
-    <img style="width: 100%" src="https://upload.chebaba.com/shop/goods_class/05936302004911750.jpg@343h">
+    <img style="width: 100%" [src]="info.carImg">
   </mat-card-content>
 </mat-card>
-<div class="">
-  <div style="margin: 5px 16px;background-color: #FFF;display: flex;justify-content: space-between;align-items: center;border-top: 1 #CCC solid">
+<div class="bottom">
+  <div style="padding: 5px 16px;background-color: #FFF;display: flex;justify-content: space-between;align-items: center;border-top: 1 #CCC solid">
     <div>单台仅需4.5万即可提车</div>
-    <div Button routerLink="/cart" [type]="'primary'" [inline]="true" [size]="'small'">加入车单</div>
+    <div Button (click)="submit()" [type]="'primary'" [inline]="true" [size]="'small'">加入车单</div>
   </div>
 </div>
 </div>

@@ -9,6 +9,8 @@ import { SearchComponent } from './search/search.component';
 import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
 import { DetailComponent } from './detail/detail.component';
+import { RegisterComponent } from './register/register.component';
+import { CenterComponent } from './center/center.component';
 
 const COMPONENTS = [
   LoginComponent,
@@ -17,7 +19,9 @@ const COMPONENTS = [
   SearchComponent,
   OrderComponent,
   CartComponent,
-  DetailComponent
+  DetailComponent,
+  RegisterComponent,
+  CenterComponent
 ];
 
 @NgModule({

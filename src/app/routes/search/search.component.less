@@ -4,6 +4,25 @@
     bottom: 16px;
 }
 
-:host ::ng-deep .mat-bottom-sheet-container {
-    padding: 0px !important;
+// :host ::ng-deep .mat-bottom-sheet-container {
+//     padding: 0px !important;
+    
+// }
+
+// .noTrans {
+//     transform: none !important;
+// }
+
+// .noTrans .mat-bottom-sheet-container {
+//     padding: 0px !important;
+//     transform: none !important;
+// }
+
+// .myapp-no-padding-dialog .mat-bottom-sheet-container {
+//     padding: 0;
+//     transform: none;
+// }
+
+:host ::ng-deep .mat-bottom-sheet-container[style]{
+    transform: none !important;
 }
