@@ -35,7 +35,8 @@
         <tr>
           <td class="label" align="right">联系电话</td>
           <td class="value" align="left"><a href="tel:055163668003">055163668003</a></td>
-          <td class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'" (click)="updata">我已汇款</td>
+          <td class="sm" *ngIf="info.status == '0'" Button [type]="'primary'" [inline]="true" [size]="'small'" (click)="updata()">我已汇款</td>
+          <td class="sm" style="background:#CCC; color:#FFF" *ngIf="info.status == '1'" Button [type]="''" [inline]="true" [size]="'small'" >已汇款</td>
         </tr>
       </table>
     </div>
@@ -44,7 +45,7 @@
     <h3>预定清单</h3>
     <div style="border-bottom: 1px #DDD solid" *ngFor="let i of cars">
       <div style="display: flex;justify-content: space-between;padding: 8px 0px">
-        <h4>{{i.brandName}} {{i.modelName}}</h4>
+        <h4>{{i.seriesName}} {{i.modelName}}</h4>
         <span style="color: #BFBFBF;font-size: 12px">指导价: {{i.guidePrice}}万</span>
       </div>
       <h5 style="color: #3E3E3E">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>

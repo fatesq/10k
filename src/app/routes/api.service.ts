@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+const api = 'https://api.qinhemili.com'
 
 @Injectable()
 export class ApiService {
@@ -8,54 +9,58 @@ export class ApiService {
     ) {}
 
     dologin(param) {
-        return this.httpClient.post('/login/go', param);
+        return this.httpClient.post(`${api}/login/go`, param);
     }
 
     sms(param) {
-        return this.httpClient.post('/login/sms', param);
+        return this.httpClient.post(`${api}/login/sms`, param);
     }
 
     brandList() {
-        return this.httpClient.get('brand/list?page=1&size=10');
+        return this.httpClient.get(`${api}/brand/list?page=1&size=10`);
     }
 
     hotCar() {
-        return this.httpClient.get('/hotcar/list');
+        return this.httpClient.get(`${api}/hotcar/list`);
     }
 
     search(param) {
-        return this.httpClient.post('/cars/search', param);
+        return this.httpClient.post(`${api}/cars/search`, param);
+    }
+
+    brandSearch(param) {
+        return this.httpClient.post(`${api}/cars/byBrand`, param);
     }
 
     detail(id) {
-        return this.httpClient.get(`/cars/detail?id=${id}`);
+        return this.httpClient.get(`${api}/cars/detail?id=${id}`);
     }
 
     carAdd(param) {
-        return this.httpClient.post(`/shopcart/add`, param);
+        return this.httpClient.post(`${api}/shopcart/add`, param);
     }
 
     carList(id) {
-        return this.httpClient.get(`/shopcart/list?uid=${id}`);
+        return this.httpClient.get(`${api}/shopcart/list?uid=${id}`);
     }
 
     carUp(param) {
-        return this.httpClient.post(`/shopcart/update`, param);
+        return this.httpClient.post(`${api}/shopcart/update`, param);
     }
 
     carDel(id) {
-        return this.httpClient.get(`/shopcart/delete?id=${id}`);
+        return this.httpClient.get(`${api}/shopcart/delete?id=${id}`);
     }
 
     orderAdd(param) {
-        return this.httpClient.post(`/reserve/add`, param);
+        return this.httpClient.post(`${api}/reserve/add`, param);
     }
 
     orderInfo(id) {
-        return this.httpClient.get(`/reserve/detail?id=${id}`);
+        return this.httpClient.get(`${api}/reserve/detail?id=${id}`);
     }
 
     orderUpdate(param) {
-        return this.httpClient.post(`/reserve/update`, param);
+        return this.httpClient.post(`${api}/reserve/update`, param);
     }
 }

@@ -10,7 +10,10 @@ import { ApiService } from '../api.service';
 export class OrderComponent implements OnInit {
   id = '';
   info = {
-    code: ''
+    code: '',
+    totalRePrice: '',
+    createTime: '',
+    status: '',
   };
   cars = [];
   constructor(
@@ -34,9 +37,10 @@ export class OrderComponent implements OnInit {
 
   updata() {
     this.api.orderUpdate({
-
+      id: this.id,
+      status: 1
     }).subscribe(res => {
-      
+      this.getInfo();
     })
   }
 

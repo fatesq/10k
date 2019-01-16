@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
+import { DetailComponent } from '../detail/detail.component';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +11,11 @@ import { ApiService } from '../api.service';
 export class HomeComponent implements OnInit {
   data = [];
   carList = [];
-  constructor(private api: ApiService) {}
+  constructor(
+    private api: ApiService,
+    private bottomSheet: MatBottomSheet,
+    private router: Router
+    ) {}
 
   ngOnInit() {
     this.getBrand();
@@ -30,4 +37,16 @@ export class HomeComponent implements OnInit {
       })
     ));
   }
+
+  openBottomSheet(item): void {
+    this.api.detail(item.id).subscribe(res => {
+      this.bottomSheet.open(DetailComponent, {data: res['data']});
+    });
+  }
+
+  click(event) {
+    console.log(event);
+    this.router.navigate(['search'], {queryParams: {'text': event.data.text }});
+  }
+
 }

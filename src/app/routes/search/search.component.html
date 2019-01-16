@@ -10,14 +10,14 @@
   <Card [full]="true">
     <CardBody style="padding: 0px">
       <ListItem *ngFor="let item of data" multipleLine [extra]="list" (click)="openBottomSheet(item)">
-        {{item.modelName}}
+        {{item.seriesName}} {{item.modelName}}
         <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
         <ng-template #list>
             <div style="color: #FF7800;font-size: 16px">{{item.price}}万</div>
             <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
         </ng-template>
       </ListItem>
-      <h3 *ngIf="data.length < 1" style="padding:10px;text-align: center"> 暂无数据 </h3>
+      <Grid *ngIf="data.length < 1" [data]="brand" [hasLine]="false" [isCarousel]="true" columnNum="5" (OnClick)="click($event)"></Grid>
     </CardBody>
   </Card>
 </section>

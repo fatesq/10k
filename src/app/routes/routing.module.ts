@@ -10,7 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { CenterComponent } from './center/center.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'result', component: ResultComponent },
   { path: 'home', component: HomeComponent },

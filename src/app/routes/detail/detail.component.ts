@@ -52,8 +52,9 @@ export class DetailComponent implements OnInit {
       carId: this.info.id
     }).subscribe(res => {
       if (res['code'] == 200) {
-        this.router.navigateByUrl('/cart');
-        this.bottomSheetRef.dismiss();
+        alert('加入成功')
+        // this.router.navigateByUrl('/cart');
+        // this.bottomSheetRef.dismiss();
       } else {
         alert(res['description'] || res['msg']);
       }

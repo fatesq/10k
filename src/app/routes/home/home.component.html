@@ -40,11 +40,11 @@
       <Card [full]="true">
           <CardHeader [title]="'热门品牌'" [extra]="extra">
             <ng-template #extra>
-              <span>全部品牌</span>
+              <span routerLink="/search">全部品牌</span>
             </ng-template>
           </CardHeader>
           <CardBody style="padding: 0px">
-            <Grid [data]="data" [hasLine]="false" [isCarousel]="true" columnNum="5"></Grid>
+            <Grid [data]="data" [hasLine]="false" [isCarousel]="true" columnNum="5" (OnClick)="click($event)"></Grid>
           </CardBody>
         </Card>
   </section>
@@ -53,11 +53,11 @@
       <Card [full]="true">
         <CardHeader [title]="'热门车型'" [extra]="extra">
           <ng-template #extra>
-            <span>全部车型</span>
+            <span routerLink="/search">全部车型</span>
           </ng-template>
         </CardHeader>
         <CardBody style="padding: 0px">
-          <ListItem *ngFor="let item of carList" multipleLine [extra]="list">
+          <ListItem *ngFor="let item of carList" multipleLine [extra]="list" (click)="openBottomSheet(item)">
             {{item.modelName}}
             <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
             <ng-template #list>
