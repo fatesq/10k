@@ -41,7 +41,7 @@ export class OrderComponent implements OnInit {
       status: 1
     }).subscribe(res => {
       this.getInfo();
-    })
+    });
   }
 
 }
