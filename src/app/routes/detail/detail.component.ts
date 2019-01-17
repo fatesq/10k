@@ -44,6 +44,10 @@ export class DetailComponent implements OnInit {
     event.preventDefault();
   }
 
+  close() {
+    this.bottomSheetRef.dismiss();
+  }
+
   submit() {
     this.api.carAdd({
       sku: this.info.sku[this.type1].item[this.type2].sku,

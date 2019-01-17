@@ -1,17 +1,17 @@
 <section style="padding: 5px 15px">
-  <div style="display:flex;justify-content: space-between;align-items: center;padding: 10px 0px">
-    <h2>车辆预订单</h2>
+  <div class="top">
+    <h2 style="font-size: 24px">车辆预订单</h2>
     <div Button class="sm" [type]="'primary'" [inline]="true" [size]="'small'">说明</div>
   </div>
-  <div style="border-bottom: 1px #DDD solid" *ngFor="let i of list;let index = index">
-    <div style="display: flex;justify-content: space-between;padding: 8px 0px">
-      <h4>{{i.seriesName}} {{i.modelName}}</h4>
-      <span style="color: #BFBFBF;font-size: 12px">指导价: {{i.guidePrice}}万</span>
+  <div class="box" *ngFor="let i of list;let index = index">
+    <div class="head">
+      <h4 class="left">{{i.seriesName}} {{i.modelName}}</h4>
+      <span class="right">指导价: {{i.guidePrice}}万</span>
     </div>
-    <h5 style="color: #3E3E3E">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>
-    <div style="display: flex;justify-content: space-between;padding: 8px 0px">
-      <div style="color: #3E3E3E"><span style="color: #FF7800;font-size: 16px">预付: {{i.rePrice}}万</span> 全款{{i.price}}万</div>
-      <div style="flex:1;display: flex;justify-content: space-between;align-items: center;text-align: center">
+    <h5 class="line">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>
+    <div class="stepper">
+      <div class="label"><span style="color: #FF7800;font-size: 16px">预付: {{i.rePrice}}万</span> 全款{{i.price}}万</div>
+      <div class="set">
         <div style="flex:1">
           <img class="ic" (click)="del(index)" src="../../../assets/db/icon_decrease_nor.png"/>
         </div>
@@ -25,13 +25,14 @@
 </section>
 
 
-<div style="position: absolute;width:100%;bottom: 0;border-top: 1px #CCC solid">
-  <div style="display:flex;align-items: center;justify-content: space-between;margin: 10px">
-      <div>
-          <div>预付总计:  <span style="color: #FF7800;">{{totalRePrice}}万</span></div>
-          <h4>稍后会有业务员与您联系</h4>
-        </div>
-        <div Button style="margin-right: 4px" (click)="submit()" [type]="'primary'" [inline]="true" [size]="'small'">提交订单</div>
+<div class="bottom">
+  <div class="item">
+      <div class="left">
+        <div>预付总计:  <span style="color: #FF7800;">{{totalRePrice}}万</span></div>
+        <h4 style="color:#3E3E3E;font-size: 12px;padding:4px 0px;">稍后会有业务员与您联系</h4>
+      </div>
+      <div class="right">
+        <div Button (click)="submit()" [type]="'primary'" [inline]="true" [size]="'small'">提交订单</div>
+      </div>
   </div>
-  
 </div>

@@ -1,55 +1,64 @@
-<div style="position: relative;transform: none;">
+<div class="main">
+<div class="title">
+  <div>{{info.sizeLevel}}{{info.modelName}}</div>
+  <span  (click)="close()">×</span>
+</div>
 <mat-card class="example-card">
-  <h3 style="margin-bottom: 20px">{{info.sizeLevel}}{{info.modelName}}</h3>
-  <mat-card-header>
-    <img mat-card-avatar class="example-header-image" style="background-color: #CCC" [src]="info.carImg" />
-    <mat-card-title>{{info.price}}万</mat-card-title>
-    <mat-card-subtitle>
-      指导价：{{info.guidePrice}}万 降<span style="color: #FF7200;">{{info.difPrice}}</span>万
-      <div class="tag-container"><Tag [selected]="true">手续齐全</Tag><Tag [selected]="true">全额担保</Tag></div>
-    </mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <h3>可选内容</h3>
-    <h5 style="padding: 8px 0px;color: #9D9D9D">外观颜色</h5>
-    <div class="tagList">
-        <Tag *ngFor="let item of info.sku;let i = index" [selected]="i == type1" (click)="select(i)">{{item.plasticColor}}</Tag>
-    </div>
-    <h5 style="padding:8px 0px;color: #9D9D9D">内饰颜色</h5>
-    <div class="tagList">
-        <Tag *ngFor="let item of info.sku[type1].item;let i = index"  [selected]="i == type2" (click)="select2(i)">{{item.trimColor}}</Tag>
-    </div>
-    <div style="display: flex;justify-content: space-between;align-items: center;">
-        <div style="flex: 1">预定数量</div>
-        <div style="flex:1;display: flex;justify-content: space-between;align-items: center;text-align: center">
-          <div style="flex:1">
-            <img class="ic" (click)="del()" src="../../../assets/db/icon_decrease_nor.png"/>
+    <mat-card-header>
+      <img mat-card-avatar class="example-header-image" style="background-color: #CCC" [src]="info.carImg" />
+      <mat-card-title style="font-size: 24px;color: #FF7800">{{info.price}}万</mat-card-title>
+      <mat-card-subtitle style="font-size: 12px">
+        指导价：{{info.guidePrice}}万 降<span style="color: #FF7200;">{{info.difPrice}}</span>万
+        <div class="tag-container"><Tag [disabled]="true" [selected]="true">手续齐全</Tag><Tag [disabled]="true" [selected]="true">全额担保</Tag></div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="action">
+      <div class="header">可选内容</div>
+      <div class="sku">外观颜色</div>
+      <div class="tagList">
+          <Tag *ngFor="let item of info.sku;let i = index" [selected]="i == type1" (click)="select(i)">{{item.plasticColor}}</Tag>
+      </div>
+      <div class="sku">内饰颜色</div>
+      <div class="tagList">
+          <Tag *ngFor="let item of info.sku[type1].item;let i = index"  [selected]="i == type2" (click)="select2(i)">{{item.trimColor}}</Tag>
+      </div>
+      <div class="stepper">
+          <div class="label">预定数量</div>
+          <div class="box">
+            <div>
+              <img class="ic" (click)="del()" src="../../../assets/db/icon_decrease_nor.png"/>
+            </div>
+            <span> {{num}}</span>
+            <div>
+              <img class="ic" (click)="add()" src="../../../assets/db/icon_incarease_nor.png"/>
+            </div>
           </div>
-          <span style="flex: 1"> {{num}}</span>
-          <div style="flex:1">
-            <img class="ic" (click)="add()" src="../../../assets/db/icon_incarease_nor.png"/>
-          </div>
-        </div>
-    </div>
-    <InputItem
-    [editable]="false"
-    [value]="info.price"
-    [moneyKeyboardAlign]="'left'">价格</InputItem>
-    <InputItem
-    [editable]="false"
-    [value]="info.guidePrice"
-    [moneyKeyboardAlign]="'left'">指导价</InputItem>
-    <InputItem
-    [editable]="false"
-    [value]="info.sizeLevel"
-    [moneyKeyboardAlign]="'left'">规格</InputItem>
-    <InputItem
-    [editable]="false"
-    [value]="'现车'"
-    [moneyKeyboardAlign]="'left'">是否现车</InputItem>
-    <img style="width: 100%" [src]="info.carImg">
-  </mat-card-content>
+      </div>
+    </mat-card-content>
 </mat-card>
+<div class="info-list">
+    <div class="header">车辆信息</div>
+    <div class="line">
+      <div class="label">价格</div>
+      <div class="control" style="color:#FF7200">{{info.price}}</div>
+    </div>
+    <div class="line">
+      <div class="label">指导价</div>
+      <div class="control">{{info.guidePrice}}</div>
+    </div>
+    <div class="line">
+      <div class="label">规格</div>
+      <div class="control">{{info.sizeLevel}}</div>
+    </div>
+    <div class="line">
+      <div class="label">是否现车</div>
+      <div class="control">现车</div>
+    </div>
+</div>
+<div class="info-list">
+    <div class="header">车辆照片</div>
+    <img style="width: 100%;padding: 10px 0px;" [src]="info.carImg">
+</div>
 <div class="bottom">
   <div style="padding: 5px 16px;background-color: #FFF;display: flex;justify-content: space-between;align-items: center;border-top: 1 #CCC solid">
     <div>单台仅需4.5万即可提车</div>
