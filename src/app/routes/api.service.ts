@@ -16,6 +16,10 @@ export class ApiService {
         return this.httpClient.post(`${api}/login/sms`, param);
     }
 
+    customerAdd(param) {
+        return this.httpClient.post(`${api}/customer/add`, param);
+    }
+
     brandList() {
         return this.httpClient.get(`${api}/brand/list?page=1&size=10`);
     }

@@ -1,12 +1,15 @@
 <div style="padding: 12px">
-  <h2>登录</h2>
+  <h2>个人认证</h2>
   <form class="login-form">
     <mat-form-field class="full-width">
-      <input matInput placeholder="姓名">
+      <input matInput [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" placeholder="手机号">
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput placeholder="身份证">
+      <input matInput [(ngModel)]="idCard" [ngModelOptions]="{standalone: true}" placeholder="身份证">
     </mat-form-field>
-    <button mat-raised-button color="accent" style="width: 100%" >登录</button>
+    <div style="background-color: #CCC;width: 100%;height: 150px;margin:5px 0px 15px;display: flex;justify-content: center;align-items: center;color: #FFF;font-size: 20px">
+        上传名片正面照片
+    </div>
+    <button mat-raised-button color="accent" style="width: 100%" (click)="login()">提交认证</button>
   </form>
 </div>

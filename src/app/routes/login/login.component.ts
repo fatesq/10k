@@ -31,10 +31,11 @@ export class LoginComponent implements OnInit {
       phone: this.phone,
       validCode: this.validCode,
       wxCode: '',
+      openId: localStorage['openId']
     }).subscribe(res => {
       if (res['code'] == 200) {
         localStorage['token'] = res['data'].token
-        localStorage['uid'] = res['data'].uid
+        localStorage['openId'] = res['data'].openId
         this.router.navigateByUrl('/home')
 
       } else {
