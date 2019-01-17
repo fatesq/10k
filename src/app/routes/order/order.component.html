@@ -7,7 +7,7 @@
     <h3 style="text-align: center;padding-bottom: 5px;">预约订单已提交成功</h3>
     <h4 style="text-align: center;padding-bottom: 15px;">请向以下<span style="color:#ffd740">银行账户进行汇款保证取车进度</span></h4>
    
-    <div style="background: #F5F5F5">
+    <div style="background: #F5F5F5" *ngIf="info.status < '2'">
       <table class="item">
         <tr>
           <td class="label" align="right">预付金额</td>
@@ -15,8 +15,11 @@
         </tr>
         <tr>
           <td class="label" align="right">银行账号</td>
-          <td class="value" align="left" style="font-size: 15px;">34050144860800000587</td>
-          <td class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'">复制</td>
+          <td class="value" align="left" style="font-size: 15px;display: flex;align-items: center;">
+            34050144860800000587
+            <div class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'">复制</div>
+          </td>
+         
         </tr>
         <tr>
           <td class="label" align="right">收款公司</td>
@@ -32,9 +35,48 @@
         </tr>
         <tr>
           <td class="label" align="right" style="font-size: 14px;">联系电话</td>
-          <td class="value" align="left"  style="font-size: 16px;color:#ffd740"><a href="tel:055163668003">055163668003</a></td>
-          <td class="sm" *ngIf="info.status == '0'" Button [type]="'primary'" [inline]="true" [size]="'small'" (click)="updata()">我已汇款</td>
-          <td class="sm" style="background:#CCC; color:#FFF" *ngIf="info.status == '1'" Button [type]="''" [inline]="true" [size]="'small'" >已汇款</td>
+          <td class="value" align="left"  style="font-size: 16px;color:#ffd740;font-size: 15px;display: flex;align-items: center;">
+            <a href="tel:055163668003">055163668003</a>
+            <div class="sm" *ngIf="info.status == '0'" Button [type]="'primary'" [inline]="true" [size]="'small'" (click)="updata()">我已汇款</div>
+            <div class="sm" style="background:#CCC; color:#FFF" *ngIf="info.status == '1'" Button [type]="''" [inline]="true" [size]="'small'" >已汇款</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div style="background: #F5F5F5" *ngIf="info.status > '1'">
+      <table class="item">
+        <tr>
+          <td class="label" align="right">业务员</td>
+          <td class="value" align="left" style="font-size: 18px;color:#FF7800">￥{{info.saleName}}</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">联系电话</td>
+          <td class="value" align="left" style="font-size: 15px;display: flex;align-items: center;">
+            {{info.salePhone}}
+            <div class="sm" Button [type]="'primary'" [inline]="true" [size]="'small'"><a href="tel:{{info.salePhone}}"></a>拨打</div>
+          </td>
+         
+        </tr>
+        <tr>
+          <td class="label" align="right">车辆状态</td>
+          <td class="value" align="left">{{info.carStatus}}</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">预计物流</td>
+          <td class="value" align="left">{{info.arriveTime}}</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">验车时间</td>
+          <td class="value" align="left">{{info.verifyTime}}</td>
+        </tr>
+        <tr>
+          <td class="label" align="right">验车地点</td>
+          <td class="value" align="left">{{info.verifySite}}</td>
+        </tr>
+        <tr style="justify-content: center;">
+          <button mat-raised-button color="accent" *ngIf="info.status == '3'" (click)="updata()">预约验车</button>
+          <button mat-raised-button color="accent" style="background:#CCC; color:#FFF" *ngIf="info.status == '4'">已预约验车</button>
+          <button mat-raised-button color="accent" style="background:#CCC; color:#FFF" *ngIf="info.status == '5'">车辆已入库</button>
         </tr>
       </table>
     </div>
