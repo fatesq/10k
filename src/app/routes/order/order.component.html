@@ -113,8 +113,8 @@
 <div class="body">
 <div class="container">
     <div class="line order-line clearfix">
-        <div class="order">订单编号：D20183486342</div>
-        <div class="time">2018/12/23 12:93</div>
+        <div class="order">订单编号：{{info.code}}</div>
+        <div class="time">{{info.createTime}}</div>
     </div>
     <div class="order-status">
         <div class="status" *ngIf="info.status < '2'">预约订单已提交成功</div>
@@ -136,14 +136,14 @@
             <div class="title">银行账户</div>
             <div class="des">
                 <span class="fz30">34050144860800000587</span>
-                <div class="btn copy">复制</div>
+                <div class="btn copy" ngxClipboard cbContent="34050144860800000587">复制</div>
             </div>
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">联系电话</div>
             <div class="des">
                 <span class="fz30">{{info.salePhone}}</span>
-                <div class="btn phone">拨打电话</div>
+                <a href="tel:{{info.salePhone}}"><div class="btn phone">拨打电话</div></a>
             </div>
         </div>
         <div class="line" *ngIf="info.status < '2'">
@@ -180,9 +180,9 @@
         <div class="line phone" *ngIf="info.status < '2'">
             <div class="title fz36">联系电话</div>
             <div class="des">
-                <span class="fz36 theme-color">13892831843</span>
-                <div class="btn pay fz30"  *ngIf="info.status == '0'" (click)="updata()">我已付款</div>
-                <div class="btn pay had fz30"  *ngIf="info.status == '1'">已付款</div>
+              <a href="tel:13892831843"><span class="fz36 theme-color">13892831843</span></a>
+              <div class="btn pay fz30"  *ngIf="info.status == '0'" (click)="updata()">我已付款</div>
+              <div class="btn pay had fz30"  *ngIf="info.status == '1'">已付款</div>
             </div>
         </div>
         <div class="btn order" *ngIf="info.status == '3'" (click)="updata(4)">预约验车时间</div>

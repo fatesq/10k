@@ -76,17 +76,33 @@ export class ApiService {
     listByUid(param) {
         return this.httpClient.get(`${api}/reserve/listByUid?uid=${param.uid}`);
     }
-    
+
     myStore(param) {
         return this.httpClient.get(`${api}/myStore/listByUid?uid=${param.uid}`);
     }
 
-    goGetOrder(param) {
+    change(param) {
         return this.httpClient.post(`${api}/myStore/change`, param);
     }
 
-    getOrder(param) {
+    goGetOrder(param) {
         return this.httpClient.post(`${api}/myStore/goGetOrder`, param);
+    }
+
+    addOrder(param) {
+        return this.httpClient.post(`${api}/getOrder/add`, param);
+    }
+
+    carDetail(id) {
+        return this.httpClient.get(`${api}/getOrder/detail?code=${id}`);
+    }
+
+    getOrder(id) {
+        return this.httpClient.get(`${api}/getOrder/listByUid?uid=${id}`);
+    }
+
+    getUser(id) {
+        return this.httpClient.get(`${api}/customer/detail?uid=${id}`);
     }
 
 }

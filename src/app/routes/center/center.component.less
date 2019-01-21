@@ -229,4 +229,42 @@ font-size: 12px;
   bottom: 0;
   width: 100%;
   background-color: #FFF;
+  .line {
+    padding: 7px;
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    border-top: 1px #D0D0D0 solid;
+    .left {
+      flex: 1;
+      width:181px;
+      height:23px;
+      font-size:16px;
+      font-family:PingFangSC-Regular;
+      font-weight:400;
+      color:rgba(0,0,0,1);
+      line-height:23px;
+    }
+    .right {
+      flex: 0 0 100px;
+      padding-left: 7px;
+      border-left:1px solid #E0E0E0;
+      .submit {
+        padding: 6px 14px;
+        background:rgba(255,212,0,1);
+        border-radius:2px;
+        width:92px;
+        height:34px;
+        font-size:16px;
+        font-family:PingFangSC-Medium;
+        font-weight:600;
+        color:rgba(0,0,0,1);
+        line-height:23px;
+        text-align: center;
+      }
+    }
+  }
 }
+
+

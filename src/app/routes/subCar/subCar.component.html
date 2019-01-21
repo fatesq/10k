@@ -1,0 +1,71 @@
+<div class="body">
+  <div class="container">
+    <div class="line order-line clearfix">
+      <div class="order">共取车 {{totalAmount}}辆 需付尾款</div>
+      <div class="time" style="color: #FF7800">{{totalCutPrice}}万元</div>
+    </div>
+    <div class="order-box fz24" style="height: 2.4rem">
+      <h2 class="line" style="padding-left:0.45rem">预约取车时间</h2>
+      <div class="line">
+        <div class="title">取车时间</div>
+        <div class="des">
+          <a style="color:#FFD400" (click)="onClick_4()">
+            {{tiemText ? (tiemText | date: 'short') : '请选择时间'}}
+          </a>
+          <Calendar [(ngModel)]="this.state.date"
+                [locale]="'zhCN'"
+                [enterDirection]="this.state.enterDirection"
+                [visible]="this.state.show"
+                [defaultDate]="this.state.now"
+                [minDate]="this.state.minDate"
+                [maxDate]="this.state.maxDate"
+                [pickTime]="this.state.pickTime"
+                [type]="this.state.type"
+                [rowSize]="this.state.rowSize"
+                [showShortcut]="this.state.showShortcut"
+                [infinite]="this.state.infinite"
+                [defaultValue]="this.state.defaultValue"
+                [onSelect]="this.state.onSelect"
+                (onCancel)="triggerCancel()"
+                (onConfirm)="triggerConfirm($event)"
+          ></Calendar>
+        </div>
+      </div>
+      <div class="line">
+        <div class="title">取车地点</div>
+        <div class="des">米粒好车有限公司</div>
+      </div>
+    </div>
+
+    <div class="border"></div>
+
+    <div class="list-box">
+      <div class="title">取车清单</div>
+      <div class="list" *ngFor="let i of cars;let index = index">
+        <div class="line clearfix">
+          <div class="name">{{i.seriesName}} {{i.modelName}}</div>
+          <div class="money">指导价：{{i.guidePrice}}万</div>
+        </div>
+        <div class="line size">外观: {{i.plasticColor}} 内饰: {{i.trimColor}}</div>
+        <div class="line clearfix">
+          <div class="pay">
+            <span class="first">尾款: {{i.cutPrice}}万</span>
+            <!-- <span>全款{{i.price}}万</span> -->
+          </div>
+          <div class="num">{{i.amount}}辆</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom">
+  <div class="line">
+    <div class="left">
+      已选{{totalAmount}}辆，尾款：<span style="color:#FF7800">{{totalCutPrice}}</span>万
+    </div>
+    <div class="right">
+      <div class="submit" (click)="submit()">确认取车</div>        
+    </div>
+  </div>
+</div>

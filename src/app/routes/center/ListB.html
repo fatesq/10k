@@ -29,8 +29,12 @@
 
 
 <div class="bottom">
-    <div style="padding: 5px 16px;background-color: #FFF;display: flex;justify-content: space-between;align-items: center;border-top: 1 #CCC solid">
-      <div></div>
-      <div Button (click)="submit()" [type]="'primary'" [inline]="true" [size]="'small'">加入车单</div>
+    <div class="line">
+      <div class="left">
+        已选{{totalAmount}}辆，尾款：<span style="color:#FF7800">{{totalCutPrice}}</span>万
+      </div>
+      <div class="right">
+        <div class="submit" (click)="submit()">确认取车</div>        
+      </div>
     </div>
   </div>

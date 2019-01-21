@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 import {MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule, MatBottomSheetModule} from '@angular/material';
+import {ClipboardModule} from 'ngx-clipboard';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule, MatBo
     MatCheckboxModule,
     MatInputModule,
     MatCardModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    ClipboardModule
   ],
   declarations: [],
   exports: [
@@ -26,7 +28,8 @@ import {MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule, MatBo
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    ClipboardModule
   ],
 })
 export class SharedModule { }

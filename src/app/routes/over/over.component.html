@@ -1,0 +1,116 @@
+<div class="body">
+  <div class="container">
+    <div class="line order-line clearfix">
+      <div class="order">订单编号：{{info.code}}</div>
+      <div class="time">{{info.createTime}}</div>
+    </div>
+    <div class="order-status">
+      <div class="status">取车订单已提交成功</div>
+      <div class="tip">请向以下<span class="theme-color">银行账户进行汇款以保证取车进度</span></div>
+
+      <!-- <div class="status" *ngIf="info.status > '1'">定金已汇款，金额<span class="assign-color">{{info.totalRePrice}}元</span></div>
+      <div class="tip" *ngIf="info.status > '1'">车辆正在取车中，请耐心等待</div> -->
+    </div>
+    <div class="order-box fz24">
+      <div class="line">
+        <div class="title">尾款金额</div>
+        <div class="des">¥ <span class="fz36 assign-color">{{info.totalCutPrice}}</span>万元</div>
+      </div>
+      <div class="line">
+        <div class="title">银行账户</div>
+        <div class="des">
+          <span class="fz30">34050144860800000587</span>
+          <div class="btn copy" ngxClipboard cbContent="34050144860800000587">复制</div>
+        </div>
+      </div>
+      <div class="line">
+        <div class="title">收款公司名</div>
+        <div class="des">米粒好车有限公司</div>
+      </div>
+      <div class="line">
+        <div class="title">开户行</div>
+        <div class="des">中国建设银行股份有限公司合肥城东支行营业部</div>
+      </div>
+      <div class="line note">
+        <div class="title">备注信息</div>
+        <div class="des">
+          <div></div>
+          <div class="fz20 tip-color mt10">请务必填写正确备注信息，方便核对汇款</div>
+        </div>
+      </div>
+
+      <div class="line">
+        <div class="title">业务员</div>
+        <div class="des fz36 fb assign-color">{{info.saleName}}</div>
+      </div>
+      <div class="line">
+        <div class="title">联系电话</div>
+        <div class="des">
+          <span class="fz30">{{info.salePhone}}</span>
+          <a href="tel:{{info.salePhone}}"><div class="btn phone">拨打电话</div></a>
+        </div>
+      </div>
+      
+      
+      <!-- <div class="line" *ngIf="info.status > '1'">
+        <div class="title">车辆状态</div>
+        <div class="des">发货中</div>
+      </div>
+      <div class="line" *ngIf="info.status > '1'">
+        <div class="title">预计物流</div>
+        <div class="des">7个工作日内到达</div>
+      </div>
+      <div class="line" *ngIf="info.status > '1'">
+        <div class="title">验车时间</div>
+        <div class="des">{{info.verifyTime}}</div>
+      </div>
+      <div class="line" *ngIf="info.status > '1'">
+        <div class="title">验车地点</div>
+        <div class="des">{{info.verifySite}}</div>
+      </div> -->
+      
+      <!-- <div class="line phone" *ngIf="info.status < '2'">
+        <div class="title fz36">联系电话</div>
+        <div class="des">
+          <a href="tel:13892831843"><span class="fz36 theme-color">13892831843</span></a>
+          <div class="btn pay fz30" *ngIf="info.status == '0'" (click)="updata()">我已付款</div>
+          <div class="btn pay had fz30" *ngIf="info.status == '1'">已付款</div>
+        </div>
+      </div>
+      <div class="btn order" *ngIf="info.status == '3'" (click)="updata(4)">预约验车时间</div>
+      <div class="btn order had" *ngIf="info.status == '4'">已预约验车</div>
+      <div class="btn order had" *ngIf="info.status == '5'">车辆已入库</div> -->
+    </div>
+    <div class="order-box fz24" style="margin-top: 10px;height: 2.4rem;">
+      <h3 style="padding: 10px 16px">取车信息</h3>
+      <div class="line">
+        <div class="title">取车时间</div>
+        <div class="des">{{info.verifyTime}}</div>
+      </div>
+      <div class="line">
+        <div class="title">取车地点</div>
+        <div class="des">{{info.verifySite}}</div>
+      </div>
+    </div>
+
+    <div class="border"></div>
+
+    <div class="list-box">
+      <div class="title">预定清单</div>
+      <div class="list" *ngFor="let i of cars;let index = index">
+        <div class="line clearfix">
+          <div class="name">{{i.seriesName}} {{i.modelName}}</div>
+          <div class="money">指导价：{{i.guidePrice}}万</div>
+        </div>
+        <div class="line size">外观: {{i.plasticColor}} 内饰: {{i.trimColor}}</div>
+        <div class="line clearfix">
+          <div class="pay">
+            <span class="first">预付: {{i.rePrice}}万</span>
+            <span>全款{{i.price}}万</span>
+          </div>
+          <div class="num">{{i.amount}}辆</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

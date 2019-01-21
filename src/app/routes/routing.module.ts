@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { CenterComponent } from './center/center.component';
 import { ListAComponent } from './center/ListA.component';
 import { ListBComponent } from './center/ListB.component';
+import { SubCarComponent } from './subCar/subCar.component';
+import { OverComponent } from './over/over.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'center', component: CenterComponent },
   { path: 'ListA', component: ListAComponent },
   { path: 'ListB', component: ListBComponent },
+  { path: 'subCar', component: SubCarComponent},
+  { path: 'over', component: OverComponent}
 ];
 
 @NgModule({

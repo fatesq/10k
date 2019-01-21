@@ -4,7 +4,7 @@
 				<div class="avatar"></div>
 				<div class="name-info">
 					<div class="row">
-						<span class="name">刘丽华</span>
+						<span class="name">{{user.userName ? user.userName : user.phone }}</span>
 						<span class="auth">已认证</span>
 					</div>
 					<div class="row">未企业认证</div>
@@ -34,34 +34,20 @@
 		<div class="lines"></div>
 		<div class="records-list">
 			<div class="title">取车记录</div>
-			<h3 style="text-align: center">暂无记录</h3>
+			<h3 style="text-align: center" *ngIf="data.length < 1">暂无记录</h3>
 			<div class="list" *ngIf="data.length > 0">
-				<div class="list-item">
+				<div class="list-item" *ngFor="let i of data" (click)="toOrder(i.code)">
 					<div class="item-info">
-						<span>取车单号：Q92342246 </span>
-						<span>申请时间：2018/12/25 14:32</span>
+						<span>取车单号：{{i.code}} </span>
+						<span>申请时间：{{i.createTime}}</span>
 					</div>
 					<div class="odd-detail">
-						<div class="left">
-							<div class="car-info">宝马3系 2018款 318Li等3辆</div>
-							<div class="get-info">取车时间：2018/12/23 14:0</div>
-							<div class="get-info">取车地点：合肥市将南路298号</div>
+						<div class="left" style="flex: 1">
+							<div class="car-info">{{i.getOrderCar[0].seriesName}} {{i.getOrderCar[0].modelName}}等{{i.getOrderCar.length}}辆</div>
+							<div class="get-info">取车时间：{{i.verifyTime}}</div>
+							<div class="get-info">取车地点：{{i.verifySite}}</div>
 						</div>
-						<div class="right">已申请取车</div>
-					</div>
-				</div>
-				<div class="list-item">
-					<div class="item-info">
-						<span>取车单号：Q92342246 </span>
-						<span>申请时间：2018/12/25 14:32</span>
-					</div>
-					<div class="odd-detail">
-						<div class="left">
-							<div class="car-info">宝马3系 2018款 318Li等3辆</div>
-							<div class="get-info">取车时间：2018/12/23 14:0</div>
-							<div class="get-info">取车地点：合肥市将南路298号</div>
-						</div>
-						<div class="right">已申请取车</div>
+						<div class="right">{{getType(i.status)}}</div>
 					</div>
 				</div>
 			</div>

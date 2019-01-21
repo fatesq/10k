@@ -13,6 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { CenterComponent } from './center/center.component';
 import { ListAComponent } from './center/ListA.component';
 import { ListBComponent } from './center/ListB.component';
+import { SubCarComponent } from './subCar/subCar.component';
+import { OverComponent } from './over/over.component';
 
 const COMPONENTS = [
   LoginComponent,
@@ -25,7 +27,9 @@ const COMPONENTS = [
   RegisterComponent,
   CenterComponent,
   ListAComponent,
-  ListBComponent
+  ListBComponent,
+  SubCarComponent,
+  OverComponent
 ];
 
 @NgModule({

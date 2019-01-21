@@ -21,21 +21,20 @@ export class OrderComponent implements OnInit {
     public activeRoute: ActivatedRoute
   ) { }
 
-  ngAfterViewInit() {
-    var docEl = document.documentElement,
-    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-    recalc = function () {
-        var clientWidth = docEl.clientWidth;
-        if (!clientWidth) return;
-        docEl.style.fontSize = 50 * (clientWidth / 375) + 'px';
-    };
-    if (!document.addEventListener) return;
-    window.addEventListener(resizeEvt, recalc, false);
-    document.addEventListener('DOMContentLoaded', recalc, false);
-  }
+  // ngAfterViewInit() {
+  //   var docEl = document.documentElement,
+  //   resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+  //   recalc = function () {
+  //       var clientWidth = docEl.clientWidth;
+  //       if (!clientWidth) return;
+  //       docEl.style.fontSize = 50 * (clientWidth / 375) + 'px';
+  //   };
+  //   if (!document.addEventListener) return;
+  //   window.addEventListener(resizeEvt, recalc, false);
+  //   document.addEventListener('DOMContentLoaded', recalc, false);
+  // }
 
   ngOnInit() {
-  
     this.activeRoute.queryParams.subscribe(params => {
       this.code = params['code'];
       this.getInfo();

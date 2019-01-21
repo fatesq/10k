@@ -37,6 +37,7 @@ export class DetailComponent implements OnInit {
     }
   }
   add () {
+    this.show = true;
     this.num++;
   }
 
@@ -50,6 +51,7 @@ export class DetailComponent implements OnInit {
   }
 
   submit() {
+    this.show = true;
     this.api.carAdd({
       sku: this.info.sku[this.type1].item[this.type2].sku,
       uid: localStorage['uid'],
@@ -57,7 +59,7 @@ export class DetailComponent implements OnInit {
       carId: this.info.id
     }).subscribe(res => {
       if (res['code'] == 200) {
-        this.show = true
+        
         alert('加入成功')
         // this.router.navigateByUrl('/cart');
         // this.bottomSheetRef.dismiss();
