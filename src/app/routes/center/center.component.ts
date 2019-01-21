@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./center.component.less']
 })
 export class CenterComponent implements OnInit {
-
+  data = []
   constructor() { }
 
   ngOnInit() {

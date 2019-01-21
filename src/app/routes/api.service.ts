@@ -1,12 +1,17 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 const api = 'https://api.qinhemili.com'
 
 @Injectable()
 export class ApiService {
     constructor(
         private httpClient: HttpClient,
+        // private header: HttpHeaders
     ) {}
+
+    setToken(token) {
+        // this.header.set('token', token)
+    }
 
     dologin(param) {
         return this.httpClient.post(`${api}/login/go`, param);
@@ -61,10 +66,27 @@ export class ApiService {
     }
 
     orderInfo(id) {
-        return this.httpClient.get(`${api}/reserve/detail?id=${id}`);
+        return this.httpClient.get(`${api}/reserve/detail?code=${id}`);
     }
 
     orderUpdate(param) {
         return this.httpClient.post(`${api}/reserve/update`, param);
     }
+
+    listByUid(param) {
+        return this.httpClient.get(`${api}/reserve/listByUid?uid=${param.uid}`);
+    }
+    
+    myStore(param) {
+        return this.httpClient.get(`${api}/myStore/listByUid?uid=${param.uid}`);
+    }
+
+    goGetOrder(param) {
+        return this.httpClient.post(`${api}/myStore/change`, param);
+    }
+
+    getOrder(param) {
+        return this.httpClient.post(`${api}/myStore/goGetOrder`, param);
+    }
+
 }

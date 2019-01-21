@@ -1,0 +1,36 @@
+<div class="records-list">
+    <div class="title">在库车辆</div>
+    <div class="list">
+      <div class="list-item" *ngFor="let i of data;let index = index">
+        <div class="box">
+          <div class="head">
+            <h4 class="left">{{i.seriesName}} {{i.modelName}}</h4>
+            <span class="right">指导价: {{i.guidePrice}}万</span>
+          </div>
+          <h5 class="line">外观: {{i.plasticColor}}  内饰: {{i.trimColor}} {{i.amount}}辆</h5>
+          <div class="stepper">
+            <div class="label"><span style="color: #FF7800;font-size: 16px">预付: {{i.cutPrice}}万</span> 全款{{i.price}}万</div>
+            <div class="set" *ngIf="i.check">
+              <div style="flex:1">
+                <img class="ic" (click)="del(index)" src="../../../assets/db/icon_decrease_nor.png"/>
+              </div>
+              <span style="flex: 1"> {{i.amount}}辆</span>
+              <div style="flex:1">
+                <img class="ic" (click)="add(index)" src="../../../assets/db/icon_incarease_nor.png"/>
+              </div>
+            </div>
+            <div class="btn order" *ngIf="i.check == false" (click)="updata(index)">我要取车</div>
+          </div>
+        
+        </div>
+      </div>    
+    </div>
+</div>
+
+
+<div class="bottom">
+    <div style="padding: 5px 16px;background-color: #FFF;display: flex;justify-content: space-between;align-items: center;border-top: 1 #CCC solid">
+      <div></div>
+      <div Button (click)="submit()" [type]="'primary'" [inline]="true" [size]="'small'">加入车单</div>
+    </div>
+  </div>

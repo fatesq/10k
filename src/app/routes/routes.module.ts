@@ -11,6 +11,8 @@ import { CartComponent } from './cart/cart.component';
 import { DetailComponent } from './detail/detail.component';
 import { RegisterComponent } from './register/register.component';
 import { CenterComponent } from './center/center.component';
+import { ListAComponent } from './center/ListA.component';
+import { ListBComponent } from './center/ListB.component';
 
 const COMPONENTS = [
   LoginComponent,
@@ -21,7 +23,9 @@ const COMPONENTS = [
   CartComponent,
   DetailComponent,
   RegisterComponent,
-  CenterComponent
+  CenterComponent,
+  ListAComponent,
+  ListBComponent
 ];
 
 @NgModule({

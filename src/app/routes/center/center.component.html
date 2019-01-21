@@ -18,13 +18,13 @@
 			</div>
 		</div>
 		<div class="user-tabs">
-			<div class="tab">
+			<div class="tab" routerLink="/ListA">
 				<div class="tab-icon">
 					<img src="../../../assets/db/icon_order_nor.png" alt="">
 				</div>
 				<div class="tab-name">预约订单</div>
 			</div>
-			<div class="tab">
+			<div class="tab" routerLink="/ListB">
 				<div class="tab-icon">
 					<img src="../../../assets/db/icon_warehouse_nor.png" alt="">
 				</div>
@@ -34,7 +34,8 @@
 		<div class="lines"></div>
 		<div class="records-list">
 			<div class="title">取车记录</div>
-			<div class="list">
+			<h3 style="text-align: center">暂无记录</h3>
+			<div class="list" *ngIf="data.length > 0">
 				<div class="list-item">
 					<div class="item-info">
 						<span>取车单号：Q92342246 </span>

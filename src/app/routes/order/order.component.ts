@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./order.component.less']
 })
 export class OrderComponent implements OnInit {
-  id = '';
+  code = '';
   info = {
     code: '',
     totalRePrice: '',
@@ -21,24 +21,38 @@ export class OrderComponent implements OnInit {
     public activeRoute: ActivatedRoute
   ) { }
 
+  ngAfterViewInit() {
+    var docEl = document.documentElement,
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function () {
+        var clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        docEl.style.fontSize = 50 * (clientWidth / 375) + 'px';
+    };
+    if (!document.addEventListener) return;
+    window.addEventListener(resizeEvt, recalc, false);
+    document.addEventListener('DOMContentLoaded', recalc, false);
+  }
+
   ngOnInit() {
+  
     this.activeRoute.queryParams.subscribe(params => {
-      this.id = params['id'];
+      this.code = params['code'];
       this.getInfo();
     });
   }
 
   getInfo() {
-    this.api.orderInfo(this.id).subscribe(res => {
+    this.api.orderInfo(this.code).subscribe(res => {
         this.info = res['data'].info;
         this.cars = res['data'].cars;
     });
   }
 
-  updata() {
+  updata(type=1) {
     this.api.orderUpdate({
-      id: this.id,
-      status: 1
+      code: this.code,
+      status: type
     }).subscribe(res => {
       this.getInfo();
     });

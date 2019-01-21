@@ -58,7 +58,7 @@
         </CardHeader>
         <CardBody style="padding: 0px">
           <ListItem *ngFor="let item of carList" multipleLine [extra]="list" (click)="openBottomSheet(item)">
-            {{item.modelName}}
+            {{item.seriesName}} {{item.modelName}}
             <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
             <ng-template #list>
                 <div style="color: #FF7800;font-size: 16px">{{item.price}}万</div>

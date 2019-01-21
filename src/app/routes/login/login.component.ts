@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
-
+import { parse, stringify } from 'qs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit {
   validCode = '';
   constructor(
     private api: ApiService,
-    private router: Router
+    private router: Router,
+    
   ) {}
 
   ngOnInit() {
@@ -36,7 +37,9 @@ export class LoginComponent implements OnInit {
       if (res['code'] == 200) {
         localStorage['token'] = res['data'].token
         localStorage['openId'] = res['data'].openId
-        this.router.navigateByUrl('/home')
+        localStorage['uid'] = res['data'].uid
+        const {path} = parse(window.location.href.split('?')[1])
+        this.router.navigateByUrl(`/${path}`)
 
       } else {
         alert(res['description'] || res['msg'])

@@ -8,6 +8,8 @@ import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
 import { RegisterComponent } from './register/register.component';
 import { CenterComponent } from './center/center.component';
+import { ListAComponent } from './center/ListA.component';
+import { ListBComponent } from './center/ListB.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'order', component: OrderComponent },
   { path: 'cart', component: CartComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'center', component: CenterComponent }
+  { path: 'center', component: CenterComponent },
+  { path: 'ListA', component: ListAComponent },
+  { path: 'ListB', component: ListBComponent },
 ];
 
 @NgModule({
