@@ -21,31 +21,31 @@ export class ListBComponent implements OnInit {
   }
 
   del (i) {
-    if (this.data[i].amount > 1) {
-      this.data[i].amount --;
-      this.changeCar(this.data[i].id, this.data[i].amount, i);
+    if (this.data[i].count > 1) {
+      this.data[i].count --;
+      this.changeCar(this.data[i].id, this.data[i].count, i);
     } else {
       this.data[i].check = false;
-      this.data[i].amount = this.data[i].count_beak;
+      this.data[i].count = 1;
       // this.api.carDel(this.data[i].id).subscribe(res => {
       //     this.getList();
       // });
     }
   }
   add (i) {
-    if (this.data[i].amount < this.data[i].count_beak) {
-      this.data[i].amount ++;
-      this.changeCar(this.data[i].id, this.data[i].amount, i);
+    if (this.data[i].count < this.data[i].amount) {
+      this.data[i].count ++;
+      this.changeCar(this.data[i].id, this.data[i].count, i);
     } else {
       alert('库存不足')
     }
   }
 
   changeCar(id, count, i) {
-    this.api.goGetOrder({
+    this.api.change({
       uid: localStorage['uid'],
       cars: [{
-        amount: count,
+        count: count,
         storeId: id
       }]
     }).subscribe(res => {
@@ -66,7 +66,7 @@ export class ListBComponent implements OnInit {
         if (res['code'] == 200) {
           this.data = res['data'].map(i => {
             i['check'] = false;
-            i['count_beak'] = i.amount;
+            i['count'] = 1;
             return i;
           });
         }
@@ -75,14 +75,14 @@ export class ListBComponent implements OnInit {
 
   updata(i) {
     this.data[i].check = true;
-    this.changeCar(this.data[i].id, this.data[i].amount, i)
+    this.changeCar(this.data[i].id, this.data[i].count, i)
   }
 
   submit() {
     const cars = this.data.filter(i => i.check).map(i => {
       return {
         storeId: i.id,
-        amount: i.amount
+        amount: i.count
       };
     });
     if (cars.length < 1) {

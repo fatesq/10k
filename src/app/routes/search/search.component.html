@@ -17,7 +17,7 @@
             <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
         </ng-template>
       </ListItem>
-      <Grid *ngIf="data.length < 1" [data]="brand" [hasLine]="false" [isCarousel]="true" columnNum="5" (OnClick)="click($event)"></Grid>
+      <Grid *ngIf="data.length < 1" [data]="brand" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
     </CardBody>
   </Card>
 </section>

@@ -9,12 +9,12 @@
           </div>
           <h5 class="line">外观: {{i.plasticColor}}  内饰: {{i.trimColor}} {{i.amount}}辆</h5>
           <div class="stepper">
-            <div class="label"><span style="color: #FF7800;font-size: 16px">预付: {{i.cutPrice}}万</span> 全款{{i.price}}万</div>
+            <div class="label"><span style="color: #FF7800;font-size: 16px">单辆需付尾款: {{i.cutPrice}}万</span></div>
             <div class="set" *ngIf="i.check">
               <div style="flex:1">
                 <img class="ic" (click)="del(index)" src="../../../assets/db/icon_decrease_nor.png"/>
               </div>
-              <span style="flex: 1"> {{i.amount}}辆</span>
+              <span style="flex: 1"> {{i.count}}辆</span>
               <div style="flex:1">
                 <img class="ic" (click)="add(index)" src="../../../assets/db/icon_incarease_nor.png"/>
               </div>

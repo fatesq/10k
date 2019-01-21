@@ -98,6 +98,10 @@ export class SubCarComponent implements OnInit {
   }
 
   submit() {
+    if (!this.tiemText) {
+      alert('请选择时间')
+      return false;
+    }
     this.api.addOrder({
       uid: localStorage['uid'],
       verifySite: '米粒好车有限公司',

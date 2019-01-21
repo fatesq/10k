@@ -146,39 +146,92 @@
   padding-top: 8px;
   flex-direction: row;
   flex-wrap: wrap;
+  tag {
+    margin-right: 9px;
+    margin-bottom: 9px;
+  }
   ::ng-deep .am-tag-disabled {
-    background-color: #FEF0DF;
-    color: #FF7200;
-    border: 1px solid #FF7200;
+    padding: 3px 8px;
+    height:23px;
+    background:rgba(254,240,223,1);
+    border-radius:3px;
+    border:1px solid rgba(255,114,0,1);
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(242,131,17,1);
+    line-height:17px;
   }
 }
 
-.tag-container > tag {
-  margin-right: 9px;
-  margin-bottom: 9px;
-  
-}
-.tagList {
-  display: flex;
-  padding-top: 9px;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.tagList > tag {
-  margin-right: 9px;
-  margin-bottom: 9px;
-}
+
 
 .am-list-item.am-input-item {
   padding-left: 0px;
 }
+
 .bottom{
   position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #FFF;
+  .line {
+    padding: 7px;
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    border-top: 1px #D0D0D0 solid;
+    .left {
+      flex: 1;
+      // width:181px;
+      height:23px;
+      font-size:16px;
+      font-family:PingFangSC-Regular;
+      font-weight:400;
+      color:rgba(0,0,0,1);
+      line-height:23px;
+    }
+    .border {
+      position: relative;
+      flex: 0 0 60px;
+      text-align: center;
+      border-left:1px solid #E0E0E0;
+      .cart {
+        width: 26px;
+        height: 26px;
+      }
+      i {
+        display:block;
+        background:#f00;
+        border-radius:50%;
+        width:10px;
+        height:10px;
+        top:0px;
+        right:12px;
+        position:absolute;
+      }
+    }
+    .right {
+      flex: 0 0 100px;
+      padding-left: 7px;
+      border-left:1px solid #E0E0E0;
+      .submit {
+        padding: 6px 14px;
+        background:rgba(255,212,0,1);
+        border-radius:2px;
+        // width:92px;
+        // height:34px;
+        font-size:16px;
+        font-family:PingFangSC-Medium;
+        font-weight:600;
+        color:rgba(0,0,0,1);
+        line-height:23px;
+        text-align: center;
+      }
+    }
+  }
 }
-
 
 
 
@@ -189,7 +242,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding: 20px;
   background-color: #FFF;
   z-index: 999;
   box-sizing: border-box;
@@ -207,12 +260,13 @@
 }
 
 .example-card {
-  margin-top: 40px;
+  margin-top: 47px;
+  padding: 20px;
   box-shadow: none;
 }
 .example-header-image {
-  width: 100px;
-  height: 75px;
+  width: 101px;
+  height: 73px;
 }
 
 .action {
@@ -227,21 +281,41 @@
     font-size: 12px;
   }
   .tagList {
-    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    tag {
+      margin-right: 13px;
+      margin-bottom: 9px;
+    }
     ::ng-deep .am-tag {
       padding: 7px 30px;
-      height: 28px;
-      line-height: 14px;
-    }
-    ::ng-deep .am-tag-text {
-      font-size: 14px;
+      font-size:14px;
+      font-family:PingFangSC-Regular;
+      font-weight:400;
+      color:rgba(0,0,0,1);
+      height: 34px;
+      line-height:20px;
+      border-radius:3px;
+      border:1px solid rgba(151,151,151,1);
     }
     ::ng-deep .am-tag-active {
-      background-color: #FFD400;
-      color: #000;
-      border: 1px solid #000;
+      background:rgba(255,212,0,1);
+      border:1px solid rgba(0,0,0,1);
     }
   }
+  // .tagList {
+  //   padding: 0;
+  //   ::ng-deep .am-tag {
+  //     padding: 7px 30px;
+  //     height: 28px;
+  //     line-height: 14px;
+  //   }
+  //   ::ng-deep .am-tag-text {
+  //     font-size: 14px;
+  //   }
+    
+  // }
 }
 
 .stepper {
@@ -255,7 +329,7 @@
     font-weight: 600;
   }
   .box {
-    flex:1;
+    flex:0 0 98px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -290,8 +364,8 @@
     align-items: center;
     padding-right: 15px;
     overflow: hidden;
-    height: 44px;
-    border-bottom: 1px solid rgba(0,0,0,.3);
+    height: 35px;
+    border-bottom: 1px solid #E4E4E4;
     .label {
       width: 85px;
       color: #919191;
@@ -310,20 +384,3 @@
   }
 }
 
-.cart {
-  width: 22px;
-  height: 22px;
-}
-.border {
-  position: relative;
-}
-i {
-  display:block;
-  background:#f00;
-  border-radius:50%;
-  width:10px;
-  height:10px;
-  top:-4px;
-  right:-4px;
-  position:absolute;
-}

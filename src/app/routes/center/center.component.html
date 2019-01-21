@@ -1,13 +1,13 @@
 <div class="main">
 		<div class="user-info">
 			<div class="top-info">
-				<div class="avatar"></div>
+				<div class="avatar" id="avatar"></div>
 				<div class="name-info">
 					<div class="row">
 						<span class="name">{{user.userName ? user.userName : user.phone }}</span>
-						<span class="auth">已认证</span>
+						<span class="auth">{{getSelf(user.userStatus)}}</span>
 					</div>
-					<div class="row">未企业认证</div>
+					<div class="row">{{getCompany(user.eeStatus)}}</div>
 				</div>
 				<div class="to-detail">></div>
 			</div>

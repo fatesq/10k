@@ -28,7 +28,7 @@
             <div>
               <img class="ic" (click)="del()" src="../../../assets/db/icon_decrease_nor.png"/>
             </div>
-            <span> {{num}}</span>
+            <span> {{num}}辆</span>
             <div>
               <img class="ic" (click)="add()" src="../../../assets/db/icon_incarease_nor.png"/>
             </div>
@@ -72,10 +72,14 @@
     <img style="width: 100%;padding: 10px 0px;" [src]="info.carImg">
 </div>
 <div class="bottom">
-  <div style="padding: 5px 16px;background-color: #FFF;display: flex;justify-content: space-between;align-items: center;border-top: 1 #CCC solid">
-    <div>单台仅需<span style="color:#FF7200">{{info.rePice}}</span>万即可提车</div>
+  <div class="line">
+    <div class="left">
+      单台仅需<span style="color:#FF7200">{{info.rePice}}</span>万即可提车
+    </div>
     <div class="border"><img class="cart" src="../../../assets/db/icon_mystore_nor.png"><i *ngIf="show" ></i></div>
-    <div Button (click)="submit()" [type]="'primary'" [inline]="true" [size]="'small'">加入车单</div>
+    <div class="right">
+      <div class="submit" (click)="submit()">加入车单</div>        
+    </div>
   </div>
 </div>
 </div>

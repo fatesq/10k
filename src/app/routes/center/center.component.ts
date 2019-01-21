@@ -9,7 +9,12 @@ import { Router } from '@angular/router';
 })
 export class CenterComponent implements OnInit {
   data = [];
-  user = {};
+  user = {
+    userName: '',
+    phone: '',
+    userStatus: '',
+    eeStatus: '',
+  };
   constructor(
     private api: ApiService,
     private router: Router
@@ -21,12 +26,50 @@ export class CenterComponent implements OnInit {
     });
     this.api.getUser(localStorage['uid']).subscribe(res => {
        this.user = res['data'];
+       document.getElementById('avatar').setAttribute("style", `background-image: url(${ this.user['avatar'] ?  this.user['avatar'] :'https://ricecar.oss-cn-hangzhou.aliyuncs.com/21281548063891_.pic.jpg'});background-repeat:no-repeat; background-size:100% 100%;`)
     })
   }
 
   toOrder(code) {
     this.router.navigate(['over'], {queryParams: {'code': code }});
   }
+  
+  getSelf(key) {
+    let info = '';
+    switch (key) {
+      case 0:
+        info = '未审核';
+        break;
+      case 1:
+        info = '审核通过';
+        break;
+      case 2:
+        info = '审核未通过';
+        break;
+      default:
+        break;
+    }
+    return info;
+  }
+
+  getCompany(key) {
+    let info = '';
+    switch (key) {
+      case 0:
+        info = '未审核';
+        break;
+      case 1:
+        info = '审核通过';
+        break;
+      case 2:
+        info = '审核未通过';
+        break;
+      default:
+        break;
+    }
+    return info;
+  }
+
 
   getType(key) {
     let info = '';
