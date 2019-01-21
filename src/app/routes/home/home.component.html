@@ -25,35 +25,35 @@
                   <div class="title">4000+</div>
                   <div class="desc">在库实车</div>
                 </FlexItem>
-              </Flex>    
+              </Flex>
             </mat-card-content>
             <mat-card-footer style="padding: 10px 35px;">
               <div Button [type]="'primary'" style="color: #000" routerLink="/search">开始订车</div>
             </mat-card-footer>
           </mat-card>
         </FlexItem>
-      </Flex>  
+      </Flex>
     </section>
   </div>
 
-  <section style="margin: 10px 0px">
+  <section style="margin: 0px">
       <Card [full]="true">
-          <CardHeader [title]="'热门品牌'" [extra]="extra">
+          <CardHeader class="title"  style="" [title]="'热门品牌'" [extra]="extra">
             <ng-template #extra>
-              <span routerLink="/search">全部品牌</span>
+              <span routerLink="/search" class="text">全部品牌</span>
             </ng-template>
           </CardHeader>
           <CardBody style="padding: 0px">
-            <Grid [data]="data" [hasLine]="false" [isCarousel]="true" columnNum="5" (OnClick)="click($event)"></Grid>
+            <Grid [data]="data" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
           </CardBody>
         </Card>
   </section>
-
+  <section style="background-color: #F6F6F6;height:8px"> </section>
   <section>
       <Card [full]="true">
-        <CardHeader [title]="'热门车型'" [extra]="extra">
+        <CardHeader class="title" [title]="'热门车型'" [extra]="extra">
           <ng-template #extra>
-            <span routerLink="/search">全部车型</span>
+            <span routerLink="/search" class="text">全部车型</span>
           </ng-template>
         </CardHeader>
         <CardBody style="padding: 0px">
@@ -68,6 +68,7 @@
         </CardBody>
       </Card>
   </section>
-  
+
 </main>
+
 

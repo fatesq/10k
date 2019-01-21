@@ -25,13 +25,12 @@ export class HomeComponent implements OnInit {
   getCar() {
     this.api.hotCar().subscribe(res => {
         this.carList = res['data'];
-        console.log(this.carList);
     });
   }
 
   getBrand() {
     this.api.brandList().subscribe(res =>
-      this.data = res['data'].map(i => ({
+      this.data = res['data'].filter((v, i )=> i < 5).map(i => ({
           icon: i.img,
           text: i.name,
       })
@@ -45,7 +44,6 @@ export class HomeComponent implements OnInit {
   }
 
   click(event) {
-    console.log(event);
     this.router.navigate(['search'], {queryParams: {'text': event.data.text }});
   }
 

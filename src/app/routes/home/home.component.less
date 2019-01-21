@@ -1,22 +1,37 @@
 :host ::ng-deep.mat-card {
-  padding: 16px 0px; 
+  padding: 16px 0px;
   .mat-card-header-text {
     width: 100%;
     text-align: center;
   }
-} 
+}
+
 .content {
-  background-color: #F6F6F6;
+  // background-color: #F6F6F6;
   .content-header {
-    background-color: rgba(0,0,0,.12);
+    background-color: rgba(0, 0, 0, .12);
     color: #4caf50;
-    box-shadow: 0 0px 0 rgb(67, 47, 40), 0 0 15px #412f1c, 0 1px 3px rgba(0,0,0,.05);
+    // box-shadow: 0 0px 0 rgb(67, 47, 40), 0 0 15px #412f1c, 0 1px 3px rgba(0, 0, 0, .05);
   }
   .container {
     margin-right: auto;
     margin-left: auto;
     padding-right: 5px;
     padding-left: 5px;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: none !important;
+  }
+
+  .brand-img {
+    height: 50px;
+  }
+  .text {
+    font-weight: 100 !important;
+    font-size: 12px !important;
+    color: #000;
   }
   .ui-content-header {
     background-position: 50% 50%;
@@ -40,4 +55,25 @@
       color: #7E7E7E
     }
   }
+}
+
+::ng-deep .am-list-item .am-list-line .am-list-content {
+   font-size: 15px !important; font-weight: 600 !important;
+}
+::ng-deep .am-list-brief {
+  font-size:12px !important;font-weight: 200 !important;color:#3E3E3E
+}
+::ng-deep .am-grid .am-flexbox .am-flexbox-item .am-grid-item-content .am-grid-item-inner-content .am-grid-icon  {
+  width: 50px !important;
+}
+::ng-deep .am-card-body::before {
+  width: 0px !important;
+}
+
+::ng-deep .am-card.am-card-full::before {
+  width: 0px !important;
+}
+
+::ng-deep .am-card.am-card-full::after {
+  width: 0px !important;
 }

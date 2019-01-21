@@ -76,7 +76,7 @@
     <div class="left">
       单台仅需<span style="color:#FF7200">{{info.rePice}}</span>万即可提车
     </div>
-    <div class="border"><img class="cart" src="../../../assets/db/icon_mystore_nor.png"><i *ngIf="show" ></i></div>
+    <div class="border" (click)="toCart()"><img class="cart" src="../../../assets/db/icon_mystore_nor.png"><i *ngIf="show" ></i></div>
     <div class="right">
       <div class="submit" (click)="submit()">加入车单</div>        
     </div>

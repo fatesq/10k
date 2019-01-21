@@ -49,6 +49,10 @@ export class DetailComponent implements OnInit {
   close() {
     this.bottomSheetRef.dismiss();
   }
+  toCart() {
+    this.router.navigateByUrl('/cart');
+    this.bottomSheetRef.dismiss();
+  }
 
   submit() {
     this.show = true;

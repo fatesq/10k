@@ -26,10 +26,7 @@ export class ListBComponent implements OnInit {
       this.changeCar(this.data[i].id, this.data[i].count, i);
     } else {
       this.data[i].check = false;
-      this.data[i].count = 1;
-      // this.api.carDel(this.data[i].id).subscribe(res => {
-      //     this.getList();
-      // });
+      // this.data[i].count = 1;
     }
   }
   add (i) {
@@ -41,20 +38,24 @@ export class ListBComponent implements OnInit {
     }
   }
 
-  changeCar(id, count, i) {
+  changeCar(id, count, index) {
+    console.log(this.data)
     this.api.change({
       uid: localStorage['uid'],
-      cars: [{
-        count: count,
-        storeId: id
-      }]
+      cars: this.data.filter(i => i.check).map(i => {
+        return {
+          storeId: i.id,
+          count: i.count
+        };
+      })
     }).subscribe(res => {
       // this.getList();
       if (res['code'] == 200) {
         res['data'].cars[0].check = true;
         this.totalAmount = res['data'].totalAmount;
         this.totalCutPrice = res['data'].totalCutPrice;
-        this.data[i] = res['data'].cars[0];
+        this.data[index] = res['data'].cars[index];
+        this.data[index].check = true;
       }
     });
   }
@@ -69,12 +70,15 @@ export class ListBComponent implements OnInit {
             i['count'] = 1;
             return i;
           });
+          console.log(this.data)
         }
     });
   }
 
   updata(i) {
+    console.log(this.data[i])
     this.data[i].check = true;
+    console.log(this.data)
     this.changeCar(this.data[i].id, this.data[i].count, i)
   }
 
