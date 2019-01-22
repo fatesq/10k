@@ -37,7 +37,7 @@ load(): Promise<any> {
       localStorage['openId'] = 'opYaY005GW3i8LnYEsruFS0VHtLc' // res['data'].openId
       localStorage['uid'] = 10 //res['data'].uid
       resolve();
-     // window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc82408bb96b3aacf&redirect_uri=https%3a%2f%2fmobile.qinhemili.com&response_type=code&scope=snsapi_base&state=${state}#wechat_redirect`)
+      // window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc82408bb96b3aacf&redirect_uri=https%3a%2f%2fmobile.qinhemili.com&response_type=code&scope=snsapi_base&state=${state}#wechat_redirect`)
     }
   });
 }
