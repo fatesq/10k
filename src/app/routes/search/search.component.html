@@ -11,15 +11,21 @@
 <section>
   <Card [full]="true">
     <CardBody style="padding: 0px">
-      <ListItem *ngFor="let item of data" multipleLine [extra]="list" (click)="openBottomSheet(item)">
-        {{item.seriesName}} {{item.modelName}}
-        <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
-        <ng-template #list>
-            <div style="color: #FF7800;font-size: 16px">{{item.price}}万</div>
-            <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
-        </ng-template>
-      </ListItem>
-      <Grid *ngIf="data.length < 1" [data]="brand" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
+      <Grid *ngIf="data.length < 1 && series.length < 1" [data]="brand" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
+      <div *ngIf="series.length > 0 && showBrand" style="display:flex;padding:10px 0px 0px 15px;align-items: center"><img [src]="title.icon" width="30" height="30"><span style="margin-left: 10px;font-size:20px;font-weight: bold">{{title.text}}</span> </div>
+      <div *ngIf="showBrand && data.length < 1" >
+        <ListItem *ngFor="let item of series" [arrow]="'horizontal'" (onClick)="seriesClick(item.seriesName)">{{item.seriesName}} </ListItem>
+      </div>
+      <div class="data">
+        <ListItem *ngFor="let item of data" multipleLine [extra]="list" (click)="openBottomSheet(item)">
+          {{item.seriesName}} {{item.modelName}}
+          <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
+          <ng-template #list>
+              <div style="color: #FF7800;font-size: 16px">{{item.price}}万</div>
+              <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
+          </ng-template>
+        </ListItem>
+      </div>
     </CardBody>
   </Card>
 </section>

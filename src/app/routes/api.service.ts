@@ -105,4 +105,12 @@ export class ApiService {
         return this.httpClient.get(`${api}/customer/detail?uid=${id}`);
     }
 
+    byBrand(param) {
+        return this.httpClient.post(`${api}/cars/byBrand`, param);
+    }
+
+    bySeries(param) {
+        return this.httpClient.post(`${api}/cars/bySeries`, param);
+    }
+
 }

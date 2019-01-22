@@ -12,6 +12,9 @@ export class SearchComponent implements OnInit {
   data = [];
   value = '';
   brand = [];
+  title = '';
+  series = [];
+  showBrand = false;
   constructor(
     private api: ApiService,
     public activeRoute: ActivatedRoute,
@@ -30,9 +33,8 @@ export class SearchComponent implements OnInit {
           this.data = res['data'];
         });
       }
-      
     });
-    this.getBrand()
+    this.getBrand();
   }
 
   getBrand() {
@@ -40,6 +42,7 @@ export class SearchComponent implements OnInit {
       this.brand = res['data'].map(i => ({
           icon: i.img,
           text: i.name,
+          id: i.id,
       })
     ));
   }
@@ -47,11 +50,21 @@ export class SearchComponent implements OnInit {
   blur(value) {
     this.api.search({query: value}).subscribe(res => {
       this.data = res['data'];
+      this.showBrand = false;
+      this.series = [];
     });
   }
 
   click(event) {
-    this.api.search({query: event.data.text}).subscribe(res => {
+    this.api.byBrand({brandId: event.data.id, page: 1, size: 99}).subscribe(res => {
+      this.title = event.data;
+      this.series = res['data'];
+      this.showBrand =  true;
+    });
+  }
+
+  seriesClick(name) {
+    this.api.bySeries({seriesName: name, page: 1, size: 99}).subscribe(res => {
       this.data = res['data'];
     });
   }
