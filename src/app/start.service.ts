@@ -33,7 +33,7 @@ load(): Promise<any> {
         }
       });
     } else {
-      localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6MTAsIm9wZW5JZCI6Im9wWWFZMDA1R1czaThMbllFc3J1RlMwVkh0TGMifSwiaWF0IjoxNTQ3OTgzNTk2LCJleHAiOjE1NDgwNjk5OTZ9.mOQl0Tr-XzGpXAKULoGMzdeOmjpk_LpV-mGmiIxbKS8'
+      localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6MTAsIm9wZW5JZCI6Im9wWWFZMDA1R1czaThMbllFc3J1RlMwVkh0TGMifSwiaWF0IjoxNTQ4MTI0OTE1LCJleHAiOjE1NDgyMTEzMTV9.DOF2jFF-5zn1ERgMWdIJvMriFZZ73TBLWWiILfYy4Dg'
       localStorage['openId'] = 'opYaY005GW3i8LnYEsruFS0VHtLc' // res['data'].openId
       localStorage['uid'] = 10 //res['data'].uid
       resolve();

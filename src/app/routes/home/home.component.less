@@ -59,12 +59,13 @@
 
 ::ng-deep .am-list-item .am-list-line .am-list-content {
    font-size: 15px !important; font-weight: 600 !important;
+   flex: 0 0 260px !important;
 }
 ::ng-deep .am-list-brief {
   font-size:12px !important;font-weight: 200 !important;color:#3E3E3E
 }
 ::ng-deep .am-grid .am-flexbox .am-flexbox-item .am-grid-item-content .am-grid-item-inner-content .am-grid-icon  {
-  width: 50px !important;
+  width: 40px !important;
 }
 ::ng-deep .am-card-body::before {
   width: 0px !important;
@@ -76,4 +77,8 @@
 
 ::ng-deep .am-card.am-card-full::after {
   width: 0px !important;
+}
+
+:host ::ng-deep .am-list-item .am-list-line .am-list-extra {
+  flex-basis: 30% !important;
 }

@@ -1,11 +1,13 @@
-<SearchBar
-  [(ngModel)]="value"
-  [placeholder]="'搜索车型'"
-  [showCancelButton]="false"
-  (onSubmit)="blur(value)"
-  cancelText="搜索"
-  (onCancel)="blur(value)"
-></SearchBar>
+<div class="top">
+  <SearchBar
+    [(ngModel)]="value"
+    [placeholder]="'搜索车型'"
+    [showCancelButton]="false"
+    (onSubmit)="blur(value)"
+    cancelText="搜索"
+    (onCancel)="blur(value)"
+  ></SearchBar>
+</div>
 <section>
   <Card [full]="true">
     <CardBody style="padding: 0px">
@@ -22,4 +24,4 @@
   </Card>
 </section>
 
-<button class="fab" mat-fab routerLink="/cart">购物车</button>
+<img class="fab" src="../../../assets/db/icon_shoppingcart_nor.png" routerLink="/cart" />
