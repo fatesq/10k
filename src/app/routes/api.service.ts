@@ -113,4 +113,7 @@ export class ApiService {
         return this.httpClient.post(`${api}/cars/bySeries`, param);
     }
 
+    cartNum(id) {
+        return this.httpClient.get(`${api}/shopCart/count?uid=${id}`)
+    }
 }

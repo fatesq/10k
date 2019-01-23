@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
   brand = [];
   title = '';
   series = [];
+  num = 0;
   showBrand = false;
   constructor(
     private api: ApiService,
@@ -22,19 +23,26 @@ export class SearchComponent implements OnInit {
 
   openBottomSheet(item): void {
     this.api.detail(item.id).subscribe(res => {
-      this.bottomSheet.open(DetailComponent, {data: res['data']});
+      this.bottomSheet.open(DetailComponent, {data: {data: res['data'], refesh: this.getNum } });
     });
   }
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe(params => {
-      if (params['text']) {
-        this.api.search({query: params['text']}).subscribe(res => {
-          this.data = res['data'];
+      if (params['data']) {
+        const data = JSON.parse(params['data']);
+        // this.api.search({query: params['text']}).subscribe(res => {
+        //   this.data = res['data'];
+        // });
+        this.api.byBrand({brandId: data.id, page: 1, size: 99}).subscribe(res => {
+          this.title = data;
+          this.series = res['data'];
+          this.showBrand =  true;
         });
       }
     });
     this.getBrand();
+    this.getNum();
   }
 
   getBrand() {
@@ -65,7 +73,14 @@ export class SearchComponent implements OnInit {
 
   seriesClick(name) {
     this.api.bySeries({seriesName: name, page: 1, size: 99}).subscribe(res => {
+      this.title['seriesName'] = name;
       this.data = res['data'];
+    });
+  }
+
+  getNum() {
+    this.api.cartNum(localStorage['uid']).subscribe(res => {
+        this.num = res['data'];
     });
   }
 

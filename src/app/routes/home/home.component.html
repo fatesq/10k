@@ -28,7 +28,7 @@
               </Flex>
             </mat-card-content>
             <mat-card-footer style="padding: 10px 35px;">
-              <div Button [type]="'primary'" style="color: #000" routerLink="/search">开始订车</div>
+              <div Button [type]="'primary'" style="color: #000;font-weight: bold" routerLink="/search">开始订车</div>
             </mat-card-footer>
           </mat-card>
         </FlexItem>
@@ -57,14 +57,24 @@
           </ng-template>
         </CardHeader>
         <CardBody style="padding: 0px">
-          <ListItem *ngFor="let item of carList" multipleLine [extra]="list" (click)="openBottomSheet(item)">
+          <div class="listitem" *ngFor="let item of carList" (click)="openBottomSheet(item)">
+            <div class="top">
+              <div class="left">{{item.seriesName}} {{item.modelName}}</div>
+              <div class="right">{{item.price}}万</div>
+            </div>
+            <div class="bottom">
+              <div class="left">{{item.sizeLevel}} {{item.plasticColor.join('/')}}</div>
+              <div class="right">指导价: {{item.guidePrice}}万</div>
+            </div>
+          </div>
+          <!-- <ListItem *ngFor="let item of carList" multipleLine [extra]="list" (click)="openBottomSheet(item)">
             {{item.seriesName}} {{item.modelName}}
             <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
             <ng-template #list>
                 <div style="color: #FF7800;font-size: 16px">{{item.price}}万</div>
-                <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
+                <div style="color: #BFBFBF;font-size: 12px"></div>
             </ng-template>
-          </ListItem>
+          </ListItem> -->
         </CardBody>
       </Card>
   </section>

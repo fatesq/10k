@@ -30,9 +30,10 @@ export class HomeComponent implements OnInit {
 
   getBrand() {
     this.api.brandList().subscribe(res =>
-      this.data = res['data'].filter((v, i )=> i < 5).map(i => ({
+      this.data = res['data'].filter((v, i ) => i < 5).map(i => ({
           icon: i.img,
           text: i.name,
+          id: i.id,
       })
     ));
   }
@@ -44,7 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   click(event) {
-    this.router.navigate(['search'], {queryParams: {'text': event.data.text }});
+    this.router.navigate(['search'], {queryParams: {'data': JSON.stringify(event.data) }});
   }
 
 }
