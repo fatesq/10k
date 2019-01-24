@@ -23,7 +23,12 @@ export class OverComponent implements OnInit {
   constructor(
     private api: ApiService,
     public activeRoute: ActivatedRoute
-  ) { }
+  ) {
+    history.pushState(null, null, document.URL);
+      window.addEventListener('popstate',  () => {
+          window.location.hash = 'center';
+      }, false);
+  }
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe(params => {
