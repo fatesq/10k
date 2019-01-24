@@ -33,9 +33,15 @@ load(): Promise<any> {
         }
       });
     } else {
+<<<<<<< HEAD
       // localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6MTAsIm9wZW5JZCI6Im9wWWFZMDA1R1czaThMbllFc3J1RlMwVkh0TGMifSwiaWF0IjoxNTQ3OTgzNTk2LCJleHAiOjE1NDgwNjk5OTZ9.mOQl0Tr-XzGpXAKULoGMzdeOmjpk_LpV-mGmiIxbKS8'
       // localStorage['openId'] = 'opYaY005GW3i8LnYEsruFS0VHtLc' // res['data'].openId
       // localStorage['uid'] = 10 //res['data'].uid
+=======
+      // localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVpZCI6MTAsIm9wZW5JZCI6Im9wWWFZMDA1R1czaThMbllFc3J1RlMwVkh0TGMifSwiaWF0IjoxNTQ4MjE0ODQxLCJleHAiOjE1NDgzMDEyNDF9.pGPbCuinD67hy1TLfvH4incIDoksdkU_-7tGYdIk1-w'
+      // localStorage['openId'] = 'opYaY005GW3i8LnYEsruFS0VHtLc'; // res['data'].openId
+      // localStorage['uid'] = 10; // res['data'].uid
+>>>>>>> 70e1ecf58e54036bf45aa675e033dc42f7d6c85a
       // resolve();
       window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc82408bb96b3aacf&redirect_uri=https%3a%2f%2fmobile.qinhemili.com&response_type=code&scope=snsapi_base&state=${state}#wechat_redirect`)
     }

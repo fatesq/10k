@@ -135,7 +135,7 @@
         <div class="line" *ngIf="info.status < '2'">
             <div class="title">银行账户</div>
             <div class="des">
-                <span class="fz30">34050144860800000587</span>
+                <span class="">34050144860800000587</span>
                 <div class="btn copy" ngxClipboard cbContent="34050144860800000587">复制</div>
             </div>
         </div>
@@ -160,7 +160,7 @@
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">预计物流</div>
-            <div class="des">7个工作日内到达</div>
+            <div class="des">下单后{{info.arrivetime}}个工作日内到达</div>
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">验车时间</div>
@@ -194,7 +194,7 @@
 
     <div class="list-box">
         <div class="title">预定清单</div>
-        <div class="list" *ngFor="let i of cars;let index = index">
+        <!-- <div class="list" *ngFor="let i of cars;let index = index">
             <div class="line clearfix">
                 <div class="name">{{i.seriesName}} {{i.modelName}}</div>
                 <div class="money">指导价：{{i.guidePrice}}万</div>
@@ -207,7 +207,29 @@
                 </div>
                 <div class="num">{{i.amount}}辆</div>
             </div>
+        </div> -->
+        <div class="box" *ngFor="let i of cars;let index = index">
+          <div class="head">
+            <h4 class="left">{{i.seriesName}} {{i.modelName}}</h4>
+            <span class="right">指导价: {{i.guidePrice}}万</span>
+          </div>
+          <h5 class="line">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>
+          <div class="stepper">
+            <div class="label" *ngIf="i.rePrice > 0"><span style="color: #FF7800;font-size: 16px">预付: {{i.rePrice}}万</span> 全款{{i.price}}万</div>
+            <div class="label" *ngIf="i.rePrice == 0"><span style="color: #FF7800;font-size: 16px">价格电议</span></div>
+            <div class="set">
+              <!-- <div style="flex:1">
+                <img class="ic" (click)="del(index)" src="../../../assets/db/icon_decrease_nor.png"/>
+              </div> -->
+              <span style="flex: 1"> {{i.amount}}辆</span>
+              <!-- <div style="flex:1">
+                <img class="ic" (click)="add(index)" src="../../../assets/db/icon_incarease_nor.png"/>
+              </div> -->
+            </div>
+          </div>
         </div>
     </div>
+
+    
 </div>
 </div>

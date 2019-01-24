@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as moment from 'moment';
 
 const now = new Date();
 @Component({
@@ -12,7 +13,7 @@ export class SubCarComponent implements OnInit {
   cars = [];
   totalAmount = 0;
   totalCutPrice = 0;
-  tiemText = '';
+  timeText: any;
   state: any = {
     en: false,
     date: null,
@@ -93,19 +94,21 @@ export class SubCarComponent implements OnInit {
       ...{ show: false, startDate, endDate }
     };
     this.triggerCancel();
-    this.tiemText = startDate.getTime();
-    console.log('onConfirm', startDate.getTime(), endDate);
+    console.log(startDate);
+    this.timeText = startDate.date;
+    console.log('onConfirm', moment(startDate.date).valueOf(), endDate);
   }
 
   submit() {
-    if (!this.tiemText) {
+    if (!this.timeText) {
       alert('请选择时间')
       return false;
     }
+    console.log(moment(this.timeText).valueOf())
     this.api.addOrder({
       uid: localStorage['uid'],
       verifySite: '米粒好车有限公司',
-      verifyTime: this.tiemText,
+      verifyTime: moment(this.timeText).valueOf(),
       cars: this.cars.map(i => {
         return {
           storeId: i.id,

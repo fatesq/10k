@@ -19,7 +19,8 @@ export class DetailComponent implements OnInit {
     private bottomSheetRef: MatBottomSheetRef<DetailComponent>,
     private api: ApiService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
   }
@@ -57,14 +58,13 @@ export class DetailComponent implements OnInit {
   submit() {
     this.show = true;
     this.api.carAdd({
-      sku: this.info.sku[this.type1].item[this.type2].sku,
+      sku: this.info.data.sku[this.type1].item[this.type2].sku,
       uid: localStorage['uid'],
       amount: this.num,
-      carId: this.info.id
+      carId: this.info.data.id
     }).subscribe(res => {
       if (res['code'] == 200) {
-        
-        alert('加入成功')
+        alert('加入成功');
         // this.router.navigateByUrl('/cart');
         // this.bottomSheetRef.dismiss();
       } else {
@@ -72,5 +72,4 @@ export class DetailComponent implements OnInit {
       }
     });
   }
-
 }

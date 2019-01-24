@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 import {MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule, MatBottomSheetModule} from '@angular/material';
 import {ClipboardModule} from 'ngx-clipboard';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {ClipboardModule} from 'ngx-clipboard';
     MatInputModule,
     MatCardModule,
     MatBottomSheetModule,
-    ClipboardModule
+    ClipboardModule,
+    FileUploadModule
   ],
   declarations: [],
   exports: [
@@ -29,7 +31,8 @@ import {ClipboardModule} from 'ngx-clipboard';
     MatCheckboxModule,
     MatInputModule,
     MatCardModule,
-    ClipboardModule
+    ClipboardModule,
+    FileUploadModule
   ],
 })
 export class SharedModule { }

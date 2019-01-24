@@ -26,10 +26,15 @@ export class ListBComponent implements OnInit {
       this.changeCar(this.data[i].id, this.data[i].count, i);
     } else {
       this.data[i].check = false;
+      if (this.data.every(v => v.check == false)) {
+          this.totalAmount = 0;
+          this.totalCutPrice = 0;
+      }
       // this.data[i].count = 1;
     }
   }
   add (i) {
+    console.log(i)
     if (this.data[i].count < this.data[i].amount) {
       this.data[i].count ++;
       this.changeCar(this.data[i].id, this.data[i].count, i);
@@ -39,7 +44,6 @@ export class ListBComponent implements OnInit {
   }
 
   changeCar(id, count, index) {
-    console.log(this.data)
     this.api.change({
       uid: localStorage['uid'],
       cars: this.data.filter(i => i.check).map(i => {
@@ -51,10 +55,17 @@ export class ListBComponent implements OnInit {
     }).subscribe(res => {
       // this.getList();
       if (res['code'] == 200) {
-        res['data'].cars[0].check = true;
+        // res['data'].cars[index].check = true;
         this.totalAmount = res['data'].totalAmount;
         this.totalCutPrice = res['data'].totalCutPrice;
-        this.data[index] = res['data'].cars[index];
+        res['data'].cars.map(i => {
+          this.data.forEach((value, index2) => {
+            if (i['id'] == value['id']) {
+              this.data[index2] = value;
+            }
+          });
+        });
+        // this.data[index] = res['data'].cars[index];
         this.data[index].check = true;
       }
     });
@@ -65,6 +76,11 @@ export class ListBComponent implements OnInit {
       uid: localStorage['uid']
     }).subscribe(res => {
         if (res['code'] == 200) {
+          console.log(res['data'].map(i => {
+            i['check'] = false;
+            i['count'] = 1;
+            return i;
+          }))
           this.data = res['data'].map(i => {
             i['check'] = false;
             i['count'] = 1;
@@ -76,7 +92,7 @@ export class ListBComponent implements OnInit {
   }
 
   updata(i) {
-    console.log(this.data[i])
+    console.log(this.data)
     this.data[i].check = true;
     console.log(this.data)
     this.changeCar(this.data[i].id, this.data[i].count, i)

@@ -11,9 +11,7 @@ export class NoopInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
-    console.log(localStorage['token'])
     const authToken = localStorage['token']
-    console.log(authToken)
     const authReq = req.clone({
         headers: req.headers.set('token', authToken)
     });

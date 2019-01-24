@@ -30,21 +30,22 @@ export class HomeComponent implements OnInit {
 
   getBrand() {
     this.api.brandList().subscribe(res =>
-      this.data = res['data'].filter((v, i )=> i < 5).map(i => ({
+      this.data = res['data'].filter((v, i ) => i < 5).map(i => ({
           icon: i.img,
           text: i.name,
+          id: i.id,
       })
     ));
   }
 
   openBottomSheet(item): void {
     this.api.detail(item.id).subscribe(res => {
-      this.bottomSheet.open(DetailComponent, {data: res['data']});
+      this.bottomSheet.open(DetailComponent, {data: {data: res['data'], refesh: ''}});
     });
   }
 
   click(event) {
-    this.router.navigate(['search'], {queryParams: {'text': event.data.text }});
+    this.router.navigate(['search'], {queryParams: {'data': JSON.stringify(event.data) }});
   }
 
 }

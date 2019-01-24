@@ -1,25 +1,45 @@
-<SearchBar
-  [(ngModel)]="value"
-  [placeholder]="'搜索车型'"
-  [showCancelButton]="false"
-  (onSubmit)="blur(value)"
-  cancelText="搜索"
-  (onCancel)="blur(value)"
-></SearchBar>
+<div class="top">
+  <SearchBar
+    [(ngModel)]="value"
+    [placeholder]="'搜索车型'"
+    [showCancelButton]="false"
+    (onSubmit)="blur(value)"
+    cancelText="搜索"
+    (onCancel)="blur(value)"
+  ></SearchBar>
+</div>
 <section>
   <Card [full]="true">
     <CardBody style="padding: 0px">
-      <ListItem *ngFor="let item of data" multipleLine [extra]="list" (click)="openBottomSheet(item)">
-        {{item.seriesName}} {{item.modelName}}
-        <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
-        <ng-template #list>
-            <div style="color: #FF7800;font-size: 16px">{{item.price}}万</div>
-            <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
-        </ng-template>
-      </ListItem>
-      <Grid *ngIf="data.length < 1" [data]="brand" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
+      <Grid *ngIf="data.length < 1 && series.length < 1" [data]="brand" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
+      <div *ngIf="series.length > 0 && showBrand" style="display:flex;padding:10px 0px 0px 15px;align-items: center"><img [src]="title.icon" width="30" height="30"><span style="margin-left: 10px;font-size:20px;font-weight: bold">{{title.text}} {{title.seriesName}}</span> </div>
+      <div *ngIf="showBrand && data.length < 1" >
+        <ListItem *ngFor="let item of series" [arrow]="'horizontal'" (onClick)="seriesClick(item.seriesName)">{{item.seriesName}} </ListItem>
+      </div>
+      <div class="data">
+        <!-- <ListItem *ngFor="let item of data" multipleLine [extra]="list" (click)="openBottomSheet(item)">
+          {{item.seriesName}} {{item.modelName}}
+          <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
+          <ng-template #list>
+              <div style="color: #FF7800;font-size: 16px">{{item.price}}万</div>
+              <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
+          </ng-template>
+        </ListItem> -->
+        <div class="listitem" *ngFor="let item of data" (click)="openBottomSheet(item)">
+          <div class="top">
+            <div class="left">{{item.seriesName}} {{item.modelName}}</div>
+            <div class="right">{{item.price}}万</div>
+          </div>
+          <div class="bottom">
+            <div class="left">{{item.sizeLevel}} {{item.plasticColor.join('/')}}</div>
+            <div class="right">指导价: {{item.guidePrice}}万</div>
+          </div>
+        </div>
+      </div>
     </CardBody>
   </Card>
 </section>
-
-<button class="fab" mat-fab routerLink="/cart">购物车</button>
+<div class="fab">
+    <img src="../../../assets/db/icon_shoppingcart_nor.png" width="50" height="50" routerLink="/cart" />
+    <i *ngIf="num != 0" class="numIcon">{{num}}</i>
+</div>

@@ -1,14 +1,14 @@
 <div class="main">
 <div class="title">
-  <div>{{info.seriesName}}{{info.modelName}}</div>
+  <div>{{info.data.seriesName}}{{info.data.modelName}}</div>
   <span  (click)="close()">×</span>
 </div>
 <mat-card class="example-card">
     <mat-card-header>
-      <img mat-card-avatar class="example-header-image" style="background-color: #CCC" [src]="info.carImg" />
-      <mat-card-title style="font-size: 24px;color: #FF7800">{{info.price}}万</mat-card-title>
+      <img mat-card-avatar class="example-header-image" style="background-color: #CCC" [src]="info.data.carImg" />
+      <mat-card-title style="font-size: 24px;color: #FF7800">{{info.data.price}}万</mat-card-title>
       <mat-card-subtitle style="font-size: 12px">
-        指导价：{{info.guidePrice}}万 降<span style="color: #FF7200;">{{info.difPrice}}</span>万
+        指导价：{{info.data.guidePrice}}万 降<span style="color: #FF7200;">{{info.data.difPrice}}</span>万
         <div class="tag-container"><Tag [disabled]="true" [selected]="true">手续齐全</Tag><Tag [disabled]="true" [selected]="true">全额担保</Tag></div>
       </mat-card-subtitle>
     </mat-card-header>
@@ -16,11 +16,11 @@
       <div class="header">可选内容</div>
       <div class="sku">外观颜色</div>
       <div class="tagList">
-          <Tag *ngFor="let item of info.sku;let i = index" [selected]="i == type1" (click)="select(i)">{{item.plasticColor}}</Tag>
+          <Tag *ngFor="let item of info.data.sku;let i = index" [selected]="i == type1" (click)="select(i)">{{item.plasticColor}}</Tag>
       </div>
       <div class="sku">内饰颜色</div>
       <div class="tagList">
-          <Tag *ngFor="let item of info.sku[type1].item;let i = index"  [selected]="i == type2" (click)="select2(i)">{{item.trimColor}}</Tag>
+          <Tag *ngFor="let item of info.data.sku[type1].item;let i = index"  [selected]="i == type2" (click)="select2(i)">{{item.trimColor}}</Tag>
       </div>
       <div class="stepper">
           <div class="label">预定数量</div>
@@ -40,15 +40,15 @@
     <div class="header">车辆信息</div>
     <div class="line">
       <div class="label">价格</div>
-      <div class="control" style="color:#FF7200">{{info.price}}万元</div>
+      <div class="control" style="color:#FF7200">{{info.data.price}}万元</div>
     </div>
     <div class="line">
       <div class="label">指导价</div>
-      <div class="control">{{info.guidePrice}}万元/降{{info.difPrice}}万元</div>
+      <div class="control">{{info.data.guidePrice}}万元/降{{info.data.difPrice}}万元</div>
     </div>
     <div class="line">
       <div class="label">规格</div>
-      <div class="control">{{info.sizeLevel}}</div>
+      <div class="control">{{info.data.sizeLevel}}</div>
     </div>
     <div class="line">
       <div class="label">是否现车</div>
@@ -56,25 +56,25 @@
     </div>
     <div class="line">
       <div class="label">车型</div>
-      <div class="control">{{info.modelName}}</div>
+      <div class="control">{{info.data.modelName}}</div>
     </div>
     <div class="line">
       <div class="label">品牌</div>
-      <div class="control">{{info.brandName}}</div>
+      <div class="control">{{info.data.brandName}}</div>
     </div>
     <div class="line">
       <div class="label">车系</div>
-      <div class="control">{{info.seriesName}}</div>
+      <div class="control">{{info.data.seriesName}}</div>
     </div>
 </div>
 <div class="info-list">
     <div class="header">车辆照片</div>
-    <img style="width: 100%;padding: 10px 0px;" [src]="info.carImg">
+    <img style="width: 100%;padding: 10px 0px;" [src]="info.data.carImg">
 </div>
 <div class="bottom">
   <div class="line">
     <div class="left">
-      单台仅需<span style="color:#FF7200">{{info.rePice}}</span>万即可提车
+      单台仅需<span style="color:#FF7200">{{info.data.rePice}}</span>万即可提车
     </div>
     <div class="border" (click)="toCart()"><img class="cart" src="../../../assets/db/icon_mystore_nor.png"><i *ngIf="show" ></i></div>
     <div class="right">

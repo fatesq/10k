@@ -22,7 +22,11 @@ export class ApiService {
     }
 
     customerAdd(param) {
-        return this.httpClient.post(`${api}/customer/add`, param);
+        return this.httpClient.post(`${api}/customer/valid`, param);
+    }
+
+    customerInfo(id) {
+        return this.httpClient.get(`${api}/customer/detail?uid=${id}`);
     }
 
     brandList() {
@@ -104,5 +108,22 @@ export class ApiService {
     getUser(id) {
         return this.httpClient.get(`${api}/customer/detail?uid=${id}`);
     }
+
+    byBrand(param) {
+        return this.httpClient.post(`${api}/cars/byBrand`, param);
+    }
+
+    bySeries(param) {
+        return this.httpClient.post(`${api}/cars/bySeries`, param);
+    }
+
+    cartNum(id) {
+        return this.httpClient.get(`${api}/shopCart/count?uid=${id}`)
+    }
+
+    upload(param) {
+        return this.httpClient.post(`${api}/file/upload`, param);
+    }
+    
 
 }
