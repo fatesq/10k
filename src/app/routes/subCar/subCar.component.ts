@@ -13,7 +13,7 @@ export class SubCarComponent implements OnInit {
   cars = [];
   totalAmount = 0;
   totalCutPrice = 0;
-  tiemText: any;
+  timeText: any;
   state: any = {
     en: false,
     date: null,
@@ -95,19 +95,20 @@ export class SubCarComponent implements OnInit {
     };
     this.triggerCancel();
     console.log(startDate);
-    this.tiemText = startDate.date;
-    console.log('onConfirm', moment(startDate.date).unix(), endDate);
+    this.timeText = startDate.date;
+    console.log('onConfirm', moment(startDate.date).valueOf(), endDate);
   }
 
   submit() {
-    if (!this.tiemText) {
+    if (!this.timeText) {
       alert('请选择时间')
       return false;
     }
+    console.log(moment(this.timeText).valueOf())
     this.api.addOrder({
       uid: localStorage['uid'],
       verifySite: '米粒好车有限公司',
-      verifyTime: moment(this.tiemText).unix(),
+      verifyTime: moment(this.timeText).valueOf(),
       cars: this.cars.map(i => {
         return {
           storeId: i.id,

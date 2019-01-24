@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
 
   openBottomSheet(item): void {
     this.api.detail(item.id).subscribe(res => {
-      this.bottomSheet.open(DetailComponent, {data: res['data']});
+      this.bottomSheet.open(DetailComponent, {data: {data: res['data'], refesh: ''}});
     });
   }
 

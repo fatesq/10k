@@ -13,21 +13,22 @@ html {
 .fb {font-weight: bold;}
 .fz20 {font-size: .2rem;}
 .fz24 {font-size: .24rem;}
-.fz30 {font-size: .3rem;}
-.fz36 {font-size: .36rem;}
+.fz30 {font-size: 12px;}
+.fz36 {font-size: 18px;}
 .mt10 {margin-top: .1rem;}
 
 .body {
   padding: .15rem .15rem .65rem;
   background-color: #f5f5f5;
   overflow-x: hidden;
+  height: -webkit-fill-available;
 }
 .container {
   background-color: #fff;
 }
 .order-line {
-  padding-top: .3rem;
-  font-size: .2rem;
+  padding-top: 15px;
+  font-size: 12px;
 }
 .order-line .order {
   float: left;
@@ -41,31 +42,31 @@ html {
 }
 
 .order-status {
-  margin: .3rem 0;
+  margin: 15px 0;
   color: #000;
   text-align: center;
 }
 .order-status .status {
-  font-size: .3rem;
+  font-size: 15px;
   font-weight: bold;
 }
 .order-status .tip {
   margin-top: .1rem;
-  font-size: .24rem;
+  font-size: 12px;
 }
 
 .order-box {
-  width: 6.8rem;
-  height: 5.8rem;
+  width: 340px;
+  height: 260px;
   margin: 0 auto;
   color: #000;
   background-color: #f5f5f5;
 }
 .order-box .line {
   display: flex;
-  font-size: .3rem;
+  font-size: 12px;
   align-items: center;
-  padding-top: .3rem;
+  padding-top: 14px;
 }
 .order-box .line.note {
   align-items: flex-start;
@@ -80,14 +81,17 @@ html {
   margin-left: .2rem;
 }
 .order-box .title {
-  width: 1.54rem;
+  font-size: 12px;
+  width: 75px;
   color: #888;
   text-align-last: right;
 }
 .order-box .des {
   display: flex;
+  flex: 1;
   align-items: center;
-  margin-left: .38rem;
+  margin-left: 20px;
+  margin-right: 15px;
 }
 .order-box .btn {
   display: flex;
@@ -97,16 +101,20 @@ html {
   background-color: #FFD400;
 }
 .order-box .btn.copy {
-  width: .88rem;
-  height: .42rem;
-  margin-left: .2rem;
-  border-radius: .21rem;
+  width:44px;
+  height:22px;
+  background:rgba(255,212,0,1);
+  border-radius:11px;
+  margin-left: 12px;
+  line-height: 17px;
 }
 .order-box .btn.phone {
-  width: 1.4rem;
-  height: .42rem;
-  margin-left: .2rem;
-  border-radius: .21rem;
+  width: 91px;
+  height: 25px;
+  margin-left: 15px;
+  border-radius: 20px;
+  margin-left: 12px;
+  line-height: 17px;
 }
 .order-box .btn.pay {
   width: 2.12rem;
@@ -207,7 +215,7 @@ html {
   .head {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-start;
     padding: 8px 0px 5px;
     .left {
       flex: 1;

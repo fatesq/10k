@@ -10,7 +10,7 @@
         <div class="title">取车时间</div>
         <div class="des">
           <a style="color:#FFD400" (click)="onClick_4()">
-            {{tiemText ? (tiemText | date: 'short') : '请选择时间'}}
+            {{timeText ? (timeText | date: 'short') : '请选择时间'}}
           </a>
           <Calendar [(ngModel)]="this.state.date"
                 [locale]="'zhCN'"

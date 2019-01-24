@@ -116,4 +116,10 @@ export class ApiService {
     cartNum(id) {
         return this.httpClient.get(`${api}/shopCart/count?uid=${id}`)
     }
+
+    upload(param) {
+        return this.httpClient.post(`${api}/file/upload`, param);
+    }
+    
+
 }
