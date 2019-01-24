@@ -12,9 +12,9 @@
 				<div class="to-detail">></div>
 			</div>
 			<div class="auth-button">
-				<div class="auth-one">个人认证</div>
+				<div class="auth-one" routerLink="/register" [queryParams]='{type: 0}'>个人认证</div>
 				<div class="line"></div>
-				<div class="auth-one">企业认证</div>
+				<div class="auth-one" routerLink="/register" [queryParams]='{type: 1}'>企业认证</div>
 			</div>
 		</div>
 		<div class="user-tabs">

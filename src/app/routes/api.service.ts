@@ -22,7 +22,11 @@ export class ApiService {
     }
 
     customerAdd(param) {
-        return this.httpClient.post(`${api}/customer/add`, param);
+        return this.httpClient.post(`${api}/customer/valid`, param);
+    }
+
+    customerInfo(id) {
+        return this.httpClient.get(`${api}/customer/detail?uid=${id}`);
     }
 
     brandList() {
