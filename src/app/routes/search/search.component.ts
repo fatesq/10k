@@ -19,7 +19,22 @@ export class SearchComponent implements OnInit {
   constructor(
     private api: ApiService,
     public activeRoute: ActivatedRoute,
-    private bottomSheet: MatBottomSheet) {}
+    private bottomSheet: MatBottomSheet) {
+      history.pushState(null, null, document.URL);
+      window.addEventListener('popstate',  () => {
+        console.log(this.data, this.series)
+        console.log(this.showBrand, this.data.length, this.series.length)
+        if (this.showBrand && this.data.length > 0) {
+          this.data = [];
+          history.pushState(null, null, document.URL);
+        } else if (this.data.length < 1 && this.series.length > 0) {
+          this.series = [];
+          history.pushState(null, null, document.URL);
+        } else if (this.data.length < 1 && this.series.length < 1) {
+          window.location.hash = 'home';
+        }
+      }, false);
+    }
 
   openBottomSheet(item): void {
     this.api.detail(item.id).subscribe(res => {
