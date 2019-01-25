@@ -121,7 +121,8 @@
         <div class="tip" *ngIf="info.status < '2'">请向以下<span class="theme-color">银行账户进行汇款以保证取车进度</span></div>
         
         <div class="status" *ngIf="info.status > '1'">定金已汇款，金额<span class="assign-color">{{info.totalRePrice}}元</span></div>
-        <div class="tip" *ngIf="info.status > '1'">车辆正在取车中，请耐心等待</div>
+        <div class="tip" *ngIf="info.status != '1' && info.status != '5' ">车辆正在取车中，请耐心等待</div>
+        <div class="tip" *ngIf="info.status == '5' ">车辆已入库</div>
     </div>
     <div class="order-box fz24">
         <div class="line" *ngIf="info.status < '2'">
@@ -160,7 +161,7 @@
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">预计物流</div>
-            <div class="des">下单后{{info.arrvieTime}}个工作日内到达</div>
+            <div class="des">下单后 {{info.arriveTime}} 个工作日内到达</div>
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">验车时间</div>

@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
         } else if (this.data.length < 1 && this.series.length < 1) {
           window.location.hash = 'home';
         }
-      }, false);
+      });
     }
 
   openBottomSheet(item): void {

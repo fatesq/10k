@@ -5,8 +5,23 @@
       <div class="time">{{info.createTime}}</div>
     </div>
     <div class="order-status">
-      <div class="status">取车订单已提交成功</div>
-      <div class="tip">请向以下<span class="theme-color">银行账户进行汇款以保证取车进度</span></div>
+      <div class="status" *ngIf="info.status =='0'">取车订单已提交成功</div>
+      <div class="tip" *ngIf="info.status =='0'">请向以下<span class="theme-color">银行账户进行汇款以保证取车进度</span></div>
+
+      <div class="status" *ngIf="info.status =='1'">已付尾款，金额{{info.totalCutPrice}}元</div>
+      <div class="tip" *ngIf="info.status =='1'">请等待业务员联系</div>
+
+      <div class="status" *ngIf="info.status =='2'">已成功取车</div>
+      <div class="tip" *ngIf="info.status =='2'">车辆已成功交付</div>
+
+      <div class="status" *ngIf="info.status =='3'">订单已取消</div>
+      <div class="tip" *ngIf="info.status =='3'">取车车辆送回仓库</div>
+
+      <div class="status" *ngIf="info.status =='4'">正在退款中</div>
+      <div class="tip" *ngIf="info.status =='4'">等待银行确认</div>
+
+      <div class="status" *ngIf="info.status =='5'">退款完成</div>
+      <div class="tip" *ngIf="info.status =='5'">车辆已回收</div>
 
       <!-- <div class="status" *ngIf="info.status > '1'">定金已汇款，金额<span class="assign-color">{{info.totalRePrice}}元</span></div>
       <div class="tip" *ngIf="info.status > '1'">车辆正在取车中，请耐心等待</div> -->

@@ -9,8 +9,8 @@
             <div class="odd-detail">
                 <div class="left" style="flex: 1">
                     <div class="car-info">{{i.orderCar[0].seriesName}} {{i.orderCar[0].modelName}}等{{i.orderCar.length}}辆</div>
-                    <div class="get-info">取车时间：{{i.verifyTime ? i.verifyTime : '七个工作日内'}}</div>
-                    <div class="get-info">取车地点：{{i.verifySite ? i.verifySite : '发货中'}}</div>
+                    <div class="get-info">物流时间：{{i.arriveTime ? i.arriveTime +'个工作日内' : '7个工作日内'}}</div>
+                    <div class="get-info">验车地点：{{i.verifySite ? i.verifySite : '发货中'}}</div>
                 </div>
                 <div class="right">{{getType(i.status)}}</div>
             </div>
