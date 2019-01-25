@@ -1,0 +1,28 @@
+<div style="padding: 12px 20px">
+    <h2>个人信息</h2>
+    <form class="login-form">
+      <div class="item">
+        <div>头像</div>
+        <div (click)="upStart()" style="width: 50%;text-align: right">
+           <img [src]="avatar" width="42" height="42" alt="">
+        </div>
+      </div>
+      <div class="item">
+        <div>姓名</div>
+        <div class="right">
+          <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="item">
+        <div>个人认证</div>
+        <div class="right" routerLink="/register" [queryParams]='{type: 0}'>{{statusType(info.userStatus)}}</div>
+      </div>
+      <div class="item">
+        <div>企业认证</div>
+        <div class="right" routerLink="/register" [queryParams]='{type: 1}'>{{statusType(info.eeStatus)}}</div>
+      </div>
+      <input #fileUpload hidden=true type="file" ng2FileSelect [uploader]="uploader" (change)="selectedFileOnChanged($event)" />
+      <button mat-raised-button color="accent" style="width: 100%;margin-top: 15px" (click)="login()">提交</button>
+    </form>
+  </div>
+  

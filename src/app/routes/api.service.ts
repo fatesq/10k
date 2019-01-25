@@ -124,6 +124,8 @@ export class ApiService {
     upload(param) {
         return this.httpClient.post(`${api}/file/upload`, param);
     }
-    
 
+    userUp(param) {
+        return this.httpClient.post(`${api}/customer/update`, param);
+    }
 }

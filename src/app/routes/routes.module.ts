@@ -15,6 +15,7 @@ import { ListAComponent } from './center/ListA.component';
 import { ListBComponent } from './center/ListB.component';
 import { SubCarComponent } from './subCar/subCar.component';
 import { OverComponent } from './over/over.component';
+import { UserComponent } from './user/user.component';
 
 const COMPONENTS = [
   LoginComponent,
@@ -29,7 +30,8 @@ const COMPONENTS = [
   ListAComponent,
   ListBComponent,
   SubCarComponent,
-  OverComponent
+  OverComponent,
+  UserComponent
 ];
 
 @NgModule({
@@ -40,7 +42,8 @@ const COMPONENTS = [
   declarations: [...COMPONENTS],
   providers: [ApiService],
   entryComponents: [
-    DetailComponent
+    DetailComponent,
+    UserComponent
   ],
 })
 export class RoutesModule { }

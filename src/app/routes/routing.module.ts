@@ -12,6 +12,7 @@ import { ListAComponent } from './center/ListA.component';
 import { ListBComponent } from './center/ListB.component';
 import { SubCarComponent } from './subCar/subCar.component';
 import { OverComponent } from './over/over.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'ListA', component: ListAComponent },
   { path: 'ListB', component: ListBComponent },
   { path: 'subCar', component: SubCarComponent},
-  { path: 'over', component: OverComponent}
+  { path: 'over', component: OverComponent},
+  { path: 'user', component: UserComponent}
 ];
 
 @NgModule({
