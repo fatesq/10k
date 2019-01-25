@@ -16,20 +16,19 @@ constructor(
 
 load(): Promise<any> {
   return new Promise((resolve, reject) => {
-    // https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc82408bb96b3aacf&redirect_uri=https%3a%2f%2fmobile.qinhemili.com&response_type=code&scope=snsapi_base&state=123#wechat_redirect
-    let { code, state } = parse(window.location.href.split('?')[1]);
+    const { code, state } = parse(window.location.href.split('?')[1]);
     if (code) {
-      console.log(code, state)
       this.httpClient.post(`${api}/login/auto`, {wxCode: code}).subscribe(res => {
-        localStorage['token'] = res['data'].token
-        localStorage['openId'] = res['data'].openId
-        localStorage['uid'] = res['data'].uid
+        localStorage['token'] = res['data'].token;
+        localStorage['openId'] = res['data'].openId;
+        localStorage['uid'] = res['data'].uid;
+        localStorage['userStatus'] = res['data'].userStatus;
+        localStorage['eeStatus'] = res['data'].eeStatus;
         if (res['code'] == 402) {
-          window.location.hash = `/login?path=${state}`
+          window.location.hash = `/login?path=${state}`;
           resolve();
         } else {
-          window.location.hash = state ? `/${state}` : '/home'
-          resolve();
+          window.location.hash = state ? `/${state}` : '/home';
         }
       });
     } else {

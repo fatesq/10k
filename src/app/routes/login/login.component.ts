@@ -35,9 +35,11 @@ export class LoginComponent implements OnInit {
       openId: localStorage['openId']
     }).subscribe(res => {
       if (res['code'] == 200) {
-        localStorage['token'] = res['data'].token
-        localStorage['openId'] = res['data'].openId
-        localStorage['uid'] = res['data'].uid
+        localStorage['token'] = res['data'].token;
+        localStorage['openId'] = res['data'].openId;
+        localStorage['uid'] = res['data'].uid;
+        localStorage['userStatus'] = res['data'].userStatus;
+        localStorage['eeStatus'] = res['data'].eeStatus;
         const {path} = parse(window.location.href.split('?')[1])
         this.router.navigateByUrl(`/${path}`)
 

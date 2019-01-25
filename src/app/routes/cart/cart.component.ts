@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { Modal, Toast } from 'ng-zorro-antd-mobile';
 
 @Component({
   selector: 'app-cart',
@@ -10,9 +11,29 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
   list = [];
   totalRePrice = 0;
+  modal = false;
+  footer = [
+    {
+      text: '个人认证',
+      onPress: () => {
+        this.modal = false;
+        this.router.navigate(['register'], {queryParams: {'type': 0 }});
+      }
+    },
+    {
+      text: '企业认证',
+      onPress: () => {
+        this.modal = false;
+        this.router.navigate(['register'], {queryParams: {'type': 1 }});
+      },
+      style: {'color': '#000'}
+    }
+  ];
   constructor(
     private api: ApiService,
-    private router: Router
+    private router: Router,
+    // private _modal: Modal,
+    // private _toast: Toast
   ) { }
 
   ngOnInit() {
@@ -51,16 +72,20 @@ export class CartComponent implements OnInit {
   }
 
   submit() {
-    this.api.orderAdd({
-      uid: localStorage['uid'],
-      cartId: this.list.map(i => i.id)
-    }).subscribe(res => {
-      if (res['code'] === 200) {
-        this.router.navigate(['order'], {queryParams: {'code': res['data'].code }});
-      } else {
-        alert(res['description'] || res['msg']);
-      }
-    });
+    if (localStorage['userStatus'] == 1 || localStorage['eeStatus'] == 1) {
+      this.api.orderAdd({
+        uid: localStorage['uid'],
+        cartId: this.list.map(i => i.id)
+      }).subscribe(res => {
+        if (res['code'] === 200) {
+          this.router.navigate(['order'], {queryParams: {'code': res['data'].code }});
+        } else {
+          alert(res['description'] || res['msg']);
+        }
+      });
+    } else {
+      this.modal = true;
+    }
   }
 
 }

@@ -126,7 +126,7 @@
     <div class="order-box fz24">
         <div class="line" *ngIf="info.status < '2'">
             <div class="title">预付金额</div>
-            <div class="des">¥ <span class="fz36 assign-color">{{info.totalRePrice}}</span>万元</div>
+            <div class="des"><span class="fz36 assign-color">¥ {{info.totalRePrice}}元</span></div>
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">业务员</div>
@@ -160,7 +160,7 @@
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">预计物流</div>
-            <div class="des">下单后{{info.arrivetime}}个工作日内到达</div>
+            <div class="des">下单后{{info.arrvieTime}}个工作日内到达</div>
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">验车时间</div>

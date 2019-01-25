@@ -43,7 +43,7 @@ const COMPONENTS = [
   providers: [ApiService],
   entryComponents: [
     DetailComponent,
-    UserComponent
+    CartComponent
   ],
 })
 export class RoutesModule { }
