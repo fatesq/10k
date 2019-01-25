@@ -13,26 +13,9 @@ export class SubCarComponent implements OnInit {
   cars = [];
   totalAmount = 0;
   totalCutPrice = 0;
-  timeText: any;
-  state: any = {
-    en: false,
-    date: null,
-    show: false,
-    pickTime: false,
-    now: new Date(),
-    type: 'range',
-    enterDirection: '',
-    rowSize: 'normal',
-    showShortcut: false,
-    infinite: true,
-    defaultValue: undefined,
-    minDate: new Date(+now - 5184000000),
-    maxDate: new Date(+now + 31536000000),
-    onSelect: undefined,
-    // getDateExtra: date => {
-    //   return extra[+date];
-    // }
-  };
+  time = new Date();
+  timeText = '';
+  minDate = new Date();
   constructor(
     private api: ApiService,
     private activatedRoute: ActivatedRoute,
@@ -52,63 +35,25 @@ export class SubCarComponent implements OnInit {
     });
   }
 
-  initPara() {
-    this.state = {
-      ...this.state,
-      ...{
-        show: false,
-        date: null,
-        pickTime: false,
-        now: new Date(),
-        type: 'range',
-        rowSize: 'normal',
-        infinite: true,
-        enterDirection: '',
-        onSelect: undefined,
-        showShortcut: false,
-        defaultValue: undefined,
-        minDate: new Date(+now - 5184000000),
-        maxDate: new Date(+now + 31536000000),
-        // getDateExtra: date => {
-        //   return extra[+date];
-        // }
-      }
-    };
+
+  onOk1(result: Date) {
+    console.log(result)
+    console.log( moment(result).format('YYYY-MM-DD'))
+    this.time = result;
+    this.timeText = moment(result).format('YYYY-MM-DD HH:mm');
   }
 
-  onClick_4() {
-    this.initPara();
-    this.state.show = true;
-    this.state.pickTime = true;
-    this.state.type = 'one';
-  }
-
-  triggerCancel() {
-    this.state.show = false;
-  }
-
-  triggerConfirm(value) {
-    const { startDate, endDate } = value;
-    this.state = {
-      ...this.state,
-      ...{ show: false, startDate, endDate }
-    };
-    this.triggerCancel();
-    console.log(startDate);
-    this.timeText = startDate.date;
-    console.log('onConfirm', moment(startDate.date).valueOf(), endDate);
-  }
 
   submit() {
     if (!this.timeText) {
       alert('请选择时间')
       return false;
     }
-    console.log(moment(this.timeText).valueOf())
+    console.log(moment(this.time).valueOf())
     this.api.addOrder({
       uid: localStorage['uid'],
       verifySite: '米粒好车有限公司',
-      verifyTime: moment(this.timeText).valueOf(),
+      verifyTime: moment(this.time).valueOf(),
       cars: this.cars.map(i => {
         return {
           storeId: i.id,

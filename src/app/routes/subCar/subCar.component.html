@@ -9,26 +9,9 @@
       <div class="line">
         <div class="title">取车时间</div>
         <div class="des">
-          <a style="color:#FFD400" (click)="onClick_4()">
-            {{timeText ? (timeText | date: 'short') : '请选择时间'}}
+          <a style="color:#FFD400" DatePicker [mode]="'datetime'" [minDate]="minDate" (onOk)="onOk1($event)">
+            {{timeText ? timeText : '请选择时间'}}
           </a>
-          <Calendar [(ngModel)]="this.state.date"
-                [locale]="'zhCN'"
-                [enterDirection]="this.state.enterDirection"
-                [visible]="this.state.show"
-                [defaultDate]="this.state.now"
-                [minDate]="this.state.minDate"
-                [maxDate]="this.state.maxDate"
-                [pickTime]="this.state.pickTime"
-                [type]="this.state.type"
-                [rowSize]="this.state.rowSize"
-                [showShortcut]="this.state.showShortcut"
-                [infinite]="this.state.infinite"
-                [defaultValue]="this.state.defaultValue"
-                [onSelect]="this.state.onSelect"
-                (onCancel)="triggerCancel()"
-                (onConfirm)="triggerConfirm($event)"
-          ></Calendar>
         </div>
       </div>
       <div class="line">

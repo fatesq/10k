@@ -111,7 +111,7 @@
     <div class="border"></div>
 
     <div class="list-box">
-      <div class="title">预定清单</div>
+      <div class="title">尾款清单</div>
       <div class="box" *ngFor="let i of cars;let index = index">
         <div class="head">
           <h4 class="left">{{i.seriesName}} {{i.modelName}}</h4>
@@ -119,7 +119,7 @@
         </div>
         <h5 class="line">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>
         <div class="stepper">
-          <div class="label" *ngIf="i.cutPrice > 0"><span style="color: #FF7800;font-size: 16px">预付: {{i.cutPrice}}万</span> 全款{{i.price}}万</div>
+          <div class="label" *ngIf="i.cutPrice > 0"><span style="color: #FF7800;font-size: 16px">尾款: {{i.cutPrice}}万</span> 全款{{i.price}}万</div>
           <div class="label" *ngIf="i.cutPrice == 0"><span style="color: #FF7800;font-size: 16px">价格电议</span></div>
           <div class="set">
             <!-- <div style="flex:1">
