@@ -14,6 +14,7 @@ export class DetailComponent implements OnInit {
   type2 = 0;
   num = 1;
   show = false;
+  modal = false;
   constructor(
     @Inject(MAT_BOTTOM_SHEET_DATA) public info: any,
     private bottomSheetRef: MatBottomSheetRef<DetailComponent>,
@@ -64,11 +65,12 @@ export class DetailComponent implements OnInit {
       carId: this.info.data.id
     }).subscribe(res => {
       if (res['code'] == 200) {
-        alert('加入成功');
+        this.modal = true;
         // this.router.navigateByUrl('/cart');
         // this.bottomSheetRef.dismiss();
       } else {
-        alert(res['description'] || res['msg']);
+       
+       alert(res['description'] || res['msg']);
       }
     });
   }
