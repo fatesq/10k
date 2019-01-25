@@ -16,6 +16,9 @@ import { ListBComponent } from './center/ListB.component';
 import { SubCarComponent } from './subCar/subCar.component';
 import { OverComponent } from './over/over.component';
 import { UserComponent } from './user/user.component';
+import { SearchAComponent } from './search/a';
+import { SearchBComponent } from './search/b';
+import { SearchCComponent } from './search/c';
 
 const COMPONENTS = [
   LoginComponent,
@@ -31,7 +34,10 @@ const COMPONENTS = [
   ListBComponent,
   SubCarComponent,
   OverComponent,
-  UserComponent
+  UserComponent,
+  SearchAComponent,
+  SearchBComponent,
+  SearchCComponent
 ];
 
 @NgModule({

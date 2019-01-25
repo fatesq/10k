@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   click(event) {
-    this.router.navigate(['search'], {queryParams: {'data': JSON.stringify(event.data) }});
+    this.router.navigate(['/search/b'], {queryParams: {'data': JSON.stringify(event.data) }});
   }
 
 }

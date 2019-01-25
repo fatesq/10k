@@ -13,7 +13,7 @@
     </mat-form-field>
     <mat-form-field class="full-width">
       <input matInput [(ngModel)]="validCode" [ngModelOptions]="{standalone: true}" placeholder="验证码">
-      <button matSuffix mat-button color="accent" (click)="getCode()">发送验证码</button>
+      <button matSuffix mat-button color="accent" (click)="getCode()">{{time  != 60 ? time : '发送验证码'}}</button>
     </mat-form-field>
     <button mat-raised-button color="accent" style="width: 100%" (click)="login()">请绑定手机号</button>
   </form>

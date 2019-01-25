@@ -8,7 +8,8 @@
     (onCancel)="blur(value)"
   ></SearchBar>
 </div>
-<section>
+<router-outlet></router-outlet>
+<!-- <section>
   <Card [full]="true">
     <CardBody style="padding: 0px">
       <Grid *ngIf="data.length < 1 && series.length < 1" [data]="brand" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
@@ -17,14 +18,14 @@
         <ListItem *ngFor="let item of series" [arrow]="'horizontal'" (onClick)="seriesClick(item.seriesName)">{{item.seriesName}} </ListItem>
       </div>
       <div class="data">
-        <!-- <ListItem *ngFor="let item of data" multipleLine [extra]="list" (click)="openBottomSheet(item)">
+        <ListItem *ngFor="let item of data" multipleLine [extra]="list" (click)="openBottomSheet(item)">
           {{item.seriesName}} {{item.modelName}}
           <Brief>{{item.sizeLevel}} {{item.plasticColor.join('/')}}</Brief>
           <ng-template #list>
               <div style="color: #FF7800;font-size: 16px">{{item.price}}万</div>
               <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
           </ng-template>
-        </ListItem> -->
+        </ListItem> 
         <div class="listitem" *ngFor="let item of data" (click)="openBottomSheet(item)">
           <div class="top">
             <div class="left">{{item.seriesName}} {{item.modelName}}</div>
@@ -38,7 +39,7 @@
       </div>
     </CardBody>
   </Card>
-</section>
+</section> -->
 <div class="fab">
     <img src="../../../assets/db/icon_shoppingcart_nor.png" width="50" height="50" routerLink="/cart" />
     <i *ngIf="num != 0" class="numIcon">{{num}}</i>

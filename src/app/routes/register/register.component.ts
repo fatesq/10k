@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
           this.enterpriseNo = res['data'].enterpriseNo;
           this.enterpriseCity = res['data'].enterpriseCity;
           this.enterpriseName = res['data'].enterpriseName;
-          if (this.idCardImg) {
+          if (this.idCardImg != '' && this.idCardImg != null && this.idCardImg != undefined ) {
             document.getElementById('img').setAttribute('style', `background-image: url(${this.idCardImg});`);
           }
           

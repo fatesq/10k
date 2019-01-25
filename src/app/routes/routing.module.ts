@@ -13,13 +13,23 @@ import { ListBComponent } from './center/ListB.component';
 import { SubCarComponent } from './subCar/subCar.component';
 import { OverComponent } from './over/over.component';
 import { UserComponent } from './user/user.component';
+import { SearchAComponent } from './search/a';
+import { SearchBComponent } from './search/b';
+import { SearchCComponent } from './search/c';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'result', component: ResultComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'search', component: SearchComponent },
+  { path: 'search', component: SearchComponent,
+  children: [
+    { path: '', redirectTo: 'a', pathMatch: 'full' },
+    { path: 'a', component: SearchAComponent},
+    { path: 'b', component: SearchBComponent},
+    { path: 'c', component: SearchCComponent},
+    ]
+  },
   { path: 'order', component: OrderComponent },
   { path: 'cart', component: CartComponent },
   { path: 'register', component: RegisterComponent },
