@@ -127,7 +127,8 @@
     <div class="order-box fz24">
         <div class="line" *ngIf="info.status < '2'">
             <div class="title">预付金额</div>
-            <div class="des"><span class="fz36 assign-color">¥ {{info.totalRePrice}}元</span></div>
+            <div *ngIf="info.totalRePrice > 0" class="des"><span class="fz36 assign-color">¥ {{info.totalRePrice}}元</span></div>
+            <div *ngIf="info.totalRePrice == 0" class="des"><span class="fz36 assign-color">价格电议</span></div>
         </div>
         <div class="line" *ngIf="info.status > '1'">
             <div class="title">业务员</div>

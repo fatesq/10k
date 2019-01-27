@@ -6,7 +6,8 @@
 <mat-card class="example-card">
     <mat-card-header>
       <img mat-card-avatar class="example-header-image" style="background-color: #CCC" [src]="info.data.carImg" />
-      <mat-card-title style="font-size: 24px;color: #FF7800">{{info.data.price}}万</mat-card-title>
+      <mat-card-title *ngIf="info.data.price > 0" style="font-size: 24px;color: #FF7800">{{info.data.price}}万</mat-card-title>
+      <mat-card-title *ngIf="info.data.price == 0" style="font-size: 22px;color: #FF7800">价格电议</mat-card-title>
       <mat-card-subtitle style="font-size: 12px">
         指导价：{{info.data.guidePrice}}万 降<span style="color: #FF7200;">{{info.data.difPrice}}</span>万
         <div class="tag-container"><Tag [disabled]="true" [selected]="true">手续齐全</Tag><Tag [disabled]="true" [selected]="true">全额担保</Tag></div>
@@ -40,7 +41,8 @@
     <div class="header">车辆信息</div>
     <div class="line">
       <div class="label">价格</div>
-      <div class="control" style="color:#FF7200">{{info.data.price}}万元</div>
+      <div *ngIf="info.data.price > 0" class="control" style="color:#FF7200">{{info.data.price}}万元</div>
+      <div *ngIf="info.data.price == 0" class="control" style="color:#FF7200">价格电议</div>
     </div>
     <div class="line">
       <div class="label">指导价</div>
@@ -73,8 +75,11 @@
 </div>
 <div class="bottom">
   <div class="line">
-    <div class="left">
+    <div class="left" *ngIf="info.data.rePice > 0">
       单台仅需<span style="color:#FF7200">{{info.data.rePice}}</span>万即可提车
+    </div>
+    <div class="left" *ngIf="info.data.rePice == 0">
+      <span style="color:#FF7200">提车价格需电议</span>
     </div>
     <div class="border" (click)="toCart()"><img class="cart" src="../../../assets/db/icon_mystore_nor.png"><i *ngIf="show" ></i></div>
     <div class="right">

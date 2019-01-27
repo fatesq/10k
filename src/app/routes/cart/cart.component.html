@@ -29,7 +29,8 @@
 <div class="bottom">
   <div class="line">
       <div class="left">
-        <div>预付总计:  <span style="color: #FF7800;">{{totalRePrice}}万</span></div>
+        <div *ngIf="totalRePrice > 0">预付总计:  <span style="color: #FF7800;">{{totalRePrice}}万</span></div>
+        <div *ngIf="totalRePrice == 0">预付总计:  <span style="color: #FF7800;">价格电议</span></div>
         <h4 style="color:#3E3E3E;font-size: 12px;padding:4px 0px;">稍后会有业务员与您联系</h4>
       </div>
       <div class="right">

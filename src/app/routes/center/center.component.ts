@@ -49,6 +49,9 @@ export class CenterComponent implements OnInit {
       default:
         break;
     }
+    if (this.user.userStatus == '1' || this.user.eeStatus == '1') {
+      info = "审核通过"
+    }
     return info;
   }
 
@@ -66,6 +69,9 @@ export class CenterComponent implements OnInit {
         break;
       default:
         break;
+    }
+    if (this.user.userStatus == '1' || this.user.eeStatus == '1') {
+      info = "审核通过"
     }
     return info;
   }

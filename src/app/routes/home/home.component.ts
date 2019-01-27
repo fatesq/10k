@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   data = [];
   carList = [];
+  modal = localStorage['care'] == 0 ? true : false;
   constructor(
     private api: ApiService,
     private bottomSheet: MatBottomSheet,
