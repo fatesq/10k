@@ -30,7 +30,7 @@
       <input matInput [(ngModel)]="idCard" [ngModelOptions]="{standalone: true}" placeholder="身份证">
     </mat-form-field>
     <div id="img"(click)="upStart()" class="bigImg">
-      {{idCardImg ? '' : '上传名片正面照片'}}
+      <!-- {{idCardImg ? '' : '上传名片正面照片'}} -->
     </div>
     <input #fileUpload hidden=true type="file" ng2FileSelect [uploader]="uploader" (change)="selectedFileOnChanged($event)" />
     <button mat-raised-button color="accent" style="width: 100%" (click)="login()">提交认证</button>
