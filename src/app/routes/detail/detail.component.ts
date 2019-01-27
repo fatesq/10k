@@ -1,8 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import {MatBottomSheetRef} from '@angular/material';
 import {MAT_BOTTOM_SHEET_DATA} from '@angular/material';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { Toast } from 'ng-zorro-antd-mobile';
 
 @Component({
   selector: 'app-detail',
@@ -19,7 +20,8 @@ export class DetailComponent implements OnInit {
     @Inject(MAT_BOTTOM_SHEET_DATA) public info: any,
     private bottomSheetRef: MatBottomSheetRef<DetailComponent>,
     private api: ApiService,
-    private router: Router
+    private router: Router,
+    private cdf: ChangeDetectorRef,
   ) {
   }
 
@@ -65,7 +67,10 @@ export class DetailComponent implements OnInit {
       carId: this.info.data.id
     }).subscribe(res => {
       if (res['code'] == 200) {
-        this.modal = true;
+        console.log(this.bottomSheetRef)
+        this.bottomSheetRef.instance.modal = true
+        this.cdf.markForCheck();
+        this.cdf.detectChanges();
         // this.router.navigateByUrl('/cart');
         // this.bottomSheetRef.dismiss();
       } else {
