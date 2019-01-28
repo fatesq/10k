@@ -24,7 +24,28 @@
 
     <div class="list-box">
       <div class="title">取车清单</div>
-      <div class="list" *ngFor="let i of cars;let index = index">
+      <div class="box" *ngFor="let i of cars;let index = index">
+        <div class="head">
+          <h4 class="left">{{i.seriesName}} {{i.modelName}}</h4>
+          <span class="right">指导价: {{i.guidePrice}}万</span>
+        </div>
+        <h5 class="line">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>
+        <div class="stepper">
+          <div class="label" *ngIf="i.cutPrice > 0"><span style="color: #FF7800;font-size: 16px">尾款: {{i.cutPrice}}万</span></div>
+          <div class="label" *ngIf="i.cutPrice == 0"><span style="color: #FF7800;font-size: 16px">价格电议</span></div>
+          <div class="set">
+            <!-- <div style="flex:1">
+              全款{{i.price}}万
+              <img class="ic" (click)="del(index)" src="../../../assets/db/icon_decrease_nor.png"/>
+            </div> -->
+            <span style="flex: 1"> {{i.amount}}辆</span>
+            <!-- <div style="flex:1">
+              <img class="ic" (click)="add(index)" src="../../../assets/db/icon_incarease_nor.png"/>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- <div class="list" *ngFor="let i of cars;let index = index">
         <div class="line clearfix">
           <div class="name">{{i.seriesName}} {{i.modelName}}</div>
           <div class="money">指导价：{{i.guidePrice}}万</div>
@@ -33,11 +54,11 @@
         <div class="line clearfix">
           <div class="pay">
             <span class="first">尾款: {{i.cutPrice}}万</span>
-            <!-- <span>全款{{i.price}}万</span> -->
+            <span>全款{{i.price}}万</span>
           </div>
           <div class="num">{{i.amount}}辆</div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
