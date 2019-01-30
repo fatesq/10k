@@ -99,6 +99,10 @@ export class RegisterComponent implements OnInit {
 
   login() {
     let info = {};
+    if (this.idCard.length > 0 && this.idCard.length != 18) {
+      alert('请输入18位身份证号');
+      return false;
+    }
     if (!this.type) {
       info = {
         id: localStorage['uid'],
