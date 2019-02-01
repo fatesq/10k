@@ -117,7 +117,11 @@
         <div class="time">{{info.createTime}}</div>
     </div>
     <div class="order-status">
-        <div class="status" *ngIf="info.status < '2'">预约订单已提交成功</div>
+        <div class="status" *ngIf="info.status < '2'">申请垫资金额: 
+          <span *ngIf="info.totalCutPrice > 0">{{info.totalCutPrice}}</span>
+          <span *ngIf="info.totalCutPrice == 0">价格电议</span>
+        </div>
+        <!-- <div class="status" *ngIf="info.status < '2'">预约订单已提交成功</div> -->
         <div class="tip" *ngIf="info.status < '2'">请向以下<span class="theme-color">银行账户进行汇款以保证取车进度</span></div>
         
         <div class="status" *ngIf="info.status > '1'">定金已汇款，金额<span class="assign-color">{{info.totalRePrice}}元</span></div>
