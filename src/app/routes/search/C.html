@@ -11,9 +11,15 @@
                 <div style="color: #BFBFBF;font-size: 12px">指导价: {{item.guidePrice}}万</div>
             </ng-template>
             </ListItem>  -->
+            <PullToRefresh [ngStyle]="dtPullToRefreshStyle"
+                   [direction]="state.direction"
+                   [(ngModel)]="state.refreshState"
+                   [endReachedRefresh]="state.endReachedRefresh"
+                   (onRefresh)="pullToRefresh($event)"
+            >
             <div class="listitem" *ngFor="let item of data" (click)="openBottomSheet(item)">
             <div class="top">
-                <div class="left">{{item.seriesName}} {{item.modelName}}</div>
+                <div class="left">{{item.modelName}}</div>
                 <div *ngIf="item.price > 0" class="right">{{item.price}}万</div>
                 <div *ngIf="item.price == 0" class="right">价格电议</div>
             </div>
@@ -22,6 +28,7 @@
                 <div class="right">指导价: {{item.guidePrice}}万</div>
             </div>
             </div>
+            </PullToRefresh>
         </div>
         </CardBody>
     </Card>

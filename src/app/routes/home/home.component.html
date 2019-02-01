@@ -59,7 +59,7 @@
         <CardBody style="padding: 0px">
           <div class="listitem" *ngFor="let item of carList" (click)="openBottomSheet(item)">
             <div class="top">
-              <div class="left">{{item.seriesName}} {{item.modelName}}</div>
+              <div class="left">{{item.modelName}}</div>
               <div *ngIf="item.price > 0" class="right">{{item.price}}万</div>
               <div *ngIf="item.price == 0" class="right">价格电仪</div>
             </div>

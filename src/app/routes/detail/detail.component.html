@@ -46,7 +46,7 @@
     </div>
     <div class="line">
       <div class="label">指导价</div>
-      <div class="control">{{info.data.guidePrice}}万元/降{{info.data.difPrice}}万元</div>
+      <div class="control">{{info.data.guidePrice}}万元<span *ngIf="info.data.price > 0">/降{{info.data.difPrice}}万元</span></div>
     </div>
     <div class="line">
       <div class="label">规格</div>

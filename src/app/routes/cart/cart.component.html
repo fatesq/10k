@@ -1,7 +1,27 @@
 <section style="padding: 5px 15px">
   <div class="top">
-    <h2 style="font-size: 24px">车辆预订单</h2>
+    <h2 style="font-size: 24px">申请垫资</h2>
     <div Button class="sm" [type]="'primary'" [inline]="true" [size]="'small'">说明</div>
+  </div>
+  <div style="display: flex;padding-top: 17px;">
+    <img src="https://ricecar.oss-cn-hangzhou.aliyuncs.com/xiazai-copy.png" width="28" height="28">
+    <div Picker [(ngModel)]="ratio" [data]="select" cols="1" (ngModelChange)="onSelect($event)" style="padding-bottom:17px;flex:1;display: flex;justify-content: space-between;border-bottom: 1px solid #E6E6E6;margin-left: 12px">
+      <div style="color:#282828;font-size: 16px">配资比例:</div>
+      <div style="color:#FFD400;font-size: 18px">{{ratio.label}}</div>
+    </div>
+  </div>
+  <div style="display: flex;padding-top: 17px;">
+    <img src="https://ricecar.oss-cn-hangzhou.aliyuncs.com/cheliang-.png" width="28" height="28">
+    <div Picker [(ngModel)]="fromType" [data]="select2" cols="1" (ngModelChange)="onSelect2($event)" style="padding-bottom:17px;flex:1;display: flex;justify-content: space-between;margin-left: 12px">
+      <div style="color:#282828;font-size: 16px">车辆来源:</div>
+      <div style="color:#FFD400;font-size: 18px">{{fromType.label}}</div>
+    </div>
+  </div>
+</section>
+<section style="padding: 5px 15px">
+  <div class="top">
+    <h2 style="font-size: 24px">车辆预订单</h2>
+    <!-- <div Button class="sm" [type]="'primary'" [inline]="true" [size]="'small'">说明</div> -->
   </div>
   <div class="box" *ngFor="let i of list;let index = index">
     <div class="head">
@@ -10,7 +30,7 @@
     </div>
     <h5 class="line">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>
     <div class="stepper">
-      <div class="label" *ngIf="i.rePrice > 0"><span style="color: #FF7800;font-size: 16px">预付: {{i.rePrice}}万</span> 全款{{i.price}}万</div>
+      <div class="label" *ngIf="i.rePrice > 0"><span style="color: #FF7800;font-size: 16px">垫资: {{i.rePrice}}万</span> 全款{{i.price}}万</div>
       <div class="label" *ngIf="i.rePrice == 0"><span style="color: #FF7800;font-size: 16px">价格电议</span></div>
       <div class="set">
         <div style="flex:1">
@@ -29,8 +49,8 @@
 <div class="bottom">
   <div class="line">
       <div class="left">
-        <div *ngIf="totalRePrice > 0">预付总计:  <span style="color: #FF7800;">{{totalRePrice}}万</span></div>
-        <div *ngIf="totalRePrice == 0">预付总计:  <span style="color: #FF7800;">价格电议</span></div>
+        <div *ngIf="totalRePrice > 0">申请垫资:  <span style="color: #FF7800;">{{totalRePrice}}万</span></div>
+        <div *ngIf="totalRePrice == 0">申请垫资:  <span style="color: #FF7800;">价格电议</span></div>
         <h4 style="color:#3E3E3E;font-size: 12px;padding:4px 0px;">稍后会有业务员与您联系</h4>
       </div>
       <div class="right">

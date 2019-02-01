@@ -16,12 +16,16 @@ import { UserComponent } from './user/user.component';
 import { SearchAComponent } from './search/a';
 import { SearchBComponent } from './search/b';
 import { SearchCComponent } from './search/c';
+import { Home1Component } from './home1/home1.component';
+import { Home2Component } from './home2/home2.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'result', component: ResultComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'home1', component: Home1Component },
+  { path: 'home2', component: Home2Component },
   { path: 'search', component: SearchComponent,
   children: [
     { path: '', redirectTo: 'a', pathMatch: 'full' },

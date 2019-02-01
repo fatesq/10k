@@ -10,6 +10,8 @@ templateUrl: './C.html',
 styleUrls: ['./search.component.less']
 })
 export class SearchCComponent implements OnInit {
+    name = '';
+    query = '';
     title = {
         seriesName: '',
         icon: '',
@@ -18,6 +20,18 @@ export class SearchCComponent implements OnInit {
     };
     showBrand = false;
     data = [];
+    page = 1;
+    state = {
+        refreshState: {
+        currentState: 'deactivate',
+        drag: false
+        },
+        direction: '',
+        endReachedRefresh: false,
+        height: 600,
+        directionName: 'both up and down'
+    };
+    dtPullToRefreshStyle = { height: this.state.height + 'px' };
     constructor(
         private api: ApiService,
         private router: Router,
@@ -30,19 +44,11 @@ export class SearchCComponent implements OnInit {
         this.activeRoute.queryParams.subscribe(params => {
             if (params['name']) {
                 this.title = JSON.parse(params['title']);
-                const name = params['name']
-                console.log()
-                this.api.bySeries({seriesName: name, page: 1, size: 99}).subscribe(res => {
-                    this.title['seriesName'] = name;
-                    this.data = res['data'];
-                    this.showBrand = true;
-                });
-            } else if(params['query']) {
-                const query = params['query']
-                this.api.search({query: query}).subscribe(res => {
-                    this.data = res['data'];
-                    this.showBrand = false;
-                });
+                this.name = params['name'];
+                this.getListA();
+            } else if (params['query']) {
+                this.query = params['query'];
+                this.getListB();
             }
         });
     }
@@ -53,7 +59,45 @@ export class SearchCComponent implements OnInit {
         });
     }
 
-    
+    pullToRefresh(event) {
+        console.log(event)
+        if (event === 'up') {
+            this.page++;
+            this.state.refreshState.currentState = 'release';
+            this.getInfo();
+        } else {
+            if (event === 'down') {
+                this.data = [];
+                this.page = 1;
+                this.getInfo();
+            }
+        }
+    }
 
-    
+    getInfo() {
+        this.activeRoute.queryParams.subscribe(params => {
+            if (params['name']) {
+                this.getListA();
+            } else if (params['query']) {
+                this.getListB();
+            }
+        });
+    }
+
+    getListA() {
+        this.api.bySeries({seriesName: this.name, page: this.page, size: 10}).subscribe(res => {
+            this.title['seriesName'] = this.name;
+            this.data = this.data.concat(res['data']);
+            this.showBrand = true;
+            this.state.refreshState.currentState = 'finish';
+        });
+    }
+
+    getListB() {
+        this.api.search({query: this.query}).subscribe(res => {
+            this.data = this.data.concat(res['data']);
+            this.showBrand = false;
+            this.state.refreshState.currentState = 'finish';
+        });
+    }
 }

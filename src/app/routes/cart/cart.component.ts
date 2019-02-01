@@ -12,6 +12,8 @@ export class CartComponent implements OnInit {
   list = [];
   totalRePrice = 0;
   modal = false;
+  ratio: any = {value: 1, label: '80%'};
+  fromType: any = {value: 0, label: '粒米帮选'};
   footer = [
     {
       text: '个人认证',
@@ -29,6 +31,18 @@ export class CartComponent implements OnInit {
       style: {'color': '#000'}
     }
   ];
+  select = [
+    {value: 1, label: '80%'},
+    {value: 2, label: '70%'},
+    {value: 3, label: '60%'},
+    {value: 4, label: '50%'},
+    {value: 5, label: '40%'},
+    {value: 6, label: '30%'},
+    {value: 7, label: '20%'},
+  ];
+  select2 = [
+    {value: 0, label: '粒米帮选'},
+    {value: 1, label: '自选购车'}];
   constructor(
     private api: ApiService,
     private router: Router,
@@ -38,6 +52,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.getList();
+    this.getInfo();
   }
 
   getList() {
@@ -88,4 +103,28 @@ export class CartComponent implements OnInit {
     }
   }
 
+  change() {
+    this.api.userUp({
+      id: localStorage['uid'],
+      ratio: this.ratio.value,
+      fromType: this.fromType.value,
+    }).subscribe(res => {
+
+    });
+  }
+  getInfo() {
+    this.api.customerInfo(localStorage['uid']).subscribe(res => {
+      this.ratio = this.select.find(i => i.value === res['data'].ratio);
+      this.fromType = this.select2.find(i => i.value === res['data'].fromType);
+    });
+  }
+
+  onSelect(val) {
+    this.ratio = val[0];
+    this.change();
+  }
+  onSelect2(val2) {
+    this.fromType = val2[0];
+    this.change();
+  }
 }
