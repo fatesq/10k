@@ -26,7 +26,11 @@ load(): Promise<any> {
         timestamp: res['data'].timestamp, // 必填，生成签名的时间戳
         nonceStr: res['data'].nonceStr, // 必填，生成签名的随机串
         signature: res['data'].signature, // 必填，签名
-        jsApiList: ['updateTimelineShareData', 'updateAppMessageShareData', 'onMenuShareAppMessage', 'onMenuShareTimeline'], // 必填，需要使用的JS接口列表
+        jsApiList: [
+          'updateTimelineShareData',
+          'updateAppMessageShareData',
+          'onMenuShareAppMessage',
+          'onMenuShareTimeline'], // 必填，需要使用的JS接口列表
       });
       wx.ready(function () {
         const ShareInfo = {
