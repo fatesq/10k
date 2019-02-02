@@ -20,7 +20,7 @@ import { Home1Component } from './home1/home1.component';
 import { Home2Component } from './home2/home2.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home1', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'result', component: ResultComponent },
   { path: 'home', component: HomeComponent },

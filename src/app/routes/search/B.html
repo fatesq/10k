@@ -4,6 +4,7 @@
         <div style="display:flex;padding:10px 0px 0px 15px;align-items: center"><img [src]="title.icon" width="30" height="30"><span style="margin-left: 10px;font-size:20px;font-weight: bold">{{title.text}} {{title.seriesName}}</span> </div>
         <div>
             <ListItem *ngFor="let item of series" [arrow]="'horizontal'" (onClick)="seriesClick(item.seriesName)">{{item.seriesName}} </ListItem>
+            <h3 *ngIf="series.length < 1" style="text-align:center">暂无数据</h3>
         </div>
         </CardBody>
     </Card>
