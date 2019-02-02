@@ -109,7 +109,7 @@ export class CartComponent implements OnInit {
       ratio: this.ratio.value,
       fromType: this.fromType.value,
     }).subscribe(res => {
-
+      this.getList();
     });
   }
   getInfo() {

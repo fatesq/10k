@@ -21,7 +21,7 @@
             <div class="top">
                 <div class="left">{{item.modelName}}</div>
                 <div *ngIf="item.price > 0" class="right">{{item.price}}万</div>
-                <div *ngIf="item.price == 0" class="right">价格电议</div>
+                <div *ngIf="item.price == 0" class="right">电议</div>
             </div>
             <div class="bottom">
                 <div class="left">{{item.sizeLevel}} {{item.plasticColor.join('/')}}</div>
