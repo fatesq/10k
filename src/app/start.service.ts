@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { wx } from 'weixin-js-sdk';
+import wx from 'weixin-js-sdk';
 import { parse, stringify } from 'qs';
 const api = 'https://api.qinhemili.com';
 @Injectable({
