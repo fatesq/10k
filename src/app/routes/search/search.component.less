@@ -138,3 +138,34 @@
       }
     }
 }
+
+
+.list-bar {
+    width: 23px;
+    background-color: rgba(178,178,178,0.5);
+    // position: absolute;
+    height: 100%;
+    // z-index: 10;
+    right: 0px;
+    -webkit-transition: .2s;
+    a {
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        padding: 0px;
+        margin: 0px;
+        line-height: 18px;
+        color: #aaa;
+    }
+}
+
+:host ::ng-deep .am-grid-text {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    // -webkit-line-clamp:2;
+}
+
+:host ::ng-deep .am-search-input {
+    color: #000;
+}

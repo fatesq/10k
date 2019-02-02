@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
 import { DetailComponent } from '../detail/detail.component';
 import { ApiService } from '../api.service';
@@ -11,6 +11,7 @@ styleUrls: ['./search.component.less']
 })
 export class SearchAComponent implements OnInit {
     brand = [];
+    list = [];
     constructor(
         private api: ApiService,
         private router: Router,
@@ -20,19 +21,38 @@ export class SearchAComponent implements OnInit {
 
     ngOnInit() {
         this.getBrand();
+        for (let i = 0; i < 26; i++) {
+            this.list.push(String.fromCharCode(65 + i));
+        }
     }
 
     getBrand() {
-        this.api.brandList().subscribe(res =>
-            this.brand = res['data'].map(i => ({
-                icon: i.img,
-                text: i.name,
-                id: i.id,
-            })
-        ));
-    }   
+        this.api.initialList().subscribe(res => {
+            this.brand = res['data'].map(i => {
+                i.list = i.list.map(v => {
+                    return {
+                        icon: v.img,
+                        text: v.name,
+                        id: v.id,
+                        initial: v.initial,
+                    };
+                });
+                return i;
+            });
+            console.log(this.brand)
+        });
+    }
 
     click(event) {
         this.router.navigate(['/search/b'], {queryParams: {'data': JSON.stringify(event.data)}});
     }
+
+    getExList(str) {
+       return this.brand.filter(i => i.initial === str);
+    }
+
+    toHere(l) {
+        document.getElementById(l).scrollIntoView();
+    }
 }
+

@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit {
   }
 
   blur(value) {
+    this.value = value;
     this.router.navigate(['/search/c'], {queryParams: {'query': value}});
   }
 

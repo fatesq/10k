@@ -118,14 +118,14 @@
     </div>
     <div class="order-status">
         <div class="status" *ngIf="info.status < '2'">申请垫资金额: 
-          <span *ngIf="info.totalCutPrice > 0">{{info.totalCutPrice}}</span>
-          <span *ngIf="info.totalCutPrice == 0">价格电议</span>
+          <span class="assign-color" *ngIf="info.totalCutPrice > 0">{{info.totalCutPrice}}</span>
+          <span class="assign-color" *ngIf="info.totalCutPrice == 0">价格电议</span>
         </div>
         <!-- <div class="status" *ngIf="info.status < '2'">预约订单已提交成功</div> -->
         <div class="tip" *ngIf="info.status < '2'">请向以下<span class="theme-color">银行账户进行汇款以保证取车进度</span></div>
         
         <div class="status" *ngIf="info.status > '1'">定金已汇款，金额<span class="assign-color">{{info.totalRePrice}}元</span></div>
-        <div class="tip" *ngIf="info.status != '1' && info.status != '5' ">车辆正在取车中，请耐心等待</div>
+        <div class="tip" *ngIf="info.status > '1' && info.status != '5' ">车辆正在取车中，请耐心等待</div>
         <div class="tip" *ngIf="info.status == '5' ">车辆已入库</div>
     </div>
     <div class="order-box fz24">
@@ -183,9 +183,9 @@
                 <div class="fz20 tip-color mt10">请务必填写正确备注信息，方便核对汇款</div>
             </div>
         </div>
-        <div class="line phone" *ngIf="info.status < '2'">
+        <div class="line phone" style="align-items: center;" *ngIf="info.status < '2'">
             <div class="title fz36">联系电话</div>
-            <div class="des">
+            <div class="des" style="align-items: center;">
               <a href="tel:13892831843"><span class="fz36 theme-color">13892831843</span></a>
               <div class="btn pay fz30"  *ngIf="info.status == '0'" (click)="updata()">我已付款</div>
               <div class="btn pay had fz30"  *ngIf="info.status == '1'">已付款</div>
@@ -216,7 +216,7 @@
         </div> -->
         <div class="box" *ngFor="let i of cars;let index = index">
           <div class="head">
-            <h4 class="left">{{i.seriesName}} {{i.modelName}}</h4>
+            <h4 class="left">{{i.modelName}}</h4>
             <span class="right">指导价: {{i.guidePrice}}万</span>
           </div>
           <h5 class="line">外观: {{i.plasticColor}}  内饰: {{i.trimColor}}</h5>

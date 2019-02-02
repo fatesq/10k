@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-const api = 'https://api.qinhemili.com'
+const api = 'https://api.qinhemili.com';
 
 @Injectable()
 export class ApiService {
@@ -127,5 +127,13 @@ export class ApiService {
 
     userUp(param) {
         return this.httpClient.post(`${api}/customer/update`, param);
+    }
+
+    initial(param) {
+        return this.httpClient.get(`${api}/brand/initial?initial=${param.initial}`);
+    }
+
+    initialList() {
+        return this.httpClient.get(`${api}/brand/initialList`);
     }
 }

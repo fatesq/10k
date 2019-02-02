@@ -41,8 +41,8 @@ export class CartComponent implements OnInit {
     {value: 7, label: '20%'},
   ];
   select2 = [
-    {value: 0, label: '粒米帮选'},
-    {value: 1, label: '自选购车'}];
+    {value: 0, label: '米粒代寻'},
+    {value: 1, label: '自有车源'}];
   constructor(
     private api: ApiService,
     private router: Router,

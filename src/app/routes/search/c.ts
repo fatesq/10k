@@ -42,6 +42,9 @@ export class SearchCComponent implements OnInit {
 
     ngOnInit() {
         this.activeRoute.queryParams.subscribe(params => {
+            console.log(123, this.data)
+            this.data = [];
+            console.log(456, this.data)
             if (params['name']) {
                 this.title = JSON.parse(params['title']);
                 this.name = params['name'];

@@ -1,7 +1,15 @@
-<section>
+<section style="">
     <Card [full]="true">
-        <CardBody style="padding: 0px">
-        <Grid [data]="brand" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
+        <CardBody style="display:flex;padding: 0px;position:relative;height: 600px;">
+            <div style="flex: 1;overflow-y: scroll;">
+                <div *ngFor="let l of brand">
+                    <h3 id="{{l.initial}}"  style="padding: 15px 10px 0px 10px;">{{l.initial}}</h3>
+                    <Grid [data]="l.list" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid>
+                </div>
+            </div>
+            <div class="list-bar">
+                <a *ngFor="let l of list" (click)="toHere(l)">{{l}}</a>
+            </div>
         </CardBody>
     </Card>
-</section> 
+</section>
