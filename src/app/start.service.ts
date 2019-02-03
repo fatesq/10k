@@ -17,36 +17,6 @@ load(): Promise<any> {
   return new Promise((resolve, reject) => {
     const { code, state } = parse(window.location.href.split('?')[1]);
     // const { wx } = Window;
-<<<<<<< HEAD
-    console.log(window);
-    this.httpClient.get(`${api}/login/single?url=${window.location.origin}`).subscribe(res => {
-      wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: 'wxc82408bb96b3aacf', // 必填，公众号的唯一标识
-        timestamp: res['data'].timestamp, // 必填，生成签名的时间戳
-        nonceStr: res['data'].nonceStr, // 必填，生成签名的随机串
-        signature: res['data'].signature, // 必填，签名
-        jsApiList: [
-          'updateTimelineShareData',
-          'updateAppMessageShareData',
-          'onMenuShareAppMessage',
-          'onMenuShareTimeline'], // 必填，需要使用的JS接口列表
-      });
-      wx.ready(function () {
-        const ShareInfo = {
-          title: '米粒车—人人皆可做车商', // 分享标题
-          desc: '寻车,配资,代办手续一站全搞定', // 分享描述
-          link: 'http://pms.chaimi.net/dist/public/auth.html',
-          imgUrl: '../assets/db/64.jpg', // 分享图标
-        };
-        wx.onMenuShareTimeline(ShareInfo);
-        wx.onMenuShareAppMessage(ShareInfo);
-        wx.updateTimelineShareData(ShareInfo);
-        wx.updateAppMessageShareData(ShareInfo);
-      });
-    });
-=======
->>>>>>> 21b2bff6df816661d7009e3a69dbcde5b26eaca9
     if (code) {
       this.httpClient.post(`${api}/login/auto`, {wxCode: code}).subscribe(res => {
         localStorage['token'] = res['data'].token;
