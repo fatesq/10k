@@ -1,12 +1,15 @@
-<div class="top">
-  <SearchBar
-    [(ngModel)]="value"
-    [placeholder]="'搜索车型'"
-    [showCancelButton]="false"
-    (onSubmit)="blur(value)"
-    cancelText="搜索"
-    (onCancel)="blur(value)"
-  ></SearchBar>
+<div class="top" style="display: flex;align-items: center">
+  <div style="flex: 1">
+    <SearchBar
+      [showCancelButton]="true"
+      [(ngModel)]="value"
+      [value]="value"
+      [placeholder]="'搜索车型'"
+      (onSubmit)="blur(value)"
+      cancelText=""
+    ></SearchBar>
+  </div>
+  <div class="search-cancel" (click)="blur(value)">搜索</div>
 </div>
 <router-outlet></router-outlet>
 <!-- <section>

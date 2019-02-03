@@ -24,11 +24,16 @@ export class SearchComponent implements OnInit {
   }
 
   blur(value) {
-    this.value = value;
-    this.router.navigate(['/search/c'], {queryParams: {'query': value}});
+    // setTimeout(() => {
+    //   localStorage['search'] = value;
+    //   this.value = value;
+    // }, 1000);
+    this.router.navigate(['/search/c'], {queryParams: {'query': this.value}});
   }
 
-
+  over() {
+    return false;
+  }
 
   getNum() {
     this.api.cartNum(localStorage['uid']).subscribe(res => {
