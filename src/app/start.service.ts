@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import wx from 'weixin-js-sdk';
 import { parse, stringify } from 'qs';
 const api = 'https://api.qinhemili.com';
 @Injectable({
@@ -18,6 +17,7 @@ load(): Promise<any> {
   return new Promise((resolve, reject) => {
     const { code, state } = parse(window.location.href.split('?')[1]);
     // const { wx } = Window;
+<<<<<<< HEAD
     console.log(window);
     this.httpClient.get(`${api}/login/single?url=${window.location.origin}`).subscribe(res => {
       wx.config({
@@ -45,6 +45,8 @@ load(): Promise<any> {
         wx.updateAppMessageShareData(ShareInfo);
       });
     });
+=======
+>>>>>>> 21b2bff6df816661d7009e3a69dbcde5b26eaca9
     if (code) {
       this.httpClient.post(`${api}/login/auto`, {wxCode: code}).subscribe(res => {
         localStorage['token'] = res['data'].token;
@@ -72,7 +74,7 @@ load(): Promise<any> {
       // localStorage['userStatus'] = 1;
       //   localStorage['eeStatus'] = 1;
       // resolve();
-     window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc82408bb96b3aacf&redirect_uri=https%3a%2f%2fmobile.qinhemili.com&response_type=code&scope=snsapi_base&state=${state}#wechat_redirect`)
+      window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc82408bb96b3aacf&redirect_uri=https%3a%2f%2fmobile.qinhemili.com&response_type=code&scope=snsapi_base&state=${state}#wechat_redirect`)
     }
   });
 }
