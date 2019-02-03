@@ -11,6 +11,7 @@ import { Modal, Toast } from 'ng-zorro-antd-mobile';
 export class CartComponent implements OnInit {
   list = [];
   totalRePrice = 0;
+  totalCutPrice =  0;
   modal = false;
   ratio: any = {value: 1, label: '80%'};
   fromType: any = {value: 0, label: '粒米帮选'};
@@ -59,6 +60,7 @@ export class CartComponent implements OnInit {
     this.api.carList(localStorage['uid']).subscribe(res => {
        this.list = res['data'];
        this.totalRePrice = res['totalRePrice'];
+       this.totalCutPrice = res['totalCutPrice'];
     });
   }
 
