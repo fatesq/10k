@@ -21,6 +21,7 @@ import { SearchBComponent } from './search/b';
 import { SearchCComponent } from './search/c';
 import { Home1Component } from './home1/home1.component';
 import { Home2Component } from './home2/home2.component';
+import { Toast } from 'ng-zorro-antd-mobile';
 
 const COMPONENTS = [
   LoginComponent,
@@ -50,7 +51,7 @@ const COMPONENTS = [
     AppRoutingModule,
   ],
   declarations: [...COMPONENTS],
-  providers: [ApiService],
+  providers: [ApiService, Toast],
   entryComponents: [
     DetailComponent,
     CartComponent

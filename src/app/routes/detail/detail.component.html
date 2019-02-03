@@ -7,7 +7,7 @@
     <mat-card-header>
       <img mat-card-avatar class="example-header-image" style="background-color: #CCC" [src]="info.data.carImg" />
       <mat-card-title *ngIf="info.data.price > 0" style="font-size: 24px;color: #FF7800">{{info.data.price}}万</mat-card-title>
-      <mat-card-title *ngIf="info.data.price == 0" style="font-size: 22px;color: #FF7800">金额电议</mat-card-title>
+      <mat-card-title *ngIf="info.data.price == 0" style="font-size: 22px;color: #FF7800">电议</mat-card-title>
       <mat-card-subtitle style="font-size: 12px">
         指导价：{{info.data.guidePrice}}万 降<span style="color: #FF7200;">{{info.data.difPrice}}</span>万
         <div class="tag-container"><Tag [disabled]="true" [selected]="true">手续齐全</Tag><Tag [disabled]="true" [selected]="true">全额担保</Tag></div>
