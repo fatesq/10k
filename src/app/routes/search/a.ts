@@ -12,6 +12,12 @@ styleUrls: ['./search.component.less']
 export class SearchAComponent implements OnInit {
     brand = [];
     list = [];
+    dtPullToRefreshStyle = {
+        display: 'flex',
+        padding: '0px',
+        position: 'relative',
+        height: (document.documentElement.clientHeight - 60) + 'px'
+    };
     constructor(
         private api: ApiService,
         private router: Router,

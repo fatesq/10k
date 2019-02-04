@@ -104,7 +104,9 @@ export class SearchCComponent implements OnInit {
             this.showBrand = true;
             this.state.refreshState.currentState = 'finish';
             this.loading = false;
-            Toast.hide()
+            if (res['data'].length < 10) {
+                Toast.show('没有更多了...', 1000);
+            }
         });
     }
 
@@ -114,7 +116,9 @@ export class SearchCComponent implements OnInit {
             this.showBrand = false;
             this.state.refreshState.currentState = 'finish';
             this.loading = false;
-            Toast.hide()
+            if (res['data'].length < 10) {
+                Toast.show('没有更多了...', 1000);
+            }
         });
     }
 
@@ -134,7 +138,7 @@ export class SearchCComponent implements OnInit {
         if (this.getScrollTop() + this.getWindowHeight() == this.getScrollHeight()) {
             //debugger
             this.loading = true;
-            Toast.loading('加载中...')
+            Toast.loading('加载中...', 1000)
             this.pullToRefresh('up')
         }
     }
