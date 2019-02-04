@@ -21,6 +21,7 @@ import { SearchBComponent } from './search/b';
 import { SearchCComponent } from './search/c';
 import { Home1Component } from './home1/home1.component';
 import { Home2Component } from './home2/home2.component';
+import { InfoComponent } from './info/info';
 import { Toast } from 'ng-zorro-antd-mobile';
 
 const COMPONENTS = [
@@ -42,7 +43,8 @@ const COMPONENTS = [
   SearchBComponent,
   SearchCComponent,
   Home1Component,
-  Home2Component
+  Home2Component,
+  InfoComponent
 ];
 
 @NgModule({

@@ -20,14 +20,14 @@ export class CartComponent implements OnInit {
       text: '个人认证',
       onPress: () => {
         this.modal = false;
-        this.router.navigate(['register'], {queryParams: {'type': 0 }});
+        this.router.navigate(['register'], {queryParams: {'type': 0, 'url': '/cart'}});
       }
     },
     {
       text: '企业认证',
       onPress: () => {
         this.modal = false;
-        this.router.navigate(['register'], {queryParams: {'type': 1 }});
+        this.router.navigate(['register'], {queryParams: {'type': 1, 'url': '/cart'}});
       },
       style: {'color': '#000'}
     }
