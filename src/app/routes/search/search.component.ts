@@ -28,6 +28,7 @@ export class SearchComponent implements OnInit {
     //   localStorage['search'] = value;
     //   this.value = value;
     // }, 1000);
+    document.getElementsByTagName('input')[0].blur();
     this.router.navigate(['/search/c'], {queryParams: {'query': this.value}});
   }
 
