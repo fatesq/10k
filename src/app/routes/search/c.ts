@@ -3,11 +3,13 @@ import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
 import { DetailComponent } from '../detail/detail.component';
 import { ApiService } from '../api.service';
 import { ActivatedRoute, Router} from '@angular/router';
+import { Toast } from 'ng-zorro-antd-mobile';
 
 @Component({
 selector: 'app-search-c',
 templateUrl: './C.html',
-styleUrls: ['./search.component.less']
+styleUrls: ['./search.component.less'],
+providers: [Toast]
 })
 export class SearchCComponent implements OnInit {
     name = '';
@@ -26,25 +28,33 @@ export class SearchCComponent implements OnInit {
         currentState: 'deactivate',
         drag: false
         },
-        direction: '',
+        direction: 'up',
         endReachedRefresh: false,
         height: 600,
         directionName: 'both up and down'
     };
-    dtPullToRefreshStyle = { height: this.state.height + 'px' };
+    dtPullToRefreshStyle = { 
+        height: (document.documentElement.clientHeight - 60) + 'px'// this.state.height + 'px'
+    };
+    loading = false;
     constructor(
         private api: ApiService,
         private router: Router,
+        private _toast: Toast,
         private bottomSheet: MatBottomSheet,
         public activeRoute: ActivatedRoute) {
 
         }
 
     ngOnInit() {
+        // document.addEventListener('touchmove', function(e) {
+        //     e.preventDefault();
+        // });
+        const that = this;
+        window.addEventListener('scroll', this.menu);
+
         this.activeRoute.queryParams.subscribe(params => {
-            console.log(123, this.data)
             this.data = [];
-            console.log(456, this.data)
             if (params['name']) {
                 this.title = JSON.parse(params['title']);
                 this.name = params['name'];
@@ -93,14 +103,70 @@ export class SearchCComponent implements OnInit {
             this.data = this.data.concat(res['data']);
             this.showBrand = true;
             this.state.refreshState.currentState = 'finish';
+            this.loading = false;
+            if (res['data'].length < 10) {
+                Toast.show('没有更多了...', 1000);
+            }
         });
     }
 
     getListB() {
-        this.api.search({query: this.query}).subscribe(res => {
+        this.api.search({query: this.query, page: this.page, size: 10}).subscribe(res => {
             this.data = this.data.concat(res['data']);
             this.showBrand = false;
             this.state.refreshState.currentState = 'finish';
+            this.loading = false;
+            if (res['data'].length < 10) {
+                Toast.show('没有更多了...', 1000);
+            }
         });
     }
+
+    getScrollHeight() {
+        var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+        if (document.body) {
+            bodyScrollHeight = document.body.scrollHeight;
+        }
+        if (document.documentElement) {
+            documentScrollHeight = document.documentElement.scrollHeight;
+        }
+        scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+        return scrollHeight;
+    }
+
+    menu =()=> {
+        if (this.getScrollTop() + this.getWindowHeight() == this.getScrollHeight()) {
+            //debugger
+            this.loading = true;
+            Toast.loading('加载中...', 1000)
+            this.pullToRefresh('up')
+        }
+    }
+
+    getScrollTop() {
+        var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+        if (document.body) {
+            bodyScrollTop = document.body.scrollTop;
+        }
+        if (document.documentElement) {
+            documentScrollTop = document.documentElement.scrollTop;
+        }
+        scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+        return scrollTop;
+    }
+
+    getWindowHeight() {
+        var windowHeight = 0;
+        if (document.compatMode == "CSS1Compat") {
+            windowHeight = document.documentElement.clientHeight;
+        } else {
+            windowHeight = document.body.clientHeight;
+        }
+        return windowHeight;
+    }
+
+    goPage(){
+        this.pullToRefresh('up')
+    }
+
 }

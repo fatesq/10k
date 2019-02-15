@@ -18,11 +18,18 @@ export class AppComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    
+    // document.addEventListener('touchmove', function(e) {
+    //   e.preventDefault();
+    //   console.log("test1");
+    // }); 
   }
 
   ngAfterViewInit() {
     this.configWXShare();   //在根组件中配置分享
+    // document.addEventListener('touchmove', function(e) {
+    //   e.preventDefault();
+    //   console.log("test2");
+    // }); 
   }
 
   configWXShare() {
@@ -41,7 +48,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           wx.ready(function () {
             const ShareInfo = {
               title: '米粒车—人人皆可做车商', // 分享标题
-              desc: '寻车,配资,代办手续一站全搞定', // 分享描述
+              desc: '专为车商解决车源,金融,物流,仓储等一系列问题,提高汽车流通效率。用米粒,全搞定!', // 分享描述
               link: 'https://mobile.qinhemili.com',
               imgUrl: 'https://mobile.qinhemili.com/64.jpeg', // 分享图标
             };

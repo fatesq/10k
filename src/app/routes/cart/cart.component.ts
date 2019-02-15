@@ -11,6 +11,7 @@ import { Modal, Toast } from 'ng-zorro-antd-mobile';
 export class CartComponent implements OnInit {
   list = [];
   totalRePrice = 0;
+  totalCutPrice =  0;
   modal = false;
   ratio: any = {value: 1, label: '80%'};
   fromType: any = {value: 0, label: '粒米帮选'};
@@ -19,14 +20,14 @@ export class CartComponent implements OnInit {
       text: '个人认证',
       onPress: () => {
         this.modal = false;
-        this.router.navigate(['register'], {queryParams: {'type': 0 }});
+        this.router.navigate(['register'], {queryParams: {'type': 0, 'url': '/cart'}});
       }
     },
     {
       text: '企业认证',
       onPress: () => {
         this.modal = false;
-        this.router.navigate(['register'], {queryParams: {'type': 1 }});
+        this.router.navigate(['register'], {queryParams: {'type': 1, 'url': '/cart'}});
       },
       style: {'color': '#000'}
     }
@@ -59,6 +60,7 @@ export class CartComponent implements OnInit {
     this.api.carList(localStorage['uid']).subscribe(res => {
        this.list = res['data'];
        this.totalRePrice = res['totalRePrice'];
+       this.totalCutPrice = res['totalCutPrice'];
     });
   }
 

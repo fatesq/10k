@@ -18,6 +18,7 @@ import { SearchBComponent } from './search/b';
 import { SearchCComponent } from './search/c';
 import { Home1Component } from './home1/home1.component';
 import { Home2Component } from './home2/home2.component';
+import { InfoComponent } from './info/info';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home1', pathMatch: 'full' },
@@ -42,7 +43,8 @@ const routes: Routes = [
   { path: 'ListB', component: ListBComponent },
   { path: 'subCar', component: SubCarComponent},
   { path: 'over', component: OverComponent},
-  { path: 'user', component: UserComponent}
+  { path: 'user', component: UserComponent},
+  { path: 'info', component: InfoComponent}
 ];
 
 @NgModule({

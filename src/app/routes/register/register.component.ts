@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   enterpriseCity = '';
   enterpriseName = '';
   type = false;
+  url = '/result';
   uploader: FileUploader;
   @ViewChild('fileUpload')
   fileUpload: ElementRef;
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.queryParams.subscribe(params => {
       this.type = params['type'] == 1 ? true : false;
+      this.url = params['url'] ? params['url'] : '/result';
       this.getInfo();
     });
     this.uploader = new FileUploader({
@@ -126,7 +128,7 @@ export class RegisterComponent implements OnInit {
       if (res['code'] == 200) {
         // localStorage['token'] = res['data'].token
         // localStorage['uid'] = res['data'].uid
-        this.router.navigateByUrl('/result');
+        this.router.navigateByUrl(this.url);
 
       } else {
         alert(res['description'] || res['msg']);

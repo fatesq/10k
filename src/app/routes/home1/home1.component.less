@@ -32,3 +32,29 @@
   padding-bottom: 58px;
   background-image: url(https://ricecar.oss-cn-hangzhou.aliyuncs.com/4631549076257_.pic_hd.jpg);
 }
+
+
+
+#cover{ 
+  position:absolute;left:0px;top:0px;
+  background:rgba(0, 0, 0, 0.4);
+  width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+  height:100%;
+  filter:alpha(opacity=60);  /*设置透明度为60%*/
+  opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+  // display:none; 
+  z-Index:999;  
+}
+#modal{ 
+  position:absolute;
+  width: 70%;
+  border-radius: 20px;
+  // height:300px;
+  top:25%;
+  left:15%;
+  background-color:#fff;
+  // display:none;
+  text-align: center;
+  cursor:pointer;
+  z-Index:9999;  
+}
