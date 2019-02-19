@@ -25,7 +25,8 @@ export class OverComponent implements OnInit {
   cars = [];
   constructor(
     private api: ApiService,
-    public activeRoute: ActivatedRoute
+    public activeRoute: ActivatedRoute,
+    private _toast: Toast
   ) {
     history.pushState(null, null, document.URL);
       window.addEventListener('popstate',  () => {
