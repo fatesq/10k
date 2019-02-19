@@ -25,26 +25,28 @@ load(): Promise<any> {
         localStorage['userStatus'] = res['data'].userStatus;
         localStorage['eeStatus'] = res['data'].eeStatus;
         if (res['code'] == 302) {
-          localStorage['care'] = 0;
-        } else {
-          localStorage['care'] = 1;
+          sessionStorage['care'] = 0;
         }
         if (res['code'] == 402) {
           window.location.hash = `/login?path=${state}`;
           resolve();
-        } else {
+        } else if (state) {
           window.location.hash = state != "undefined" ? `/${state}` : '/home1';
+          resolve();
+        } else {
           resolve();
         }
       });
     } else {
+      const url = state ? state : window.location.hash;
       // localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVlU3RhdHVzIjoxLCJ1c2VyU3RhdHVzIjoxLCJ1aWQiOjEwLCJvcGVuSWQiOiJvcFlhWTAwNUdXM2k4TG5ZRXNydUZTMFZIdExjIn0sImlhdCI6MTU1MDU2MzMyNSwiZXhwIjoxNTUwNjQ5NzI1fQ.zHsaFvrNFvaAoQRdZlS0xAiXpgQR78rimQ4Gxmse2Lo'
       // localStorage['openId'] = 'opYaY005GW3i8LnYEsruFS0VHtLc'; // res['data'].openId
       // localStorage['uid'] = 10; // res['data'].uid
       // localStorage['userStatus'] = 1;
-      //   localStorage['eeStatus'] = 1;
+      // localStorage['eeStatus'] = 1;
+      // localStorage['care'] = 1;
       // resolve();
-      window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc82408bb96b3aacf&redirect_uri=https%3a%2f%2fmobile.qinhemili.com&response_type=code&scope=snsapi_base&state=${state}#wechat_redirect`)
+      window.location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc82408bb96b3aacf&redirect_uri=https%3a%2f%2fmobile.qinhemili.com&response_type=code&scope=snsapi_base&state=${url}#wechat_redirect`)
     }
   });
 }
