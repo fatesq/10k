@@ -21,7 +21,8 @@ export class OrderComponent implements OnInit {
   cars = [];
   constructor(
     private api: ApiService,
-    public activeRoute: ActivatedRoute
+    public activeRoute: ActivatedRoute,
+    private _toast: Toast
   ) { }
 
   // ngAfterViewInit() {
