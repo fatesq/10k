@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { Toast } from 'ng-zorro-antd-mobile';
+import ClipboardJS from 'clipboard';
 
 @Component({
   selector: 'app-over',
   templateUrl: './over.component.html',
-  styleUrls: ['./over.component.less']
+  styleUrls: ['./over.component.less'],
+  providers: [Toast]
 })
 export class OverComponent implements OnInit {
   code = '';
@@ -34,6 +37,13 @@ export class OverComponent implements OnInit {
     this.activeRoute.queryParams.subscribe(params => {
       this.code = params['code'];
       this.getInfo();
+    });
+    const clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function(e) {
+      const toast = Toast.show('复制成功', 0);
+      setTimeout(() => {
+        Toast.hide();
+      }, 1500);
     });
   }
 
