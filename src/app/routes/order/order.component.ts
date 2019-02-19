@@ -44,10 +44,11 @@ export class OrderComponent implements OnInit {
     });
     const clipboard = new ClipboardJS('.btn');
     clipboard.on('success', function(e) {
-      const toast = Toast.show('复制成功', 0);
       setTimeout(() => {
-        Toast.hide();
-      }, 1500);
+        const toast = Toast.success('复制成功', 2000, () => {
+          console.log('success');
+        });
+      },0)
     });
   }
 
