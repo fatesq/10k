@@ -95,7 +95,7 @@ export class CartComponent implements OnInit {
         cartId: this.list.map(i => i.id)
       }).subscribe(res => {
         if (res['code'] === 200) {
-          this.router.navigate(['order'], {queryParams: {'code': res['data'].code }});
+          this.router.navigate(['order'], {queryParams: {'id': res['data'].code }});
         } else {
           alert(res['description'] || res['msg']);
         }

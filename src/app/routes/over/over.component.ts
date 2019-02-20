@@ -20,7 +20,8 @@ export class OverComponent implements OnInit {
     saleName: '',
     salePhone: '',
     verifyTime: '',
-    verifySite: ''
+    verifySite: '',
+    remark: ''
   };
   cars = [];
   constructor(
@@ -36,7 +37,7 @@ export class OverComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe(params => {
-      this.code = params['code'];
+      this.code = params['id'];
       this.getInfo();
     });
     const clipboard = new ClipboardJS('.btn');

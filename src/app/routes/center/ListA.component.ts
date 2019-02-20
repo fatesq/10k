@@ -29,7 +29,7 @@ export class ListAComponent implements OnInit {
   }
 
   toOrder(code) {
-    this.router.navigate(['order'], {queryParams: {'code': code }});
+    this.router.navigate(['order'], {queryParams: {'id': code }});
   }
 
   getType(key) {

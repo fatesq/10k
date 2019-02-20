@@ -62,7 +62,7 @@ export class SubCarComponent implements OnInit {
       })
     }).subscribe(res => {
         if (res['code'] == 200) {
-          this.router.navigate(['over'], {queryParams: {'code': res['data'].code }});
+          this.router.navigate(['over'], {queryParams: {'id': res['data'].code }});
         } else {
           alert(res['msg'])
         }

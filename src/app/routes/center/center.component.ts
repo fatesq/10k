@@ -31,7 +31,7 @@ export class CenterComponent implements OnInit {
   }
 
   toOrder(code) {
-    this.router.navigate(['over'], {queryParams: {'code': code }});
+    this.router.navigate(['over'], {queryParams: {'id': code }});
   }
   
   getSelf(key) {

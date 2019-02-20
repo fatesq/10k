@@ -17,6 +17,7 @@ export class OrderComponent implements OnInit {
     totalRePrice: '',
     createTime: '',
     status: '',
+    remark: ''
   };
   cars = [];
   constructor(
@@ -40,7 +41,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.queryParams.subscribe(params => {
-      this.code = params['code'];
+      this.code = params['id'];
       this.getInfo();
     });
     const clipboard = new ClipboardJS('.btn');
