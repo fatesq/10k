@@ -33,7 +33,11 @@ load(): Promise<any> {
             window.location.hash = `/login?path=${state}`;
             resolve();
           } else if (state) {
-            window.location.hash = state != "undefined" ? `/${state}` : '/home1';
+            if (state == 'center' || state == 'home1') {
+              window.location.replace(`https://mobile.qinhemili.com/#/${state}`);
+            } else {
+              window.location.hash = state != "undefined" ? `/${state}` : '/home1';
+            }
             resolve();
           } else {
             resolve();
@@ -41,7 +45,11 @@ load(): Promise<any> {
         });
       } else if (sessionStorage['reload'] == 1) {
         if (state) {
-          window.location.hash = state != "undefined" ? `/${state}` : '/home1';
+          if (state == 'center' || state == 'home1') {
+            window.location.replace(`https://mobile.qinhemili.com/#/${state}`);
+          } else {
+            window.location.hash = state != "undefined" ? `/${state}` : '/home1';
+          }
           resolve();
         } else {
           resolve();

@@ -27,7 +27,7 @@ export class CenterComponent implements OnInit {
     this.api.getUser(localStorage['uid']).subscribe(res => {
        this.user = res['data'];
        document.getElementById('avatar').setAttribute("style", `background-image: url(${ this.user['avatar'] ?  this.user['avatar'] :'https://ricecar.oss-cn-hangzhou.aliyuncs.com/21281548063891_.pic.jpg'});background-repeat:no-repeat; background-size:100% 100%;`)
-    })
+    });
   }
 
   toOrder(code) {
