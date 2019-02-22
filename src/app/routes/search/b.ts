@@ -31,7 +31,7 @@ export class SearchBComponent implements OnInit {
                 // this.api.search({query: params['text']}).subscribe(res => {
                 //   this.data = res['data'];
                 // });
-                this.api.byBrand({brandId: data.id, page: 1, size: 99}).subscribe(res => {
+                this.api.byBrand(data.id).subscribe(res => {
                     this.title = data;
                     this.series = res['data'];
                 });

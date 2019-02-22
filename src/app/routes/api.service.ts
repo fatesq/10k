@@ -109,8 +109,8 @@ export class ApiService {
         return this.httpClient.get(`${api}/customer/detail?uid=${id}`);
     }
 
-    byBrand(param) {
-        return this.httpClient.post(`${api}/cars/byBrand`, param);
+    byBrand(id) {
+        return this.httpClient.get(`${api}/carsSeries/list?brandId=${id}`);
     }
 
     bySeries(param) {
