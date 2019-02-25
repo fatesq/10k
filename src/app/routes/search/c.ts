@@ -104,9 +104,9 @@ export class SearchCComponent implements OnInit {
             this.showBrand = true;
             this.state.refreshState.currentState = 'finish';
             this.loading = false;
-            if (this.page > 2 && res['data'].length < 10) {
-                Toast.show('没有更多了...', 1000);
-            }
+            // if (this.page > 2 && res['data'].length < 10) {
+            //     Toast.show('没有更多了...', 1000);
+            // }
         });
     }
 
@@ -116,9 +116,9 @@ export class SearchCComponent implements OnInit {
             this.showBrand = false;
             this.state.refreshState.currentState = 'finish';
             this.loading = false;
-            if (this.page > 2 && res['data'].length < 10) {
-                Toast.show('没有更多了...', 1000);
-            }
+            // if (this.page > 2 && res['data'].length < 10) {
+            //     Toast.show('没有更多了...', 1000);
+            // }
         });
     }
 

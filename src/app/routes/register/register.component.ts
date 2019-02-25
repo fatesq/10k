@@ -128,8 +128,9 @@ export class RegisterComponent implements OnInit {
       if (res['code'] == 200) {
         // localStorage['token'] = res['data'].token
         // localStorage['uid'] = res['data'].uid
+        localStorage['userStatus'] = 1;
+      localStorage['eeStatus'] = 1;
         this.router.navigateByUrl(this.url);
-
       } else {
         alert(res['description'] || res['msg']);
       }

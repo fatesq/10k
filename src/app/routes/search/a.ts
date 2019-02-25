@@ -16,7 +16,7 @@ export class SearchAComponent implements OnInit {
         display: 'flex',
         padding: '0px',
         position: 'relative',
-        height: (document.documentElement.clientHeight - 60) + 'px'
+        height: (document.documentElement.scrollHeight - 60) + 'px'
     };
     constructor(
         private api: ApiService,

@@ -22,7 +22,7 @@
         <div class="right" routerLink="/register" [queryParams]='{type: 1}'>{{statusType(info.eeStatus)}}</div>
       </div>
       <input #fileUpload hidden=true type="file" ng2FileSelect [uploader]="uploader" (change)="selectedFileOnChanged($event)" />
-      <button mat-raised-button color="accent" style="width: 100%;margin-top: 15px" (click)="login()">提交</button>
+      <button mat-raised-button color="accent" style="width: 100%;margin-top: 100px" (click)="login()">提交</button>
     </form>
   </div>
   
