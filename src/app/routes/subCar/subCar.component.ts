@@ -40,7 +40,7 @@ export class SubCarComponent implements OnInit {
     console.log(result)
     console.log( moment(result).format('YYYY-MM-DD'))
     this.time = result;
-    this.timeText = moment(result).format('YYYY-MM-DD HH:mm');
+    this.timeText = moment(result).format('YYYY-MM-DD HH');
   }
 
 

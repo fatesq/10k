@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     clearTimeout(t);
       // 关键代码
     window.addEventListener('resize', this.scrollChange);
+    this.phone = sessionStorage['phone'];
+    this.validCode = sessionStorage['validCode'];
   }
 
   ngOnDestroy() {
@@ -71,13 +73,16 @@ export class LoginComponent implements OnInit, OnDestroy {
       openId: localStorage['openId']
     }).subscribe(res => {
       if (res['code'] == 200) {
+        sessionStorage.removeItem('unlogin');
+        sessionStorage.removeItem('phone');
+        sessionStorage.removeItem('validCode');
         localStorage['token'] = res['data'].token;
         localStorage['openId'] = res['data'].openId;
         localStorage['uid'] = res['data'].uid;
         localStorage['userStatus'] = res['data'].userStatus;
         localStorage['eeStatus'] = res['data'].eeStatus;
         const {path} = parse(window.location.href.split('?')[1]);
-        this.router.navigateByUrl(`/${path ? path : 'home1'}`);
+        this.router.navigateByUrl(`/${path ? path : 'home2'}`);
       } else {
         alert(res['description'] || res['msg']);
       }
@@ -88,6 +93,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     e.stopPropagation();
     e.preventDefault();
     this.modal = true;
+  }
+
+  change(e) {
+    sessionStorage['phone'] = e;
+  }
+
+  change2(e) {
+    sessionStorage['validCode'] = e;
   }
 
   onChange = e => {

@@ -22,7 +22,6 @@ export class SearchAComponent implements OnInit {
         private api: ApiService,
         private router: Router,
         public activeRoute: ActivatedRoute) {
-
         }
 
     ngOnInit() {
@@ -30,6 +29,8 @@ export class SearchAComponent implements OnInit {
         for (let i = 0; i < 26; i++) {
             this.list.push(String.fromCharCode(65 + i));
         }
+        console.log(document.getElementById('scrollBody'))
+        document.getElementById('scrollBody').scrollTop = 160;
     }
 
     getBrand() {

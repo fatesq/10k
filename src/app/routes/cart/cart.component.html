@@ -5,16 +5,16 @@
   </div>
   <div style="display: flex;padding-top: 17px;">
     <img src="https://ricecar.oss-cn-hangzhou.aliyuncs.com/xiazai-copy.png" width="30" height="24">
-    <div Picker [(ngModel)]="ratio" [data]="select" cols="1" (ngModelChange)="onSelect($event)" style="padding-bottom:17px;flex:1;display: flex;justify-content: space-between;border-bottom: 1px solid #E6E6E6;margin-left: 12px">
-      <div style="color:#282828;font-size: 16px">配资比例:</div>
-      <div style="color:#FFD400;font-size: 18px;font-weight: bold">{{ratio.label}}</div>
+    <div Picker [(ngModel)]="ratio" [data]="select" cols="1" dismissText="选择配资比例" (ngModelChange)="onSelect($event)" style="padding-bottom:17px;flex:1;display: flex;justify-content: space-between;border-bottom: 1px solid #E6E6E6;margin-left: 12px">
+      <div style="color:#282828;font-size: 16px">选择配资比例:</div>
+      <div style="display:flex;align-items: center;color:#FFD400;font-size: 18px;font-weight: bold">{{ratio.label}}<img width="16px" height="10px" style="margin-left: 10px" src="http://ricecar.oss-cn-hangzhou.aliyuncs.com/icon_arrowdown_nor.png" /></div>
     </div>
   </div>
   <div style="display: flex;padding-top: 17px;">
     <img src="https://ricecar.oss-cn-hangzhou.aliyuncs.com/cheliang-.png" width="30" height="24">
-    <div Picker [(ngModel)]="fromType" [data]="select2" cols="1" (ngModelChange)="onSelect2($event)" style="padding-bottom:17px;flex:1;display: flex;justify-content: space-between;margin-left: 12px">
-      <div style="color:#282828;font-size: 16px">车辆来源:</div>
-      <div style="color:#FFD400;font-size: 18px;font-weight: bold">{{fromType.label}}</div>
+    <div Picker [(ngModel)]="fromType" [dismissText]="'选择车辆来源'" [data]="select2" cols="1" (ngModelChange)="onSelect2($event)" style="padding-bottom:17px;flex:1;display: flex;justify-content: space-between;margin-left: 12px">
+      <div style="color:#282828;font-size: 16px">选择车辆来源:</div>
+      <div style="display:flex;align-items: center;color:#FFD400;font-size: 18px;font-weight: bold">{{fromType.label}}<img width="16px" height="10px" style="margin-left: 10px" src="http://ricecar.oss-cn-hangzhou.aliyuncs.com/icon_arrowdown_nor.png" /></div>
     </div>
   </div>
 </section>

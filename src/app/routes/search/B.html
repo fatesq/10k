@@ -1,10 +1,17 @@
-<section style="margin-top: 60px">
+<section>
     <Card [full]="true">
-        <CardBody style="padding: 0px">
-        <div style="display:flex;padding:10px 0px 0px 15px;align-items: center"><img [src]="title.icon" width="30" height="30"><span style="margin-left: 10px;font-size:20px;font-weight: bold">{{title.text}} {{title.seriesName}}</span> </div>
-        <div>
-            <ListItem *ngFor="let item of series" [arrow]="'horizontal'" (onClick)="seriesClick(item.name)" style=" font-weight: bold;">{{item.name}} </ListItem>
-            <h3 *ngIf="series.length < 1" style="text-align:center">暂无数据</h3>
+        <CardBody [ngStyle]="dtPullToRefreshStyle">
+        <div style="flex: 1;overflow-y: scroll;">
+            <div style="display:flex;padding:10px 0px 0px 15px;align-items: center">
+                <img [src]="title.icon" width="30" height="30">
+                <span style="margin-left: 10px;font-size:20px;font-weight: bold">
+                    {{title.text}} {{title.seriesName}}
+                </span>
+            </div>
+            <div>
+                <ListItem *ngFor="let item of series" [arrow]="'horizontal'" (onClick)="seriesClick(item.name)" style=" font-weight: bold;">{{item.name}} </ListItem>
+                <h3 *ngIf="series.length < 1" style="text-align:center">暂无数据</h3>
+            </div>
         </div>
         </CardBody>
     </Card>

@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
-import { Modal, Toast } from 'ng-zorro-antd-mobile';
+import { Modal, Toast, Picker } from 'ng-zorro-antd-mobile';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.less']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, AfterViewInit {
   list = [];
   totalRePrice = 0;
   totalCutPrice =  0;
@@ -44,6 +44,7 @@ export class CartComponent implements OnInit {
   select2 = [
     {value: 0, label: '米粒代寻'},
     {value: 1, label: '自有车源'}];
+
   constructor(
     private api: ApiService,
     private router: Router,
@@ -55,6 +56,8 @@ export class CartComponent implements OnInit {
     this.getList();
     this.getInfo();
   }
+
+  ngAfterViewInit() {}
 
   getList() {
     this.api.carList(localStorage['uid']).subscribe(res => {

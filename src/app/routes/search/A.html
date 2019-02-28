@@ -1,11 +1,11 @@
-<section style="margin-top: 60px">
+<section>
     <Card [full]="true">
         <CardBody [ngStyle]="dtPullToRefreshStyle">
-            <div style="flex: 1;overflow-y: scroll;">
+            <div id="scrollBody" style="flex: 1;overflow-y: scroll;">
                 <div *ngFor="let l of brand">
                     <h3 id="{{l.initial}}"  style="padding: 15px 10px 0px 10px;">{{l.initial}}</h3>
                     <!-- <Grid [data]="l.list" [hasLine]="false" columnNum="5" (OnClick)="click($event)"></Grid> -->
-                    <div *ngFor="let i of l.list " (click)="click(i)"  style="padding: 10px;font-size: 18px;font-weight: bold; display: flex;align-items: center;border-bottom: 1px solid #DFDFDF">
+                    <div *ngFor="let i of l.list " (click)="click(i)"  style="padding: 10px;font-size: 16px;font-weight: bold; display: flex;align-items: center;border-bottom: 1px solid #DFDFDF">
                         <img [src]="i.icon" width="32" height="32" style="margin-right: 15px">
                         {{i.text}}
                     </div>

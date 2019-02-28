@@ -30,13 +30,16 @@ load(): Promise<any> {
             sessionStorage['care'] = 0;
           }
           if (res['code'] == 402) {
-            window.location.hash = `/login?path=${state}`;
+            // window.location.hash = `/login?path=${state}`;
+            sessionStorage['unlogin'] = 1
+            window.location.hash = `/home1?path=${state}`;
             resolve();
           } else if (state) {
             if (state == 'center' || state == 'home1') {
               window.location.replace(`https://mobile.qinhemili.com/#/${state}`);
             } else {
-              window.location.hash = state != "undefined" ? `/${state}` : '/home1';
+              window.location.hash = `/${state}`;
+             //  window.location.hash = state != "undefined" ? `/${state}` : '/home1';
             }
             resolve();
           } else {
@@ -48,7 +51,8 @@ load(): Promise<any> {
           if (state == 'center' || state == 'home1') {
             window.location.replace(`https://mobile.qinhemili.com/#/${state}`);
           } else {
-            window.location.hash = state != "undefined" ? `/${state}` : '/home1';
+            window.location.hash = `/${state}`;
+            // window.location.hash = state != "undefined" ? `/${state}` : '/home1';
           }
           resolve();
         } else {
@@ -56,9 +60,9 @@ load(): Promise<any> {
         }
       }
     } else if (sessionStorage['reload'] != 1) {
-      // localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVlU3RhdHVzIjoxLCJ1c2VyU3RhdHVzIjoxLCJ1aWQiOjEwLCJvcGVuSWQiOiJvcFlhWTAwNUdXM2k4TG5ZRXNydUZTMFZIdExjIn0sImlhdCI6MTU1MDU2MzMyNSwiZXhwIjoxNTUwNjQ5NzI1fQ.zHsaFvrNFvaAoQRdZlS0xAiXpgQR78rimQ4Gxmse2Lo'
+      // localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVlU3RhdHVzIjowLCJ1c2VyU3RhdHVzIjowLCJ1aWQiOjU2LCJvcGVuSWQiOiJvcFlhWTAwNUdXM2k4TG5ZRXNydUZTMFZIdExjIn0sImlhdCI6MTU1MTI0ODM4NywiZXhwIjoxNTUxMzM0Nzg3fQ.GBlOM5hTXv5kDntXTJWWQWDHq_WPv13IyQtyjL2MpA0'
       // localStorage['openId'] = 'opYaY005GW3i8LnYEsruFS0VHtLc'; // res['data'].openId
-      // localStorage['uid'] = 10; // res['data'].uid
+      // localStorage['uid'] = 56; // res['data'].uid
       // localStorage['userStatus'] = 1;
       // localStorage['eeStatus'] = 1;
       // localStorage['care'] = 1;

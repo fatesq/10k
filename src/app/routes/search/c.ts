@@ -33,8 +33,11 @@ export class SearchCComponent implements OnInit {
         height: 600,
         directionName: 'both up and down'
     };
-    dtPullToRefreshStyle = { 
-        height: (document.documentElement.clientHeight - 60) + 'px'// this.state.height + 'px'
+    dtPullToRefreshStyle = {
+        display: 'flex',
+        padding: '0px',
+        position: 'relative',
+        height: (document.documentElement.scrollHeight - 60) + 'px'
     };
     loading = false;
     constructor(

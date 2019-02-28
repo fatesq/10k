@@ -16,6 +16,12 @@ export class SearchBComponent implements OnInit {
         text: '',
         id: '',
     };
+    dtPullToRefreshStyle = {
+        display: 'flex',
+        padding: '0px',
+        position: 'relative',
+        height: (document.documentElement.scrollHeight - 60) + 'px'
+    };
     series = [];
     constructor(
         private api: ApiService,

@@ -1,4 +1,5 @@
-<div class="top" style="display: flex;align-items: center;position: fixed;top: 0;width: 100%;background: #FFF;z-index: 100;">
+<div style="position: relative;">
+<div class="top" style="display: flex;align-items: center;top: 0;width: 100%;background: #FFF;z-index: 100;">
   <div style="flex: 1">
     <SearchBar
       [showCancelButton]="true"
@@ -46,4 +47,5 @@
 <div class="fab">
     <img src="../../../assets/db/icon_shoppingcart_nor.png" width="50" height="50" routerLink="/cart" />
     <i *ngIf="num != 0" class="numIcon">{{num}}</i>
+</div>
 </div>
