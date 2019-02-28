@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   validCode = '';
   time = 60;
   modal = false;
+  agreeItem = true;
   constructor(
     private api: ApiService,
     private router: Router,
@@ -45,8 +46,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   getCode() {
     if (!this.phone || this.phone.length != 11) {
-        alert('请输入手机号');
-       return false
+      Toast.offline('请输入手机号')
+      return false
     }
     if (this.time == 60) {
       this.api.sms({
@@ -66,6 +67,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login() {
+    if (!this.agreeItem) {
+      Toast.offline('请先阅读并同意《米粒好车用户协议》')
+      return false;
+    }
     this.api.dologin({
       phone: this.phone,
       validCode: this.validCode,
@@ -82,7 +87,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         localStorage['userStatus'] = res['data'].userStatus;
         localStorage['eeStatus'] = res['data'].eeStatus;
         const {path} = parse(window.location.href.split('?')[1]);
-        this.router.navigateByUrl(`/${path ? path : 'home2'}`);
+        this.router.navigateByUrl(`/${path !== 'undefined' ? (path === 'home1' ? 'home2' : path) : 'home2'}`);
       } else {
         alert(res['description'] || res['msg']);
       }

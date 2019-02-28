@@ -3,6 +3,7 @@ import {MatBottomSheetRef} from '@angular/material';
 import {MAT_BOTTOM_SHEET_DATA} from '@angular/material';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { SearchService } from '../search/search.service';
 import { Toast } from 'ng-zorro-antd-mobile';
 
 @Component({
@@ -22,6 +23,7 @@ export class DetailComponent implements OnInit {
     private api: ApiService,
     private router: Router,
     private cdf: ChangeDetectorRef,
+    public init: SearchService,
   ) {
   }
 
@@ -71,10 +73,13 @@ export class DetailComponent implements OnInit {
         this.bottomSheetRef.instance.modal = true
         this.cdf.markForCheck();
         this.cdf.detectChanges();
+        this.api.cartNum(localStorage['uid']).subscribe(i => {
+            // this.num = res['data'];
+            this.init.emitNum(i['data']);
+        });
         // this.router.navigateByUrl('/cart');
         // this.bottomSheetRef.dismiss();
       } else {
-       
        alert(res['description'] || res['msg']);
       }
     });

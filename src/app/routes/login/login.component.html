@@ -21,7 +21,7 @@
   </form>
 </div>
 <div class="agree" style="position: absolute;bottom: 0;margin: 45px">
-    <AgreeItem data-seed="logId" onChange="onChange($event)">
+    <AgreeItem [(ngModel)]="agreeItem" data-seed="logId" onChange="onChange($event)">
       阅读并同意 <a style="color:#ffd740" routerLink="/info">《米粒好车用户协议》</a>
     </AgreeItem>
 </div>
