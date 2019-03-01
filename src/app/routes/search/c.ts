@@ -33,11 +33,13 @@ export class SearchCComponent implements OnInit {
         height: 600,
         directionName: 'both up and down'
     };
+    cardheight = { height: (document.documentElement.clientHeight - 60) + 'px'};
     dtPullToRefreshStyle = {
         display: 'flex',
         padding: '0px',
         position: 'relative',
-        height: (document.documentElement.scrollHeight - 60) + 'px'
+        height: (document.documentElement.scrollHeight - 60) + 'px',
+        overflow: 'scroll'
     };
     loading = false;
     constructor(

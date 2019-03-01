@@ -16,11 +16,13 @@ export class SearchBComponent implements OnInit {
         text: '',
         id: '',
     };
+    cardheight = { height: (document.documentElement.clientHeight - 60) + 'px'};
     dtPullToRefreshStyle = {
         display: 'flex',
         padding: '0px',
         position: 'relative',
-        height: (document.documentElement.scrollHeight - 60) + 'px'
+        height: (document.documentElement.scrollHeight - 60) + 'px',
+        overflow: 'scroll'
     };
     series = [];
     constructor(

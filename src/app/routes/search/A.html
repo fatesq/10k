@@ -1,5 +1,5 @@
 <section>
-    <Card [full]="true">
+    <Card [full]="true" [ngStyle]="cardheight">
         <CardBody [ngStyle]="dtPullToRefreshStyle">
             <div id="scrollBody" style="flex: 1;overflow-y: scroll;">
                 <div *ngFor="let l of brand">
@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </div>
-            <div class="list-bar">
+            <div class="list-bar" style="overflow-y: scroll;">
                 <a *ngFor="let l of list" (click)="toHere(l)">{{l}}</a>
             </div>
         </CardBody>

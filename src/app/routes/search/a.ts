@@ -12,11 +12,13 @@ styleUrls: ['./search.component.less']
 export class SearchAComponent implements OnInit {
     brand = [];
     list = [];
+    cardheight = { height: (document.documentElement.clientHeight - 60) + 'px'};
     dtPullToRefreshStyle = {
         display: 'flex',
         padding: '0px',
         position: 'relative',
-        height: (document.documentElement.scrollHeight - 60) + 'px'
+        height: (document.documentElement.scrollHeight - 60) + 'px',
+        overflow: 'scroll'
     };
     constructor(
         private api: ApiService,
