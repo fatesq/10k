@@ -2,11 +2,13 @@ import { Component, OnInit,  ElementRef, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
+import { Toast } from 'ng-zorro-antd-mobile';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.less']
+  styleUrls: ['./register.component.less'],
+  providers: [Toast]
 })
 export class RegisterComponent implements OnInit {
   phone = '';
@@ -23,7 +25,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private api: ApiService,
     private router: Router,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private _toast: Toast
   ) {}
 
   ngOnInit() {
@@ -59,10 +62,11 @@ export class RegisterComponent implements OnInit {
           }
           
         }
-    })
+    });
   }
 
   buildItemForm(fileItem, form: any): any {
+    const toast = Toast.loading('正在上传...', 0);
     if (!!fileItem['realFileName']) {
       form.append('fileName', fileItem['realFileName']);
     }
@@ -75,8 +79,9 @@ export class RegisterComponent implements OnInit {
     if (status == 200) {
       this.idCardImg = JSON.parse(response).data.url;
       document.getElementById('img').setAttribute('style', `background-image: url(${this.idCardImg});`);
+      Toast.hide();
     } else {
-      alert('上传失败');
+      Toast.fail('上传失败');
     }
   }
 
@@ -101,6 +106,10 @@ export class RegisterComponent implements OnInit {
 
   login() {
     let info = {};
+    if (this.idCardImg === '' && this.idCardImg === null && this.idCardImg === undefined) {
+      alert('请先上传图片');
+      return false;
+    }
     if (this.idCard.length > 0 && this.idCard.length != 18) {
       alert('请输入18位身份证号');
       return false;
@@ -131,6 +140,8 @@ export class RegisterComponent implements OnInit {
         localStorage['userStatus'] = 1;
       localStorage['eeStatus'] = 1;
         this.router.navigateByUrl(this.url);
+      } else if (res['code'] == 407) {
+        alert(res['description'] || res['msg']);
       } else {
         alert(res['description'] || res['msg']);
       }

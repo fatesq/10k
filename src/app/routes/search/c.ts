@@ -33,12 +33,12 @@ export class SearchCComponent implements OnInit {
         height: 600,
         directionName: 'both up and down'
     };
-    cardheight = { height: (document.documentElement.clientHeight - 60) + 'px'};
+    cardheight = { height: (window.screen.availHeight - 60) + 'px'};
     dtPullToRefreshStyle = {
         display: 'flex',
         padding: '0px',
         position: 'relative',
-        height: (document.documentElement.scrollHeight - 60) + 'px',
+        height: (window.screen.availHeight - 60) + 'px',
         overflow: 'scroll'
     };
     loading = false;
@@ -52,12 +52,13 @@ export class SearchCComponent implements OnInit {
         }
 
     ngOnInit() {
+        // alert('1: ' +  window.screen.availHeight);
+        // alert('2: ' +  document.documentElement.clientHeight)
         // document.addEventListener('touchmove', function(e) {
         //     e.preventDefault();
         // });
         const that = this;
         window.addEventListener('scroll', this.menu);
-
         this.activeRoute.queryParams.subscribe(params => {
             this.data = [];
             if (params['name']) {
@@ -69,6 +70,7 @@ export class SearchCComponent implements OnInit {
                 this.getListB();
             }
         });
+        document.getElementsByTagName('body')[0].style.height = window.screen.availHeight + 'px';
     }
 
     openBottomSheet(item): void {

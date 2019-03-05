@@ -60,7 +60,7 @@ load(): Promise<any> {
         }
       }
     } else if (sessionStorage['reload'] != 1) {
-      // localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVlU3RhdHVzIjowLCJ1c2VyU3RhdHVzIjowLCJ1aWQiOjU2LCJvcGVuSWQiOiJvcFlhWTAwNUdXM2k4TG5ZRXNydUZTMFZIdExjIn0sImlhdCI6MTU1MTI0ODM4NywiZXhwIjoxNTUxMzM0Nzg3fQ.GBlOM5hTXv5kDntXTJWWQWDHq_WPv13IyQtyjL2MpA0'
+      // localStorage['token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVlU3RhdHVzIjowLCJ1c2VyU3RhdHVzIjowLCJ1aWQiOjcxLCJvcGVuSWQiOiJvcFlhWTA2VS12LUNlejBWdWVMWTVfUVRHc0pjIn0sImlhdCI6MTU1MTY2ODkwMiwiZXhwIjoxNTUxNzU1MzAyfQ.nkdSlx6YZRw9h9fLpNoKLBsMLHM7w60Jzh2QDYQ526k'
       // localStorage['openId'] = 'opYaY005GW3i8LnYEsruFS0VHtLc'; // res['data'].openId
       // localStorage['uid'] = 56; // res['data'].uid
       // localStorage['userStatus'] = 1;
